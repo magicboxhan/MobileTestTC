@@ -17,8 +17,7 @@ public class CommonPage extends BasicPage {
     //==================== Elements ====================
 
     /**
-     * 底部导航 -- 首页 * 
-     * @return
+     * 底部导航 -- 首页 *
      */
     public WebElement imageViewHome(){
         return d.findElementById("com.tongcheng.android:id/iv_home_main");
@@ -26,7 +25,6 @@ public class CommonPage extends BasicPage {
 
     /**
      * 底部导航 -- 发现 *
-     * @return
      */
     public WebElement imageViewWallet(){
         return d.findElementById("com.tongcheng.android:id/iv_home_wallet");
@@ -34,7 +32,6 @@ public class CommonPage extends BasicPage {
 
     /**
      * 底部导航 -- 抢购 *
-     * @return
      */
     public WebElement imageViewOrder(){
         return d.findElementById("com.tongcheng.android:id/iv_home_order");
@@ -42,15 +39,13 @@ public class CommonPage extends BasicPage {
 
     /**
      * 底部导航 -- 我的 *
-     * @return
      */
     public WebElement imageViewMy(){
         return d.findElementById("com.tongcheng.android:id/iv_home_my");
     }
 
     /**
-     * 底部导航 -- 我的 *
-     * @return
+     * 按钮 -- 跳过 *
      */
     public WebElement viewSkip(){
         return d.findElementByName("跳过");

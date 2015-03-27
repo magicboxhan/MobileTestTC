@@ -101,6 +101,7 @@ public class BasicTestCase {
     @AfterSuite
     public void teardown_suite() {
         try {
+            //do nothing
         } catch (Exception e) {
             e.printStackTrace();
             Assert.assertEquals(true, false);
