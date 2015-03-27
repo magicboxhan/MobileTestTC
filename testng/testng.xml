@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="SuiteTC" parallel="false">
+    <parameter name="appDir" value="D:/mobile/Appium/apks"/>
+    <parameter name="automationName" value="Appium"/>
+    <parameter name="deviceName" value="Android Emulator"/>
+    <parameter name="platformName" value="Android"/>
+    <parameter name="platformVersion" value="4.4"/>
+    <parameter name="appiumURL" value="http://127.0.0.1:4723/wd/hub"/>
+    <parameter name="appName" value="tongcheng_26902971.apk"/>
+    <parameter name="appPackage" value="com.tongcheng.android"/>
+    <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
+    <parameter name="implicitlyWaitTime" value="10"/>
+
+    <test name="testcase1" preserve-order="true">
+        <parameter name="searchKeyword" value="苏州乐园"/>
+        <parameter name="uid" value="13584829701"/>
+        <parameter name="pwd" value="a123456"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.SmokeTest">
+                <methods>
+                    <include name="test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
