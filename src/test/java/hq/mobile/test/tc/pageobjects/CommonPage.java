@@ -6,56 +6,57 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by hanqing on 2015/3/27.
- * TC公共页面类 *
+ * TC公共页面类
  */
 public class CommonPage extends BasicPage {
 
-    public CommonPage(AppiumDriver d){
+    /**
+     * 构造方法
+     *
+     * @param d 驱动
+     */
+    public CommonPage(AppiumDriver d) {
         super(d);
     }
-    
+
     //==================== Elements ====================
 
     /**
-     * 底部导航 -- 首页 *
+     * 底部导航 -- 首页
      */
-    public WebElement imageViewHome(){
+    public WebElement imageViewHome() {
         return d.findElementById("com.tongcheng.android:id/iv_home_main");
     }
 
     /**
-     * 底部导航 -- 发现 *
+     * 底部导航 -- 发现
      */
-    public WebElement imageViewWallet(){
+    public WebElement imageViewWallet() {
         return d.findElementById("com.tongcheng.android:id/iv_home_wallet");
     }
 
     /**
-     * 底部导航 -- 抢购 *
+     * 底部导航 -- 抢购
      */
-    public WebElement imageViewOrder(){
+    public WebElement imageViewOrder() {
         return d.findElementById("com.tongcheng.android:id/iv_home_order");
     }
 
     /**
-     * 底部导航 -- 我的 *
+     * 底部导航 -- 我的
      */
-    public WebElement imageViewMy(){
+    public WebElement imageViewMy() {
         return d.findElementById("com.tongcheng.android:id/iv_home_my");
     }
 
     /**
-     * 按钮 -- 跳过 *
+     * 按钮 -- 跳过
      */
-    public WebElement viewSkip(){
+    public WebElement viewSkip() {
         return d.findElementByName("跳过");
     }
 
 
-
-
-
-
     //==================== Functions ====================
-    
+
 }

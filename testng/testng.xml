@@ -11,14 +11,14 @@
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
     <parameter name="implicitlyWaitTime" value="10"/>
 
-    <test name="testcase1" preserve-order="true">
+    <test name="查看景点详细信息" preserve-order="true">
         <parameter name="searchKeyword" value="苏州乐园"/>
         <parameter name="uid" value="13584829701"/>
         <parameter name="pwd" value="a123456"/>
         <classes>
             <class name="hq.mobile.test.tc.testcases.SmokeTest">
                 <methods>
-                    <include name="test"/>
+                    <include name="viewSceneryDetail"/>
                 </methods>
             </class>
         </classes>

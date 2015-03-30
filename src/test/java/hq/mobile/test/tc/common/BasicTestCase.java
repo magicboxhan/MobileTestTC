@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created by hanqing on 2015/3/27.
- * 框架基类，用于定义测试用例 *
+ * 框架基类，用于定义测试用例
  */
 public class BasicTestCase {
 
@@ -24,9 +24,9 @@ public class BasicTestCase {
     ) {
         try {
             // 初始化suite
-            t.log("Initialize test suite");
+            t.log("=== 测试开始 ===");
         } catch (Exception e) {
-            t.log("Error when initializing test suite");
+            t.log("=== 测试开始出错 ===");
             e.printStackTrace();
             Assert.assertEquals(true, false);
         }
@@ -101,8 +101,9 @@ public class BasicTestCase {
     @AfterSuite
     public void teardown_suite() {
         try {
-            //do nothing
+            t.log("=== 测试结束 ===");
         } catch (Exception e) {
+            t.log("=== 测试结束出错 ===");
             e.printStackTrace();
             Assert.assertEquals(true, false);
         }
