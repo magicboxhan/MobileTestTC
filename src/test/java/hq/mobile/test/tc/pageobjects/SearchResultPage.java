@@ -3,8 +3,6 @@ package hq.mobile.test.tc.pageobjects;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 /**
  * Created by hanqing on 2015/3/27.
  */
@@ -37,7 +35,7 @@ public class SearchResultPage extends CommonPage {
     }
 
     /**
-     * TextView -- 结果名称（根据索引） *
+     * TextView -- 结果名称（根据索引）（点击搜索框后出现） *
      * @param index 索引
      */
     public WebElement textViewName(int index){
@@ -49,7 +47,7 @@ public class SearchResultPage extends CommonPage {
     }
 
     /**
-     * TextView -- 结果所在城市（根据索引） *
+     * TextView -- 结果所在城市（根据索引）（点击搜索框后出现） *
      * @param index 索引
      */
     public WebElement textViewCity(int index){
