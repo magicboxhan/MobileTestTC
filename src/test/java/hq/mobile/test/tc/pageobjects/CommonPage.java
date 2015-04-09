@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by hanqing on 2015/3/27.
- * TC公共页面类
+ * TC 公共页面类
  */
 public class CommonPage extends BasicPage {
 

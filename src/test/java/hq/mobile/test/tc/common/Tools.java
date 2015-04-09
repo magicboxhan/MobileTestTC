@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  * Created by hanqing on 2015/3/27.
- * 工具类 *
+ * 工具类
  */
 public class Tools {
 
