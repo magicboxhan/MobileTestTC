@@ -20,6 +20,8 @@ public class SmokeTest extends BasicTestCase {
     SearchPage pSearch;
     SearchResultPage pSearchResult;
     SceneryDetailPage pSceneryDetail;
+    MyPage pMy;
+    LoginPage pLogin;
 
     @Parameters({
             "searchKeyword"
@@ -27,11 +29,6 @@ public class SmokeTest extends BasicTestCase {
     @Test
     public void viewSceneryDetail(String searchKeyword) {
         try{
-//            Thread.sleep(30000);
-//            t.log("=== 起始页 ===");
-//            pStart = new StartPage(d);
-//            pStart.imageViewSkip().click();
-//            pStart.viewSkip().click();
             t.log("=== 首页 ===");
             t.log("点击搜索框");
             pHome = new Homepage(d);
@@ -99,9 +96,45 @@ public class SmokeTest extends BasicTestCase {
             t.log("=== 测试出错 ===");
             e.printStackTrace();
             t.log(e.getMessage());
-            t.takeScreenshot(d, "error", "jpg");
+            t.takeScreenshot(d, "error_viewSceneryDetail", "jpg");
             Assert.assertEquals(true, false);
         }
+    }
+
+    @Parameters({
+            "uid",
+            "pwd"
+    })
+    @Test
+    public void login(String uid, String pwd){
+        try{
+            boolean result = true;
+            t.log("=== 首页 ===");
+            t.log("点击“我的”");
+            pHome = new Homepage(d);
+            pHome.imageViewMy().click();
+            t.log("=== 我的 ===");
+            t.log("点击登录");
+            pMy = new MyPage(d);
+            pMy.textViewLogin().click();
+            t.log("=== 登录页 ===");
+            t.log(String.format("输入用户名：[%s]，密码：[%s]", uid, pwd));
+            pLogin = new LoginPage(d);
+            t.log("点击登录");
+            pLogin.funcLogin(uid, pwd);
+            t.log("=== 我的 ===");
+            t.log("验证登录");
+            result &= pMy.funcVerifyLoginResult();
+            Assert.assertEquals(true, result);
+        }catch(Exception e){
+            t.log("=== 测试出错 ===");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "error_login", "jpg");
+            Assert.assertEquals(true, false);
+        }
+
+
     }
 
 //    /**
