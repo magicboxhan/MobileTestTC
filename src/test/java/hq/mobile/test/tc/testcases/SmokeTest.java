@@ -28,9 +28,9 @@ public class SmokeTest extends BasicTestCase {
     public void viewSceneryDetail(String searchKeyword) {
         try{
 //            Thread.sleep(30000);
-            t.log("=== 起始页 ===");
-            pStart = new StartPage(d);
-            pStart.imageViewSkip().click();
+//            t.log("=== 起始页 ===");
+//            pStart = new StartPage(d);
+//            pStart.imageViewSkip().click();
 //            pStart.viewSkip().click();
             t.log("=== 首页 ===");
             t.log("点击搜索框");
