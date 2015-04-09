@@ -1,4 +1,4 @@
-package hq.mobile.test.tc.testcases;
+﻿package hq.mobile.test.tc.testcases;
 
 import hq.mobile.test.tc.common.BasicTestCase;
 import hq.mobile.test.tc.pageobjects.*;

@@ -1,4 +1,4 @@
-package hq.mobile.test.tc.common;
+﻿package hq.mobile.test.tc.common;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
