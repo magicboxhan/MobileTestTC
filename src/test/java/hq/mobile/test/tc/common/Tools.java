@@ -22,8 +22,8 @@ public class Tools {
     /**
      * 截图
      * @param d         AppiumDriver
-     * @param fileName  保存图片文件名
-     * @param extName   保存图片扩展名
+     * @param fileName  保存图片的文件名
+     * @param extName   保存图片的扩展名
      */
     public void takeScreenshot(AppiumDriver d, String fileName, String extName){
         try{
