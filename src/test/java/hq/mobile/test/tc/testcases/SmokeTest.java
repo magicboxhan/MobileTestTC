@@ -1,10 +1,7 @@
 package hq.mobile.test.tc.testcases;
 
 import hq.mobile.test.tc.common.BasicTestCase;
-import hq.mobile.test.tc.pageobjects.Homepage;
-import hq.mobile.test.tc.pageobjects.SceneryDetailPage;
-import hq.mobile.test.tc.pageobjects.SearchPage;
-import hq.mobile.test.tc.pageobjects.SearchResultPage;
+import hq.mobile.test.tc.pageobjects.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -17,7 +14,8 @@ import java.util.List;
  * Created by hanqing on 2015/3/27.
  */
 public class SmokeTest extends BasicTestCase {
-    
+
+    StartPage pStart;
     Homepage pHome;
     SearchPage pSearch;
     SearchResultPage pSearchResult;
@@ -29,9 +27,14 @@ public class SmokeTest extends BasicTestCase {
     @Test
     public void viewSceneryDetail(String searchKeyword) {
         try{
+//            Thread.sleep(30000);
+            t.log("=== 起始页 ===");
+            pStart = new StartPage(d);
+            pStart.imageViewSkip().click();
+//            pStart.viewSkip().click();
             t.log("=== 首页 ===");
-            pHome = new Homepage(d);
             t.log("点击搜索框");
+            pHome = new Homepage(d);
             pHome.textViewSearch().click();
             t.log("=== 搜索页 ===");
             t.log(String.format("输入搜索关键字：%s", searchKeyword));
