@@ -22,6 +22,8 @@ public class SmokeTest extends BasicTestCase {
     SceneryDetailPage pSceneryDetail;
     MyPage pMy;
     LoginPage pLogin;
+    MovieCityListPage pMovieCityList;
+    MovieListPage pMovieList;
 
     @Parameters({
             "searchKeyword"
@@ -124,6 +126,47 @@ public class SmokeTest extends BasicTestCase {
             pLogin.funcLogin(uid, pwd);
             t.log("=== 我的 ===");
             t.log("验证登录");
+            result &= pMy.funcVerifyLoginResult();
+            Assert.assertEquals(true, result);
+        } catch (Exception e) {
+            t.log("=== 测试出错 ===");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "error_login", "jpg");
+            Assert.assertEquals(true, false);
+        }
+    }
+
+    @Parameters({
+            "uid",
+            "pwd"
+    })
+    @Test
+    public void movie(String uid, String pwd) {
+        try {
+            boolean result = true;
+            t.log("=== 首页 ===");
+            t.log("点击“电影票”");
+            pHome = new Homepage(d);
+            pHome.imageViewMovie().click();
+            t.log("=== 电影票页 - 城市选择 ===");
+            t.log("切换到Webview");
+            Thread.sleep(5000);
+            for (String context : d.getContextHandles()) {
+                t.log(String.format("Context: [%s]", context));
+            }
+//            for (String context : d.getContextHandles()) {
+//                if (context.contains("WEBVIEW")){
+//                    d.context(context);
+//                }
+//            }
+            t.log("点击第一个城市");
+            pMovieCityList = new MovieCityListPage(d);
+            pMovieCityList.ddCityOfAll(0).click();
+            t.log("=== 电影票页 - 影片选择 ===");
+            t.log("点击第一个影片");
+            pMovieList = new MovieListPage(d);
+            pMovieList.liMovie(0).click();
             result &= pMy.funcVerifyLoginResult();
             Assert.assertEquals(true, result);
         } catch (Exception e) {

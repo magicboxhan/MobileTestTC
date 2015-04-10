@@ -80,6 +80,13 @@ public class Homepage extends CommonPage {
         }
     }
 
+    /**
+     * 电影票
+     */
+    public WebElement imageViewMovie() {
+        return imageViewContainer(2);
+    }
+
 
     //==================== Functions ====================
 
