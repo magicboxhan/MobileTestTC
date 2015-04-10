@@ -28,7 +28,7 @@ public class SmokeTest extends BasicTestCase {
     })
     @Test
     public void viewSceneryDetail(String searchKeyword) {
-        try{
+        try {
             t.log("=== 首页 ===");
             t.log("点击搜索框");
             pHome = new Homepage(d);
@@ -41,15 +41,15 @@ public class SmokeTest extends BasicTestCase {
             List<WebElement> eKeywords = pSearch.textViewNames();
             int resultCount = eKeywords.size();
             t.log(String.format("共搜索到%s个关键字：", resultCount));
-            for(int i=0;i<resultCount;i++){
-                if (pSearch.textViewName(i) == null){
+            for (int i = 0; i < resultCount; i++) {
+                if (pSearch.textViewName(i) == null) {
                     continue;
                 }
                 String name = pSearch.textViewName(i).getText();
                 String count;
-                if (pSearch.textViewCount(i) != null){
+                if (pSearch.textViewCount(i) != null) {
                     count = pSearch.textViewCount(i).getText();
-                } else{
+                } else {
                     count = "";
                 }
                 t.log(String.format("关键字名称：[%s]，关键字结果数：[%s]", name, count));
@@ -62,21 +62,21 @@ public class SmokeTest extends BasicTestCase {
             List<WebElement> sceneryNames = pSearchResult.textViewSceneryNames();
             int sceneryCount = sceneryNames.size();
             t.log(String.format("共搜索到%d个景点（页面展示）", sceneryCount));
-            for(int i=0;i<sceneryCount;i++){
-                if (pSearchResult.textViewSceneryName(i) == null){
+            for (int i = 0; i < sceneryCount; i++) {
+                if (pSearchResult.textViewSceneryName(i) == null) {
                     continue;
                 }
                 String name = pSearchResult.textViewSceneryName(i).getText();
                 String rate;
-                if (pSearchResult.textViewSceneryRate(i) != null){
+                if (pSearchResult.textViewSceneryRate(i) != null) {
                     rate = pSearchResult.textViewSceneryRate(i).getText();
-                } else{
+                } else {
                     rate = "";
                 }
                 String price;
-                if (pSearchResult.textViewSceneryPrice(i) != null){
+                if (pSearchResult.textViewSceneryPrice(i) != null) {
                     price = pSearchResult.textViewSceneryPrice(i).getText();
-                } else{
+                } else {
                     price = "";
                 }
                 t.log(String.format("景点名称：[%s]，景点评分：[%s]，景点价格：[%s]", name, rate, price));
@@ -92,7 +92,7 @@ public class SmokeTest extends BasicTestCase {
             t.log(String.format("景点门票类型：[%s]", pSceneryDetail.textViewGroupName().getText()));
             t.log(String.format("景点门票价格：[%s]", pSceneryDetail.textViewGroupPrice().getText()));
             t.takeScreenshot(d, String.format("[%s]景点详情截图", pSceneryDetail.textViewSceneryName().getText()), "jpg");
-        }catch (Exception e){
+        } catch (Exception e) {
             t.log("=== 测试出错 ===");
             e.printStackTrace();
             t.log(e.getMessage());
@@ -106,8 +106,8 @@ public class SmokeTest extends BasicTestCase {
             "pwd"
     })
     @Test
-    public void login(String uid, String pwd){
-        try{
+    public void login(String uid, String pwd) {
+        try {
             boolean result = true;
             t.log("=== 首页 ===");
             t.log("点击“我的”");
@@ -126,15 +126,18 @@ public class SmokeTest extends BasicTestCase {
             t.log("验证登录");
             result &= pMy.funcVerifyLoginResult();
             Assert.assertEquals(true, result);
-        }catch(Exception e){
+        } catch (Exception e) {
             t.log("=== 测试出错 ===");
             e.printStackTrace();
             t.log(e.getMessage());
             t.takeScreenshot(d, "error_login", "jpg");
             Assert.assertEquals(true, false);
         }
+    }
 
-
+    @Test
+    public void failedDemo() {
+        Assert.assertEquals(true, false);
     }
 
 //    /**
