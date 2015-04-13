@@ -149,25 +149,17 @@ public class SmokeTest extends BasicTestCase {
             t.log("点击“电影票”");
             pHome = new Homepage(d);
             pHome.imageViewMovie().click();
-            t.log("=== 电影票页 - 城市选择 ===");
+            t.log("=== 电影票页 - 影片列表 ===");
+            Thread.sleep(15000);
             t.log("切换到Webview");
             Thread.sleep(5000);
             for (String context : d.getContextHandles()) {
                 t.log(String.format("Context: [%s]", context));
-            }
-//            for (String context : d.getContextHandles()) {
 //                if (context.contains("WEBVIEW")){
 //                    d.context(context);
 //                }
-//            }
-            t.log("点击第一个城市");
-            pMovieCityList = new MovieCityListPage(d);
-            pMovieCityList.ddCityOfAll(0).click();
-            t.log("=== 电影票页 - 影片选择 ===");
-            t.log("点击第一个影片");
-            pMovieList = new MovieListPage(d);
-            pMovieList.liMovie(0).click();
-            result &= pMy.funcVerifyLoginResult();
+            }
+            Thread.sleep(10000);
             Assert.assertEquals(true, result);
         } catch (Exception e) {
             t.log("=== 测试出错 ===");

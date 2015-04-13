@@ -2,6 +2,7 @@
 <suite name="SuiteTC" parallel="false">
     <parameter name="appDir" value="D:/mobile/Appium/apks"/>
     <parameter name="automationName" value="Appium"/>
+    <!--<parameter name="automationName" value="Selendroid"/>-->
     <parameter name="deviceName" value="Android Emulator"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="platformVersion" value="4.4"/>
@@ -42,7 +43,7 @@
         <classes>
             <class name="hq.mobile.test.tc.testcases.SmokeTest">
                 <methods>
-                    <include name="login"/>
+                    <include name="movie"/>
                 </methods>
             </class>
         </classes>

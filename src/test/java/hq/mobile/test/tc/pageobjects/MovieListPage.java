@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Created by hq11258 on 2015/4/10.
+ * 电影票 - 电影选择页面
  */
 public class MovieListPage extends CommonPage {
 
