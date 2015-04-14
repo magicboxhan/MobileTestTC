@@ -14,9 +14,10 @@ public class MovieCityListPage extends CommonPage {
 
     /**
      * 构造方法
+     *
      * @param d 驱动
      */
-    public MovieCityListPage(AppiumDriver d){
+    public MovieCityListPage(AppiumDriver d) {
         super(d);
     }
 
@@ -38,8 +39,8 @@ public class MovieCityListPage extends CommonPage {
 
     /**
      * dd - 根据索引获取城市元素
+     *
      * @param index 索引
-     * @return
      */
     public WebElement ddCityOfAll(int index) {
         return ddAllCity().get(index);

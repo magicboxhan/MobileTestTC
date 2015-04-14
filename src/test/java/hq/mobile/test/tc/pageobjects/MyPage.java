@@ -38,7 +38,7 @@ public class MyPage extends BasicPage {
     //==================== Functions ====================
 
     /**
-     * @return
+     * 验证登陆结果
      */
     public boolean funcVerifyLoginResult() {
         try {

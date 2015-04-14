@@ -32,8 +32,6 @@ public class MovieListPage extends CommonPage {
 
     /**
      * li集合 - 影片
-     *
-     * @return
      */
     public List<WebElement> liMovie() {
         return ulMovieList().findElements(By.tagName("li"));
