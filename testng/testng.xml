@@ -25,29 +25,30 @@
         <!--</classes>-->
     <!--</test>-->
 
-    <!--<test name="登录" preserve-order="true">-->
-        <!--<parameter name="uid" value="13584829701"/>-->
-        <!--<parameter name="pwd" value="a123456"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
-                <!--<methods>-->
-                    <!--<include name="login"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <test name="电影票" preserve-order="true">
+    <test name="登录" preserve-order="true">
         <parameter name="uid" value="13584829701"/>
         <parameter name="pwd" value="a123456"/>
         <classes>
             <class name="hq.mobile.test.tc.testcases.SmokeTest">
                 <methods>
-                    <include name="movie"/>
+                    <include name="login"/>
                 </methods>
             </class>
         </classes>
     </test>
+
+    <!--<test name="电影票" preserve-order="true">-->
+        <!--<parameter name="uid" value="13584829701"/>-->
+        <!--<parameter name="pwd" value="a123456"/>-->
+        <!--<parameter name="webviewName" value="WEBVIEW_com.tongcheng.android"/>-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
+                <!--<methods>-->
+                    <!--<include name="movie"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
     <!--<test name="测试跳过" preserve-order="true">-->
         <!--<classes>-->

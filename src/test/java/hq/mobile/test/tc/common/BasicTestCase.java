@@ -16,8 +16,11 @@ import java.util.concurrent.TimeUnit;
 public class BasicTestCase {
 
     protected Tools t = new Tools();
-//    protected AndroidDriver d;
     protected AppiumDriver d;
+    protected final static int WAIT_TIME_VERY_LONG = 30;
+    protected final static int WAIT_TIME_LONG = 15;
+    protected final static int WAIT_TIME_MIDDLE = 10;
+    protected final static int WAIT_TIME_SHORT = 5;
 
     @BeforeSuite
     public void setup_suite(

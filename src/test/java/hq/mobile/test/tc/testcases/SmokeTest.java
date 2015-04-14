@@ -2,6 +2,7 @@ package hq.mobile.test.tc.testcases;
 
 import hq.mobile.test.tc.common.BasicTestCase;
 import hq.mobile.test.tc.pageobjects.*;
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -139,17 +140,36 @@ public class SmokeTest extends BasicTestCase {
 
     @Parameters({
             "uid",
-            "pwd"
+            "pwd",
+            "webviewName"
     })
     @Test
-    public void movie(String uid, String pwd) {
+    public void movie(
+            String uid,
+            String pwd,
+            String webviewName) {
         try {
             boolean result = true;
             t.log("=== 首页 ===");
             t.log("点击“电影票”");
             pHome = new Homepage(d);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             pHome.imageViewMovie().click();
-            t.log("=== 电影票页 - 影片列表 ===");
+            t.log("=== 电影票页 - 城市选择 ===");
+            for (String context : d.getContextHandles()) {
+                t.log(String.format("Context: [%s]", context));
+            }
+            t.log("切换到Webview");
+            d.context(webviewName);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
+            t.log("点击第一个城市");
+            pMovieCityList = new MovieCityListPage(d);
+            pMovieCityList.ddCityOfAll(0).click();
+            t.log("=== 电影票页 - 影片选择 ===");
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
+            t.log("点击第一个影片");
+            pMovieList = new MovieListPage(d);
+            pMovieList.liMovie(0).click();
             Thread.sleep(15000);
             t.log("切换到Webview");
             Thread.sleep(5000);
