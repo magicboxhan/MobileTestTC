@@ -14,9 +14,10 @@ public class MovieListPage extends CommonPage {
 
     /**
      * 构造方法
+     *
      * @param d 驱动
      */
-    public MovieListPage(AppiumDriver d){
+    public MovieListPage(AppiumDriver d) {
         super(d);
     }
 
@@ -31,17 +32,19 @@ public class MovieListPage extends CommonPage {
 
     /**
      * li集合 - 影片
+     *
      * @return
      */
-    public List<WebElement> liMovie(){
+    public List<WebElement> liMovie() {
         return ulMovieList().findElements(By.tagName("li"));
     }
 
     /**
      * li - 影片
+     *
      * @param index 索引
      */
-    public WebElement liMovie(int index){
+    public WebElement liMovie(int index) {
         return liMovie().get(index);
     }
 

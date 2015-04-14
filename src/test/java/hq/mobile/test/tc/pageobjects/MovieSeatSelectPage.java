@@ -14,9 +14,10 @@ public class MovieSeatSelectPage extends CommonPage {
 
     /**
      * 构造方法
+     *
      * @param d 驱动
      */
-    public MovieSeatSelectPage(AppiumDriver d){
+    public MovieSeatSelectPage(AppiumDriver d) {
         super(d);
     }
 
@@ -46,14 +47,14 @@ public class MovieSeatSelectPage extends CommonPage {
     /**
      * div集合 - 可用座位
      */
-    public List<WebElement> divSeatsAvailable(){
+    public List<WebElement> divSeatsAvailable() {
         return divSeatTable().findElements(By.className("available"));
     }
 
     /**
      * div集合 - 被锁定座位
      */
-    public List<WebElement> divSeatsLocked(){
+    public List<WebElement> divSeatsLocked() {
         return divSeatTable().findElements(By.className("locked"));
     }
 

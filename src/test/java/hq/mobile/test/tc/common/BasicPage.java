@@ -13,10 +13,11 @@ public class BasicPage {
 
     /**
      * 构造方法
+     *
      * @param driver 驱动
      */
-    public BasicPage(AppiumDriver driver){
+    public BasicPage(AppiumDriver driver) {
         d = driver;
     }
-    
+
 }

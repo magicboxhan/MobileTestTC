@@ -11,9 +11,10 @@ public class MyPage extends BasicPage {
 
     /**
      * 构造方法
+     *
      * @param d 驱动
      */
-    public MyPage(AppiumDriver d){
+    public MyPage(AppiumDriver d) {
         super(d);
     }
 
@@ -37,15 +38,14 @@ public class MyPage extends BasicPage {
     //==================== Functions ====================
 
     /**
-     *
      * @return
      */
-    public boolean funcVerifyLoginResult(){
-        try{
+    public boolean funcVerifyLoginResult() {
+        try {
             String loginName = textViewLoginName().getText();
             t.log(String.format("Pass -- 登录成功, 用户编号：[%s]", loginName));
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             t.log("<<<<< Fail -- 登录失败");
             t.takeScreenshot(d, "loginFailed", "jpg");
             return false;

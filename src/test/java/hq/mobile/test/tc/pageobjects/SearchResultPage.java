@@ -91,7 +91,6 @@ public class SearchResultPage extends CommonPage {
 
     /**
      * TextView -- 景点名称集合
-     *
      */
     public List<WebElement> textViewSceneryNames() {
         return d.findElementsById("com.tongcheng.android:id/sceneryNameTextView");
@@ -112,12 +111,11 @@ public class SearchResultPage extends CommonPage {
 
     /**
      * TextView -- 景点评分集合
-     *
      */
     public List<WebElement> textViewSceneryRates() {
         return d.findElementsById("com.tongcheng.android:id/ratingTextView");
     }
-    
+
     /**
      * TextView -- 景点评分（根据索引）
      *
@@ -133,7 +131,6 @@ public class SearchResultPage extends CommonPage {
 
     /**
      * TextView -- 景点价格集合
-     *
      */
     public List<WebElement> textViewSceneryPrice() {
         return d.findElementsById("com.tongcheng.android:id/priceTextView");
@@ -141,8 +138,8 @@ public class SearchResultPage extends CommonPage {
 
     /**
      * TextView -- 景点价格（根据索引）
-     * @param index 索引
      *
+     * @param index 索引
      */
     public WebElement textViewSceneryPrice(int index) {
         try {

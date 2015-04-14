@@ -38,12 +38,11 @@ public class SearchPage extends CommonPage {
 
     /**
      * TextView -- 关键字名称集合
-     *
      */
     public List<WebElement> textViewNames() {
         return d.findElementsById("com.tongcheng.android:id/name");
     }
-    
+
     /**
      * TextView -- 关键字名称（根据索引）
      *
@@ -59,7 +58,6 @@ public class SearchPage extends CommonPage {
 
     /**
      * TextView -- 关键字结果数量集合
-     *
      */
     public List<WebElement> textViewCounts() {
         return d.findElementsById("com.tongcheng.android:id/count");

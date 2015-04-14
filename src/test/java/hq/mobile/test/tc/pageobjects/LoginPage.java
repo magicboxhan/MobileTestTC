@@ -7,13 +7,14 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by hq11258 on 2015/4/9.
  */
-public class LoginPage extends BasicPage{
+public class LoginPage extends BasicPage {
 
     /**
      * 构造方法
+     *
      * @param d 驱动
      */
-    public LoginPage(AppiumDriver d){
+    public LoginPage(AppiumDriver d) {
         super(d);
     }
 
@@ -44,10 +45,11 @@ public class LoginPage extends BasicPage{
 
     /**
      * 功能 -- 登录
+     *
      * @param uid 用户名
      * @param pwd 密码
      */
-    public void funcLogin(String uid, String pwd){
+    public void funcLogin(String uid, String pwd) {
         editTextAccount().clear();
         editTextAccount().sendKeys(uid);
         editTextPassword().clear();
