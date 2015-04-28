@@ -112,6 +112,14 @@ public class SmokeTest extends BasicTestCase {
     public void login(String uid, String pwd) {
         try {
             boolean result = true;
+            Thread.sleep(5000);
+            t.log("=== 开始页 ===");
+            //开始界面，划动1次
+            for(int i=0;i<3;i++){
+                d.swipe(800, 100, 100, 100, 1000);
+                Thread.sleep(1000);
+            }
+            d.findElementById("com.tongcheng.android:id/iv_text").click();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
             pHome = new Homepage(d);

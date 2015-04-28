@@ -7,7 +7,7 @@
     <parameter name="platformName" value="Android"/>
     <parameter name="platformVersion" value="4.4"/>
     <parameter name="appiumURL" value="http://127.0.0.1:4723/wd/hub"/>
-    <parameter name="appName" value="tongcheng_26902971.apk"/>
+    <parameter name="appName" value="tongcheng_client.apk"/>
     <parameter name="appPackage" value="com.tongcheng.android"/>
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
     <parameter name="implicitlyWaitTime" value="10"/>
@@ -27,7 +27,7 @@
 
     <test name="登录" preserve-order="true">
         <parameter name="uid" value="13584829701"/>
-        <parameter name="pwd" value="a123456"/>
+        <parameter name="pwd" value="123456hq"/>
         <classes>
             <class name="hq.mobile.test.tc.testcases.SmokeTest">
                 <methods>
