@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class SmokeTest extends BasicTestCase {
 
-    StartPage pStart;
+    LoadingPage pLoading;
     Homepage pHome;
     SearchPage pSearch;
     SearchResultPage pSearchResult;
@@ -114,12 +114,9 @@ public class SmokeTest extends BasicTestCase {
             boolean result = true;
             Thread.sleep(5000);
             t.log("=== 开始页 ===");
-            //开始界面，划动1次
-            for(int i=0;i<3;i++){
-                d.swipe(800, 100, 100, 100, 1000);
-                Thread.sleep(1000);
-            }
-            d.findElementById("com.tongcheng.android:id/iv_text").click();
+            t.log("滑动并进入首页");
+            pLoading = new LoadingPage(d);
+            pLoading.funcEnterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
             pHome = new Homepage(d);
@@ -131,7 +128,7 @@ public class SmokeTest extends BasicTestCase {
             t.log("=== 登录页 ===");
             t.log(String.format("输入用户名：[%s]，密码：[%s]", uid, pwd));
             pLogin = new LoginPage(d);
-            t.log("点击登录");
+            t.log("点击登录按钮");
             pLogin.funcLogin(uid, pwd);
             t.log("=== 我的 ===");
             t.log("验证登录");
