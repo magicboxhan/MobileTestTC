@@ -1,5 +1,0 @@
-# MobileTestTC
-
-test
-
-test
