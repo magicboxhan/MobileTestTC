@@ -1,6 +1,7 @@
 package hq.mobile.test.tc.common;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
@@ -83,7 +84,18 @@ public class BasicTestCase {
             capabilities.setCapability("appActivity", appActivity);
             capabilities.setCapability("unicodeKeyboard", "True");    //可以输入中文
             capabilities.setCapability("resetKeyboard", "True");        //隐藏键盘
-            d = new AndroidDriver(new URL(appiumURL), capabilities);
+//            d = new AndroidDriver(new URL(appiumURL), capabilities);
+            d = new AppiumDriver(new URL(appiumURL), capabilities) {
+                @Override
+                public MobileElement scrollTo(String s) {
+                    return null;
+                }
+
+                @Override
+                public MobileElement scrollToExact(String s) {
+                    return null;
+                }
+            };
             d.manage().timeouts().implicitlyWait(implicitlyWaitTime, TimeUnit.SECONDS);
         } catch (Exception e) {
             e.printStackTrace();

@@ -39,8 +39,8 @@ public class SearchPage extends CommonPage {
     /**
      * TextView -- 关键字名称集合
      */
-    public List<WebElement> textViewNames() {
-        return d.findElementsById("com.tongcheng.android:id/name");
+    public List<WebElement> textViewSearchContents() {
+        return d.findElementsById("com.tongcheng.android:id/tv_search_content");
     }
 
     /**
@@ -50,27 +50,7 @@ public class SearchPage extends CommonPage {
      */
     public WebElement textViewName(int index) {
         try {
-            return textViewNames().get(index);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    /**
-     * TextView -- 关键字结果数量集合
-     */
-    public List<WebElement> textViewCounts() {
-        return d.findElementsById("com.tongcheng.android:id/count");
-    }
-
-    /**
-     * TextView -- 关键字结果数量（根据索引）
-     *
-     * @param index 索引
-     */
-    public WebElement textViewCount(int index) {
-        try {
-            return textViewCounts().get(index);
+            return textViewSearchContents().get(index);
         } catch (Exception e) {
             return null;
         }

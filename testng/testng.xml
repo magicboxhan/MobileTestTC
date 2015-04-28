@@ -12,26 +12,34 @@
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
     <parameter name="implicitlyWaitTime" value="10"/>
 
-    <!--<test name="查看景点详细信息" preserve-order="true">-->
-        <!--<parameter name="searchKeyword" value="苏州乐园"/>-->
+    <!--<test name="登录" preserve-order="true">-->
         <!--<parameter name="uid" value="13584829701"/>-->
-        <!--<parameter name="pwd" value="a123456"/>-->
+        <!--<parameter name="pwd" value="123456hq"/>-->
         <!--<classes>-->
             <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
                 <!--<methods>-->
-                    <!--<include name="viewSceneryDetail"/>-->
+                    <!--<include name="login"/>-->
                 <!--</methods>-->
             <!--</class>-->
         <!--</classes>-->
     <!--</test>-->
 
-    <test name="登录" preserve-order="true">
+    <test name="查看景点详细信息" preserve-order="true">
+        <parameter name="searchKeyword" value="苏州乐园"/>
+        <parameter name="keywordIndex" value="0"/>
+        <parameter name="sceneryIndex" value="0"/>
+        <parameter name="getTicketName" value="苏里洪"/>
+        <parameter name="getTicketPhone" value="13012345678"/>
+        <parameter name="getTicketCard" value="63252519760324553X"/>
+        <parameter name="month" value="1"/>
+        <parameter name="week" value="0"/>
+        <parameter name="day" value="0"/>
         <parameter name="uid" value="13584829701"/>
         <parameter name="pwd" value="123456hq"/>
         <classes>
             <class name="hq.mobile.test.tc.testcases.SmokeTest">
                 <methods>
-                    <include name="login"/>
+                    <include name="scenery"/>
                 </methods>
             </class>
         </classes>

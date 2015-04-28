@@ -84,7 +84,7 @@ public class SceneryDetailPage extends CommonPage {
     }
 
     /**
-     * TextView -- 票价
+     * Button -- 预订
      */
     public WebElement buttonOrder() {
         return d.findElementById("com.tongcheng.android:id/btn_order");

@@ -1,7 +1,6 @@
 package hq.mobile.test.tc.pageobjects;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -11,9 +10,10 @@ public class LoadingPage extends CommonPage {
 
     /**
      * 构造方法
+     *
      * @param d 驱动
      */
-    public LoadingPage(AppiumDriver d){
+    public LoadingPage(AppiumDriver d) {
         super(d);
     }
 
@@ -28,9 +28,9 @@ public class LoadingPage extends CommonPage {
 
     //==================== Functions ====================
 
-    public void funcEnterHomepage () throws InterruptedException {
+    public void funcEnterHomepage() throws InterruptedException {
         //滑动3次
-        for(int i=0;i<3;i++){
+        for (int i = 0; i < 3; i++) {
             d.swipe(800, 100, 100, 100, 1000);
             Thread.sleep(1500);
         }

@@ -25,85 +25,20 @@ public class SmokeTest extends BasicTestCase {
     LoginPage pLogin;
     MovieCityListPage pMovieCityList;
     MovieListPage pMovieList;
+    SceneryWriteOrderPage pSceneryWriteOrder;
 
-    @Parameters({
-            "searchKeyword"
-    })
-    @Test
-    public void viewSceneryDetail(String searchKeyword) {
-        try {
-            t.log("=== 首页 ===");
-            t.log("点击搜索框");
-            pHome = new Homepage(d);
-            pHome.textViewSearch().click();
-            t.log("=== 搜索页 ===");
-            t.log(String.format("输入搜索关键字：%s", searchKeyword));
-            pSearch = new SearchPage(d);
-            pSearch.editTextKeyword().clear();
-            pSearch.editTextKeyword().sendKeys(searchKeyword);
-            List<WebElement> eKeywords = pSearch.textViewNames();
-            int resultCount = eKeywords.size();
-            t.log(String.format("共搜索到%s个关键字：", resultCount));
-            for (int i = 0; i < resultCount; i++) {
-                if (pSearch.textViewName(i) == null) {
-                    continue;
-                }
-                String name = pSearch.textViewName(i).getText();
-                String count;
-                if (pSearch.textViewCount(i) != null) {
-                    count = pSearch.textViewCount(i).getText();
-                } else {
-                    count = "";
-                }
-                t.log(String.format("关键字名称：[%s]，关键字结果数：[%s]", name, count));
-            }
-            int keywordIndex = 0;
-            t.log(String.format("点击第%s个关键字", keywordIndex));
-            eKeywords.get(keywordIndex).click();
-            t.log("=== 搜索结果页 ===");
-            pSearchResult = new SearchResultPage(d);
-            List<WebElement> sceneryNames = pSearchResult.textViewSceneryNames();
-            int sceneryCount = sceneryNames.size();
-            t.log(String.format("共搜索到%d个景点（页面展示）", sceneryCount));
-            for (int i = 0; i < sceneryCount; i++) {
-                if (pSearchResult.textViewSceneryName(i) == null) {
-                    continue;
-                }
-                String name = pSearchResult.textViewSceneryName(i).getText();
-                String rate;
-                if (pSearchResult.textViewSceneryRate(i) != null) {
-                    rate = pSearchResult.textViewSceneryRate(i).getText();
-                } else {
-                    rate = "";
-                }
-                String price;
-                if (pSearchResult.textViewSceneryPrice(i) != null) {
-                    price = pSearchResult.textViewSceneryPrice(i).getText();
-                } else {
-                    price = "";
-                }
-                t.log(String.format("景点名称：[%s]，景点评分：[%s]，景点价格：[%s]", name, rate, price));
-            }
-            int sceneryIndex = 0;
-            t.log(String.format("点击第%s个景点", sceneryIndex));
-            sceneryNames.get(sceneryIndex).click();
-            t.log("=== 景点详情页 ===");
-            pSceneryDetail = new SceneryDetailPage(d);
-            t.log(String.format("景点名称：[%s]", pSceneryDetail.textViewSceneryName().getText()));
-            t.log(String.format("景点评论数：[%s]", pSceneryDetail.textViewCommentCount().getText()));
-            t.log(String.format("景点名称景点地址：[%s]", pSceneryDetail.textViewAddress().getText()));
-            t.log(String.format("景点门票类型：[%s]", pSceneryDetail.textViewGroupName().getText()));
-            t.log(String.format("景点门票价格：[%s]", pSceneryDetail.textViewGroupPrice().getText()));
-            t.takeScreenshot(d, String.format("[%s]景点详情截图", pSceneryDetail.textViewSceneryName().getText()), "jpg");
-        } catch (Exception e) {
-            t.log("=== 测试出错 ===");
-            e.printStackTrace();
-            t.log(e.getMessage());
-            t.takeScreenshot(d, "error_viewSceneryDetail", "jpg");
-            Assert.assertEquals(true, false);
-        }
+    public void enterHomepage() throws InterruptedException {
+        t.log("=== 开始页 ===");
+        t.log("滑动并进入首页");
+        pLoading = new LoadingPage(d);
+        pLoading.funcEnterHomepage();
     }
 
+    /**
+     * 登录验证脚本
+     * @param uid 用户名
+     * @param pwd 密码
+     */
     @Parameters({
             "uid",
             "pwd"
@@ -113,10 +48,7 @@ public class SmokeTest extends BasicTestCase {
         try {
             boolean result = true;
             Thread.sleep(5000);
-            t.log("=== 开始页 ===");
-            t.log("滑动并进入首页");
-            pLoading = new LoadingPage(d);
-            pLoading.funcEnterHomepage();
+            enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
             pHome = new Homepage(d);
@@ -139,6 +71,105 @@ public class SmokeTest extends BasicTestCase {
             e.printStackTrace();
             t.log(e.getMessage());
             t.takeScreenshot(d, "error_login", "jpg");
+            Assert.assertEquals(true, false);
+        }
+    }
+
+    /**
+     * 景区下单脚本
+     * @param searchKeyword 搜索关键字
+     */
+    @Parameters({
+            "searchKeyword",
+            "keywordIndex",
+            "sceneryIndex",
+            "uid",
+            "pwd",
+            "getTicketName",
+            "getTicketPhone",
+            "getTicketCard",
+            "month",
+            "week",
+            "day"
+    })
+    @Test
+    public void scenery(
+            String searchKeyword,
+            int keywordIndex,
+            int sceneryIndex,
+            String uid,
+            String pwd,
+            String getTicketName,
+            String getTicketPhone,
+            String getTicketCard,
+            int month,
+            int week,
+            int day) {
+        try {
+            boolean result = true;
+            Thread.sleep(5000);
+            enterHomepage();
+            t.log("=== 首页 ===");
+            t.log("点击搜索框");
+            pHome = new Homepage(d);
+            pHome.textViewSearch().click();
+            t.log("=== 搜索页 ===");
+            t.log(String.format("输入搜索关键字：%s", searchKeyword));
+            pSearch = new SearchPage(d);
+            pSearch.editTextKeyword().clear();
+            pSearch.editTextKeyword().sendKeys(searchKeyword);
+            List<WebElement> eKeywords = pSearch.textViewSearchContents();
+            int resultCount = eKeywords.size();
+            t.log(String.format("共搜索到%s个关键字：", resultCount));
+            t.log(String.format("点击第%s个关键字", keywordIndex));
+            eKeywords.get(keywordIndex).click();
+            t.log("=== 搜索结果页 ===");
+            pSearchResult = new SearchResultPage(d);
+            List<WebElement> sceneryNames = pSearchResult.textViewSceneryNames();
+            int sceneryCount = sceneryNames.size();
+            t.log(String.format("共搜索到%d个景点（页面展示）", sceneryCount));
+//            for (int i = 0; i < sceneryCount; i++) {
+//                if (pSearchResult.textViewSceneryName(i) == null) {
+//                    continue;
+//                }
+//                String name = pSearchResult.textViewSceneryName(i).getText();
+//                String rate;
+//                if (pSearchResult.textViewSceneryRate(i) != null) {
+//                    rate = pSearchResult.textViewSceneryRate(i).getText();
+//                } else {
+//                    rate = "";
+//                }
+//                String price;
+//                if (pSearchResult.textViewSceneryPrice(i) != null) {
+//                    price = pSearchResult.textViewSceneryPrice(i).getText();
+//                } else {
+//                    price = "";
+//                }
+//                t.log(String.format("景点名称：[%s]，景点评分：[%s]，景点价格：[%s]", name, rate, price));
+//            }
+            t.log(String.format("点击第%s个景点", sceneryIndex));
+            sceneryNames.get(sceneryIndex).click();
+            t.log("=== 景点详情页 ===");
+            pSceneryDetail = new SceneryDetailPage(d);
+            t.log(String.format("景点名称：[%s]", pSceneryDetail.textViewSceneryName().getText()));
+            t.log(String.format("景点评论数：[%s]", pSceneryDetail.textViewCommentCount().getText()));
+            t.log(String.format("景点名称景点地址：[%s]", pSceneryDetail.textViewAddress().getText()));
+            t.log(String.format("景点门票类型：[%s]", pSceneryDetail.textViewGroupName().getText()));
+            t.log(String.format("景点门票价格：[%s]", pSceneryDetail.textViewGroupPrice().getText()));
+            t.takeScreenshot(d, String.format("[%s]景点详情截图", pSceneryDetail.textViewSceneryName().getText()), "jpg");
+            t.log("点击预订按钮");
+            pSceneryDetail.buttonOrder().click();
+            t.log("=== 登录页 ===");
+            pLogin = new LoginPage(d);
+            pLogin.funcLogin(uid, pwd);
+            t.log("=== 景点订单填写页 ===");
+            pSceneryWriteOrder = new SceneryWriteOrderPage(d);
+            pSceneryWriteOrder.funcSubmitOrder(getTicketName, getTicketPhone, getTicketCard, month, week, day);
+        } catch (Exception e) {
+            t.log("=== 测试出错 ===");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "error_viewSceneryDetail", "jpg");
             Assert.assertEquals(true, false);
         }
     }
