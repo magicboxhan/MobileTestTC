@@ -34,6 +34,13 @@ public class MyPage extends BasicPage {
         return d.findElementById("com.tongcheng.android:id/tv_login_name");
     }
 
+    /**
+     * TextView -- 全部订单
+     */
+    public WebElement textViewAllOrder() {
+        return d.findElementById("com.tongcheng.android:id/tv_order_all");
+    }
+
 
     //==================== Functions ====================
 

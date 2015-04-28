@@ -9,14 +9,14 @@ import java.util.List;
  * Created by hanqing on 2015/3/27.
  * 搜索结果页
  */
-public class SearchResultPage extends CommonPage {
+public class ScenerySearchResultPage extends CommonPage {
 
     /**
      * 构造方法
      *
      * @param d 驱动
      */
-    public SearchResultPage(AppiumDriver d) {
+    public ScenerySearchResultPage(AppiumDriver d) {
         super(d);
     }
 

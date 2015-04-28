@@ -2,8 +2,6 @@ package hq.mobile.test.tc.testcases;
 
 import hq.mobile.test.tc.common.BasicTestCase;
 import hq.mobile.test.tc.pageobjects.*;
-import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -19,13 +17,14 @@ public class SmokeTest extends BasicTestCase {
     LoadingPage pLoading;
     Homepage pHome;
     SearchPage pSearch;
-    SearchResultPage pSearchResult;
+    ScenerySearchResultPage pSearchResult;
     SceneryDetailPage pSceneryDetail;
     MyPage pMy;
     LoginPage pLogin;
     MovieCityListPage pMovieCityList;
     MovieListPage pMovieList;
     SceneryWriteOrderPage pSceneryWriteOrder;
+    OrderListPage pOrderList;
 
     public void enterHomepage() throws InterruptedException {
         t.log("=== 开始页 ===");
@@ -124,7 +123,7 @@ public class SmokeTest extends BasicTestCase {
             t.log(String.format("点击第%s个关键字", keywordIndex));
             eKeywords.get(keywordIndex).click();
             t.log("=== 搜索结果页 ===");
-            pSearchResult = new SearchResultPage(d);
+            pSearchResult = new ScenerySearchResultPage(d);
             List<WebElement> sceneryNames = pSearchResult.textViewSceneryNames();
             int sceneryCount = sceneryNames.size();
             t.log(String.format("共搜索到%d个景点（页面展示）", sceneryCount));
@@ -222,6 +221,55 @@ public class SmokeTest extends BasicTestCase {
             e.printStackTrace();
             t.log(e.getMessage());
             t.takeScreenshot(d, "error_login", "jpg");
+            Assert.assertEquals(true, false);
+        }
+    }
+
+    /**
+     * 取消删除所有订单
+     * @param uid 用户名
+     * @param pwd 密码
+     */
+    @Parameters({
+            "uid",
+            "pwd"
+    })
+    @Test
+    public void cancelDeleteAllOrders(String uid, String pwd) {
+        try {
+            boolean result = true;
+            Thread.sleep(5000);
+            enterHomepage();
+            t.log("=== 首页 ===");
+            t.log("点击“我的”");
+            pHome = new Homepage(d);
+            pHome.imageViewMy().click();
+            t.log("=== 我的 ===");
+            t.log("点击登录");
+            pMy = new MyPage(d);
+            pMy.textViewLogin().click();
+            t.log("=== 登录页 ===");
+            t.log(String.format("输入用户名：[%s]，密码：[%s]", uid, pwd));
+            pLogin = new LoginPage(d);
+            t.log("点击登录按钮");
+            pLogin.funcLogin(uid, pwd);
+            t.log("=== 我的 ===");
+            t.log("验证登录");
+            result &= pMy.funcVerifyLoginResult();
+            Assert.assertEquals(true, result);
+            t.log("点击全部订单");
+            pMy.textViewAllOrder().click();
+            t.log("=== 订单列表 ===");
+            t.log("取消并删除全部订单");
+            pOrderList = new OrderListPage(d);
+            pOrderList.funcCancelDeleteAllOrders();
+            Thread.sleep(5000);
+            Assert.assertEquals(true, true);
+        } catch (Exception e) {
+            t.log("=== 测试出错 ===");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "error_cancelDeleteAllOrders", "jpg");
             Assert.assertEquals(true, false);
         }
     }
