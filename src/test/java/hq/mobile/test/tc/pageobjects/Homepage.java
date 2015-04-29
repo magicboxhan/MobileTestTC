@@ -55,26 +55,26 @@ public class Homepage extends CommonPage {
     }
 
     /**
-     * ImageView -- 容器（根据索引）
+     * ImageView -- 项目（根据索引）
      *
      * @param index 索引
      */
-    public WebElement imageViewContainer(int index) {
+    public WebElement imageViewProject(int index) {
         try {
-            return d.findElementsById("com.tongcheng.android:id/iv_container_item").get(index);
+            return d.findElementsById("com.tongcheng.android:id/tv_project_name").get(index);
         } catch (Exception e) {
             return null;
         }
     }
 
     /**
-     * ImageView -- 功能（根据索引）
+     * ImageView -- 操作（根据索引）
      *
      * @param index 索引
      */
-    public WebElement imageViewFeature(int index) {
+    public WebElement imageViewOperation(int index) {
         try {
-            return d.findElementsById("com.tongcheng.android:id/iv_feature_item").get(index);
+            return d.findElementsById("com.tongcheng.android:id/iv_operation_icon").get(index);
         } catch (Exception e) {
             return null;
         }
@@ -84,7 +84,7 @@ public class Homepage extends CommonPage {
      * 电影票
      */
     public WebElement imageViewMovie() {
-        return imageViewContainer(2);
+        return imageViewProject(2);
     }
 
 

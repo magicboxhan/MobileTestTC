@@ -24,6 +24,9 @@ public class SmokeTest extends BasicTestCase {
     LoginPage pLogin;
     MovieCityListPage pMovieCityList;
     MovieListPage pMovieList;
+    MovieCinemaListPage pMovieCinemaList;
+    MovieSchedulePage pMovieSchedule;
+    MovieSeatSelectPage pMovieSeatSelect;
     SceneryWriteOrderPage pSceneryWriteOrder;
     OrderListPage pOrderList;
 
@@ -36,6 +39,7 @@ public class SmokeTest extends BasicTestCase {
 
     /**
      * 登录验证脚本
+     *
      * @param uid 用户名
      * @param pwd 密码
      */
@@ -65,18 +69,19 @@ public class SmokeTest extends BasicTestCase {
             t.log("=== 我的 ===");
             t.log("验证登录");
             result &= pMy.funcVerifyLoginResult();
-            Assert.assertEquals(true, result);
+            Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log("=== 测试出错 ===");
             e.printStackTrace();
             t.log(e.getMessage());
-            t.takeScreenshot(d, "error_login", "jpg");
-            Assert.assertEquals(true, false);
+            t.takeScreenshot(d, "errorLogin", "jpg");
+            Assert.assertEquals(false, true);
         }
     }
 
     /**
      * 景区下单脚本
+     *
      * @param searchKeyword 搜索关键字
      */
     @Parameters({
@@ -165,13 +170,13 @@ public class SmokeTest extends BasicTestCase {
             t.log("=== 景点订单填写页 ===");
             pSceneryWriteOrder = new SceneryWriteOrderPage(d);
             pSceneryWriteOrder.funcSubmitOrder(getTicketName, getTicketPhone, getTicketCard, month, week, day);
-            Thread.sleep(5000);
+            Assert.assertEquals(true, true);
         } catch (Exception e) {
             t.log("=== 测试出错 ===");
             e.printStackTrace();
             t.log(e.getMessage());
-            t.takeScreenshot(d, "error_viewSceneryDetail", "jpg");
-            Assert.assertEquals(true, false);
+            t.takeScreenshot(d, "errorScenery", "jpg");
+            Assert.assertEquals(false, true);
         }
     }
 
@@ -187,48 +192,78 @@ public class SmokeTest extends BasicTestCase {
             String webviewName) {
         try {
             boolean result = true;
+            Thread.sleep(5000);
+            enterHomepage();
+            t.log("=== 首页 ===");
+            t.log("点击“我的”");
+            pHome = new Homepage(d);
+            pHome.imageViewMy().click();
+            t.log("=== 我的 ===");
+            t.log("点击登录");
+            pMy = new MyPage(d);
+            pMy.textViewLogin().click();
+            t.log("=== 登录页 ===");
+            t.log(String.format("输入用户名：[%s]，密码：[%s]，并登录", uid, pwd));
+            pLogin = new LoginPage(d);
+            pLogin.funcLogin(uid, pwd);
+            t.log("=== 我的 ===");
+            t.log("点击首页");
+            pMy.imageViewHome().click();
             t.log("=== 首页 ===");
             t.log("点击“电影票”");
             pHome = new Homepage(d);
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT); //避免由于广告导致的元素位移
             pHome.imageViewMovie().click();
-            t.log("=== 电影票页 - 城市选择 ===");
+            t.log("=== 电影票 - 城市选择 ===");
             for (String context : d.getContextHandles()) {
                 t.log(String.format("Context: [%s]", context));
             }
             t.log("切换到Webview");
             d.context(webviewName);
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT); //等待页面加载
             t.log("点击第一个城市");
             pMovieCityList = new MovieCityListPage(d);
-            pMovieCityList.ddCityOfAll(0).click();
-            t.log("=== 电影票页 - 影片选择 ===");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
+            try {
+                //出现城市列表才点
+                pMovieCityList.divAllCityList();
+                pMovieCityList.ddCityOfAll(0).click();
+            }catch(Exception e){
+                //Do nothing
+            }
+            t.log("=== 电影票 - 影片选择 ===");
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             t.log("点击第一个影片");
             pMovieList = new MovieListPage(d);
             pMovieList.liMovie(0).click();
-            Thread.sleep(15000);
-            t.log("切换到Webview");
-            Thread.sleep(5000);
-            for (String context : d.getContextHandles()) {
-                t.log(String.format("Context: [%s]", context));
-//                if (context.contains("WEBVIEW")){
-//                    d.context(context);
-//                }
-            }
+            t.log("=== 电影票 - 影院选择 ===");
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            t.log("点击第一个影院");
+            pMovieCinemaList = new MovieCinemaListPage(d);
+            pMovieCinemaList.divCinema().get(0).click();
+            t.log("=== 电影票 - 场次选择 ===");
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            t.log("点击第二个场次");
+            pMovieSchedule = new MovieSchedulePage(d);
+            pMovieSchedule.liSchedule().get(1).click();
+            t.log("=== 电影票 - 座位选择 ===");
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            t.log("点击第一行的第一个可用座位");
+            pMovieSeatSelect = new MovieSeatSelectPage(d);
+            pMovieSeatSelect.funcSelectSeat(0, 0);
             Thread.sleep(10000);
-            Assert.assertEquals(true, result);
+            Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log("=== 测试出错 ===");
             e.printStackTrace();
             t.log(e.getMessage());
-            t.takeScreenshot(d, "error_login", "jpg");
-            Assert.assertEquals(true, false);
+            t.takeScreenshot(d, "errorMovie", "jpg");
+            Assert.assertEquals(false, true);
         }
     }
 
     /**
      * 取消删除所有订单
+     *
      * @param uid 用户名
      * @param pwd 密码
      */
@@ -273,7 +308,7 @@ public class SmokeTest extends BasicTestCase {
             e.printStackTrace();
             t.log(e.getMessage());
             t.takeScreenshot(d, "error_cancelDeleteAllOrders", "jpg");
-            Assert.assertEquals(true, false);
+            Assert.assertEquals(false, true);
         }
     }
 

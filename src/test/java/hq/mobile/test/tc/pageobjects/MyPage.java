@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by hq11258 on 2015/4/9.
  */
-public class MyPage extends BasicPage {
+public class MyPage extends CommonPage {
 
     /**
      * 构造方法

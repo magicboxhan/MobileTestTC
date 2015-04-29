@@ -7,7 +7,7 @@
     <parameter name="platformName" value="Android"/>
     <parameter name="platformVersion" value="4.4"/>
     <parameter name="appiumURL" value="http://127.0.0.1:4491/wd/hub"/>
-    <parameter name="appName" value="tongcheng_client.apk"/>
+    <parameter name="appName" value="tongcheng_client_731_prod.apk"/>
     <parameter name="appPackage" value="com.tongcheng.android"/>
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
     <parameter name="implicitlyWaitTime" value="10"/>
@@ -24,51 +24,51 @@
     <!--</classes>-->
     <!--</test>-->
 
-    <test name="景点下单" preserve-order="true">
-        <parameter name="searchKeyword" value="苏州乐园"/>
-        <parameter name="keywordIndex" value="0"/>
-        <parameter name="sceneryIndex" value="0"/>
-        <parameter name="getTicketName" value="苏里洪"/>
-        <parameter name="getTicketPhone" value="13012345678"/>
-        <parameter name="getTicketCard" value="63252519760324553X"/>
-        <parameter name="month" value="1"/>
-        <parameter name="week" value="0"/>
-        <parameter name="day" value="0"/>
-        <parameter name="uid" value="13584829701"/>
-        <parameter name="pwd" value="123456hq"/>
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.SmokeTest">
-                <methods>
-                    <include name="scenery"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name="取消删除所有订单" preserve-order="true">
-        <parameter name="uid" value="13584829701"/>
-        <parameter name="pwd" value="123456hq"/>
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.SmokeTest">
-                <methods>
-                    <include name="cancelDeleteAllOrders"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <!--<test name="电影票" preserve-order="true">-->
-    <!--<parameter name="uid" value="13584829701"/>-->
-    <!--<parameter name="pwd" value="a123456"/>-->
-    <!--<parameter name="webviewName" value="WEBVIEW_com.tongcheng.android"/>-->
-    <!--<classes>-->
-    <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
-    <!--<methods>-->
-    <!--<include name="movie"/>-->
-    <!--</methods>-->
-    <!--</class>-->
-    <!--</classes>-->
+    <!--<test name="景点下单" preserve-order="true">-->
+        <!--<parameter name="searchKeyword" value="苏州乐园"/>-->
+        <!--<parameter name="keywordIndex" value="0"/>-->
+        <!--<parameter name="sceneryIndex" value="0"/>-->
+        <!--<parameter name="getTicketName" value="苏里洪"/>-->
+        <!--<parameter name="getTicketPhone" value="13012345678"/>-->
+        <!--<parameter name="getTicketCard" value="63252519760324553X"/>-->
+        <!--<parameter name="month" value="1"/>-->
+        <!--<parameter name="week" value="0"/>-->
+        <!--<parameter name="day" value="0"/>-->
+        <!--<parameter name="uid" value="13584829701"/>-->
+        <!--<parameter name="pwd" value="123456hq"/>-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
+                <!--<methods>-->
+                    <!--<include name="scenery"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
     <!--</test>-->
+
+    <!--<test name="取消删除所有订单" preserve-order="true">-->
+        <!--<parameter name="uid" value="13584829701"/>-->
+        <!--<parameter name="pwd" value="123456hq"/>-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
+                <!--<methods>-->
+                    <!--<include name="cancelDeleteAllOrders"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name="电影票" preserve-order="true">
+        <parameter name="uid" value="13584829701"/>
+        <parameter name="pwd" value="123456hq"/>
+        <parameter name="webviewName" value="WEBVIEW_com.tongcheng.android"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.SmokeTest">
+                <methods>
+                    <include name="movie"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
     <!--<test name="测试跳过" preserve-order="true">-->
     <!--<classes>-->

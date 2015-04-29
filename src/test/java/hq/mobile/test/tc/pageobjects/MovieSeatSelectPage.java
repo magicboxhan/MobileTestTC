@@ -24,7 +24,33 @@ public class MovieSeatSelectPage extends CommonPage {
     //==================== Elements ====================
 
     /**
-     * iframe - 座位选择
+     * div - 座位列表
+     */
+    public WebElement divSeatMap() {
+        return d.findElement(By.id("seat_map"));
+    }
+
+    /**
+     * div - 可用座位
+     * @param row 行数
+     * @param col 列数
+     */
+    public WebElement divSeat(int row, int col) {
+        return divSeatMap().findElements(By.cssSelector(".seatCharts-row")).get(row).findElements(By.className("available")).get(col);
+    }
+
+    /**
+     * a - 下一步
+     */
+    public WebElement aToPayment() {
+        return d.findElement(By.id("topayment"));
+    }
+
+
+
+
+    /**
+     * iframe - 座位列表
      */
     public WebElement iframeSeatSelect() {
         return d.findElement(By.id("framePage"));
@@ -51,14 +77,16 @@ public class MovieSeatSelectPage extends CommonPage {
         return divSeatTable().findElements(By.className("available"));
     }
 
-    /**
-     * div集合 - 被锁定座位
-     */
-    public List<WebElement> divSeatsLocked() {
-        return divSeatTable().findElements(By.className("locked"));
-    }
-
-
     //==================== Functions ====================
+
+    /**
+     * 选择座位并提交
+     * @param row 行数
+     * @param col 列数
+     */
+    public void funcSelectSeat(int row, int col){
+        divSeat(row, col).click();
+        aToPayment().click();
+    }
 
 }
