@@ -45,17 +45,17 @@
         </classes>
     </test>
 
-    <!--<test name="取消删除所有订单" preserve-order="true">-->
-        <!--<parameter name="uid" value="13584829701"/>-->
-        <!--<parameter name="pwd" value="123456hq"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
-                <!--<methods>-->
-                    <!--<include name="cancelDeleteAllOrders"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="取消删除所有订单" preserve-order="true">
+        <parameter name="uid" value="13584829701"/>
+        <parameter name="pwd" value="123456hq"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.SmokeTest">
+                <methods>
+                    <include name="cancelDeleteAllOrders"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
     <!--<test name="电影票" preserve-order="true">-->
     <!--<parameter name="uid" value="13584829701"/>-->
