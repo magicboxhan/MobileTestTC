@@ -8,6 +8,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by hanqing on 2015/3/27.
@@ -164,6 +165,7 @@ public class SmokeTest extends BasicTestCase {
             t.log("=== 景点订单填写页 ===");
             pSceneryWriteOrder = new SceneryWriteOrderPage(d);
             pSceneryWriteOrder.funcSubmitOrder(getTicketName, getTicketPhone, getTicketCard, month, week, day);
+            Thread.sleep(5000);
         } catch (Exception e) {
             t.log("=== 测试出错 ===");
             e.printStackTrace();
@@ -262,6 +264,7 @@ public class SmokeTest extends BasicTestCase {
             t.log("=== 订单列表 ===");
             t.log("取消并删除全部订单");
             pOrderList = new OrderListPage(d);
+            d.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             pOrderList.funcCancelDeleteAllOrders();
             Thread.sleep(5000);
             Assert.assertEquals(true, true);
