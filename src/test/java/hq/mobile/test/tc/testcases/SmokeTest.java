@@ -27,6 +27,7 @@ public class SmokeTest extends BasicTestCase {
     MovieCinemaListPage pMovieCinemaList;
     MovieSchedulePage pMovieSchedule;
     MovieSeatSelectPage pMovieSeatSelect;
+    MovieWriteOrderPage pMovieWriteOrder;
     SceneryWriteOrderPage pSceneryWriteOrder;
     OrderListPage pOrderList;
 
@@ -250,6 +251,11 @@ public class SmokeTest extends BasicTestCase {
             t.log("点击第一行的第一个可用座位");
             pMovieSeatSelect = new MovieSeatSelectPage(d);
             pMovieSeatSelect.funcSelectSeat(0, 0);
+            t.log("=== 电影票 - 订单填写 ===");
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            pMovieWriteOrder = new MovieWriteOrderPage(d);
+            t.log("点击提交订单");
+            pMovieWriteOrder.aSubmitOrder().click();
             Thread.sleep(10000);
             Assert.assertEquals(result, true);
         } catch (Exception e) {

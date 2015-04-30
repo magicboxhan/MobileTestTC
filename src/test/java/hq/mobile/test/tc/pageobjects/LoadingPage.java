@@ -32,7 +32,7 @@ public class LoadingPage extends CommonPage {
         //滑动3次
         for (int i = 0; i < 3; i++) {
             d.swipe(1000, 100, 100, 100, 1000);
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         }
         //点击“开启快乐之旅”
         imageViewEnter().click();

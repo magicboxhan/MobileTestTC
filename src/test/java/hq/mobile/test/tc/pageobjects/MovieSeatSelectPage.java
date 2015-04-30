@@ -36,7 +36,7 @@ public class MovieSeatSelectPage extends CommonPage {
      * @param col 列数
      */
     public WebElement divSeat(int row, int col) {
-        return divSeatMap().findElements(By.cssSelector(".seatCharts-row")).get(row).findElements(By.className("available")).get(col);
+        return divSeatMap().findElements(By.className("seatCharts-row")).get(row + 2).findElements(By.className("available")).get(col);
     }
 
     /**
@@ -44,6 +44,13 @@ public class MovieSeatSelectPage extends CommonPage {
      */
     public WebElement aToPayment() {
         return d.findElement(By.id("topayment"));
+    }
+
+    /**
+     * a - 确认选座
+     */
+    public WebElement aConfirm() {
+        return d.findElement(By.className("tccheckout-button"));
     }
 
 
@@ -84,9 +91,11 @@ public class MovieSeatSelectPage extends CommonPage {
      * @param row 行数
      * @param col 列数
      */
-    public void funcSelectSeat(int row, int col){
+    public void funcSelectSeat(int row, int col) throws InterruptedException {
         divSeat(row, col).click();
         aToPayment().click();
+        Thread.sleep(2000);
+        aConfirm().click();
     }
 
 }
