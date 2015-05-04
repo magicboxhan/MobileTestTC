@@ -15,9 +15,18 @@ public class MovieWriteOrderPage extends CommonPage {
      */
     public MovieWriteOrderPage(AppiumDriver d){
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement(){
+        try{
+            return aSubmitOrder();
+        }catch(Exception e){
+            return null;
+        }
+    }
 
     /**
      * a - 提交订单

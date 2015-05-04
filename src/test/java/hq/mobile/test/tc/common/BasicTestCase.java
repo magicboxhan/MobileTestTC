@@ -21,7 +21,8 @@ public class BasicTestCase {
     protected final static int WAIT_TIME_VERY_LONG = 30;
     protected final static int WAIT_TIME_LONG = 15;
     protected final static int WAIT_TIME_MIDDLE = 10;
-    protected final static int WAIT_TIME_SHORT = 10;
+    protected final static int WAIT_TIME_SHORT = 5;
+    protected final static int WAIT_WEB_VIEW = 20; //Webview页面加载等待时间
 
     @BeforeSuite
     public void setup_suite(

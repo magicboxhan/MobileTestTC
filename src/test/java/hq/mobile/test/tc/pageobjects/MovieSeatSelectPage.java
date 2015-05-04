@@ -25,7 +25,7 @@ public class MovieSeatSelectPage extends CommonPage {
     }
 
     //==================== Elements ====================
-
+    
     //===== 不带“选好了”按钮 =====
 
     /**

@@ -225,9 +225,10 @@ public class SmokeTest extends BasicTestCase {
             }
             t.log("切换到Webview");
             d.context(webviewName);
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT); //等待页面加载
+//            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT); //等待页面加载
             t.log("点击第一个城市");
             pMovieCityList = new MovieCityListPage(d);
+            Assert.assertEquals(pMovieCityList.funcWaitForKeyElement(BasicTestCase.WAIT_WEB_VIEW), true);
             try {
                 //出现城市列表才点
                 pMovieCityList.divAllCityList();
@@ -236,19 +237,22 @@ public class SmokeTest extends BasicTestCase {
                 //Do nothing
             }
             t.log("=== 电影票 - 影片选择 ===");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+//            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             t.log("点击第一个影片");
             pMovieList = new MovieListPage(d);
+            Assert.assertEquals(pMovieList.funcWaitForKeyElement(BasicTestCase.WAIT_WEB_VIEW), true);
             pMovieList.liMovie(0).click();
             t.log("=== 电影票 - 影院选择 ===");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+//            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             t.log("点击第一个影院");
             pMovieCinemaList = new MovieCinemaListPage(d);
+            Assert.assertEquals(pMovieCinemaList.funcWaitForKeyElement(BasicTestCase.WAIT_WEB_VIEW), true);
             pMovieCinemaList.divCinema().get(0).click();
             t.log("=== 电影票 - 场次选择 ===");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+//            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             t.log("点击第二个场次（如果没有，点击第一场次）");
             pMovieSchedule = new MovieSchedulePage(d);
+            Assert.assertEquals(pMovieSchedule.funcWaitForKeyElement(BasicTestCase.WAIT_WEB_VIEW), true);
             if(pMovieSchedule.liSchedule().size() > 1) {
                 //场次大于1
                 pMovieSchedule.liSchedule().get(1).click();
@@ -257,8 +261,9 @@ public class SmokeTest extends BasicTestCase {
                 pMovieSchedule.liSchedule().get(0).click();
             }
             t.log("=== 电影票 - 座位选择 ===");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+//            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             pMovieSeatSelect = new MovieSeatSelectPage(d);
+            Assert.assertEquals(pMovieSeatSelect.funcWaitForKeyElement(BasicTestCase.WAIT_WEB_VIEW), true);
             switch (pMovieSeatSelect.funcGetPageType()){
                 case 1:
                     t.log("=== 带 选好了 按钮的页面 ===");
@@ -270,7 +275,7 @@ public class SmokeTest extends BasicTestCase {
                     t.log("点击第一行的第一个可用座位");
                     pMovieSeatSelect.funcSelectSeat(seatRow, seatCol);
                     t.log("=== 电影票 - 订单填写 ===");
-                    Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+                    Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
                     pMovieWriteOrder = new MovieWriteOrderPage(d);
                     t.log("点击提交订单");
                     pMovieWriteOrder.aSubmitOrder().click();

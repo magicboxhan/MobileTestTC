@@ -19,9 +19,18 @@ public class MovieListPage extends CommonPage {
      */
     public MovieListPage(AppiumDriver d) {
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement(){
+        try{
+            return ulMovieList();
+        }catch(Exception e){
+            return null;
+        }
+    }
 
     /**
      * ul - 影片列表

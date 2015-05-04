@@ -19,9 +19,18 @@ public class MovieCityListPage extends CommonPage {
      */
     public MovieCityListPage(AppiumDriver d) {
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement(){
+        try{
+            return divAllCityList();
+        }catch(Exception e){
+            return null;
+        }
+    }
 
     /**
      * div - 所有城市列表

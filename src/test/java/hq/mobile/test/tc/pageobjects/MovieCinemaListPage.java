@@ -19,9 +19,18 @@ public class MovieCinemaListPage extends CommonPage {
      */
     public MovieCinemaListPage(AppiumDriver d) {
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement(){
+        try{
+            return divCinema().get(0);
+        }catch(Exception e){
+            return null;
+        }
+    }
 
     /**
      * div集合 - 影院列表

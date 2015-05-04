@@ -17,9 +17,18 @@ public class MovieSchedulePage extends CommonPage {
      */
     public MovieSchedulePage(AppiumDriver d){
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement(){
+        try{
+            return liSchedule().get(0);
+        }catch(Exception e){
+            return null;
+        }
+    }
 
     /**
      * li集合 - 场次列表
