@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Created by hq11258 on 2015/4/29.
+ * 电影票场次列表页
  */
 public class MovieSchedulePage extends CommonPage {
 

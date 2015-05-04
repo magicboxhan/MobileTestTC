@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by hq11258 on 2015/4/28.
+ * APP加载页
  */
 public class LoadingPage extends CommonPage {
 

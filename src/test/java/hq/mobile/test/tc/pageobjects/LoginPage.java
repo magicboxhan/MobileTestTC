@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by hq11258 on 2015/4/9.
+ * 登录页
  */
 public class LoginPage extends BasicPage {
 

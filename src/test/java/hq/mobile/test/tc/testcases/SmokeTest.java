@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created by hanqing on 2015/3/27.
+ * 测试用例类
  */
 public class SmokeTest extends BasicTestCase {
 
@@ -51,6 +52,10 @@ public class SmokeTest extends BasicTestCase {
     @Test
     public void login(String uid, String pwd) {
         try {
+            t.log("");
+            t.log("");
+            t.log("");
+            t.log("===== 登录测试 =====");
             boolean result = true;
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             enterHomepage();
@@ -112,6 +117,10 @@ public class SmokeTest extends BasicTestCase {
             int week,
             int day) {
         try {
+            t.log("");
+            t.log("");
+            t.log("");
+            t.log("===== 景点下单测试 =====");
             boolean result = true;
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             enterHomepage();
@@ -171,7 +180,7 @@ public class SmokeTest extends BasicTestCase {
             t.log("=== 景点订单填写页 ===");
             pSceneryWriteOrder = new SceneryWriteOrderPage(d);
             pSceneryWriteOrder.funcSubmitOrder(getTicketName, getTicketPhone, getTicketCard, month, week, day);
-            Assert.assertEquals(true, true);
+            Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
@@ -196,8 +205,12 @@ public class SmokeTest extends BasicTestCase {
             int seatRow,
             int seatCol) {
         try {
+            t.log("");
+            t.log("");
+            t.log("");
+            t.log("===== 电影票下单测试 =====");
             boolean result = true;
-            Thread.sleep(5000);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
@@ -306,6 +319,10 @@ public class SmokeTest extends BasicTestCase {
     @Test
     public void cancelDeleteAllOrders(String uid, String pwd) {
         try {
+            t.log("");
+            t.log("");
+            t.log("");
+            t.log("===== 电影票下单测试 =====");
             boolean result = true;
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             enterHomepage();
@@ -334,7 +351,7 @@ public class SmokeTest extends BasicTestCase {
             d.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); //调整隐性等待时间，加速订单取消速度
             pOrderList.funcCancelDeleteAllOrders();
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
-            Assert.assertEquals(true, true);
+            Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
@@ -346,7 +363,7 @@ public class SmokeTest extends BasicTestCase {
 
     @Test
     public void failedDemo() {
-        Assert.assertEquals(true, false);
+        Assert.assertEquals(false, true);
     }
 
 }

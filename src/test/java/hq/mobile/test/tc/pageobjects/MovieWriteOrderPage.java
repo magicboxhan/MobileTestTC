@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by hq11258 on 2015/4/30.
+ * 电影票订单填写页
  */
 public class MovieWriteOrderPage extends CommonPage {
 

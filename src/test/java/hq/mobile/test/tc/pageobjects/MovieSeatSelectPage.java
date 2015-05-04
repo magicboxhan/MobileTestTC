@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import java.util.List;
 
 /**
  * Created by hq11258 on 2015/4/13.
@@ -55,7 +54,6 @@ public class MovieSeatSelectPage extends CommonPage {
 
     /**
      * div - moviesetcharmsg (填写取票收集号码)
-     * @return
      */
     public WebElement divMoviesetcharmsg() {
         return d.findElement(By.id("moviesetcharmsg"));

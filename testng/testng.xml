@@ -14,17 +14,17 @@
     <parameter name="keyElementWaitTime" value="30"/>
     <parameter name="shortWaitTime" value="5"/>
 
-    <!--<test name="登录" preserve-order="true">-->
-    <!--<parameter name="uid" value="13584829701"/>-->
-    <!--<parameter name="pwd" value="123456hq"/>-->
-    <!--<classes>-->
-    <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
-    <!--<methods>-->
-    <!--<include name="login"/>-->
-    <!--</methods>-->
-    <!--</class>-->
-    <!--</classes>-->
-    <!--</test>-->
+    <test name="登录" preserve-order="true">
+        <parameter name="uid" value="13584829701"/>
+        <parameter name="pwd" value="123456hq"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.SmokeTest">
+                <methods>
+                    <include name="login"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
     <test name="景点下单" preserve-order="true">
         <parameter name="searchKeyword" value="苏州乐园"/>
@@ -74,26 +74,26 @@
         </classes>
     </test>
 
-    <!--<test name="测试跳过" preserve-order="true">-->
-    <!--<classes>-->
-    <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
-    <!--<methods>-->
-    <!--<include name="login"/>-->
-    <!--</methods>-->
-    <!--</class>-->
-    <!--</classes>-->
-    <!--</test>-->
+    <test name="测试跳过" preserve-order="true">
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.SmokeTest">
+                <methods>
+                    <include name="login"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-    <!--<test name="测试失败" preserve-order="true">-->
-    <!--<parameter name="uid" value="13584829701"/>-->
-    <!--<parameter name="pwd" value="a123456"/>-->
-    <!--<classes>-->
-    <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
-    <!--<methods>-->
-    <!--<include name="failedDemo"/>-->
-    <!--</methods>-->
-    <!--</class>-->
-    <!--</classes>-->
-    <!--</test>-->
+    <test name="测试失败" preserve-order="true">
+        <parameter name="uid" value="13584829701"/>
+        <parameter name="pwd" value="a123456"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.SmokeTest">
+                <methods>
+                    <include name="failedDemo"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 </suite>
