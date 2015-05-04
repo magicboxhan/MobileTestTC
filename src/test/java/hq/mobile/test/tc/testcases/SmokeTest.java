@@ -322,7 +322,7 @@ public class SmokeTest extends BasicTestCase {
             t.log("");
             t.log("");
             t.log("");
-            t.log("===== 电影票下单测试 =====");
+            t.log("===== 取消删除所有订单 =====");
             boolean result = true;
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             enterHomepage();
