@@ -24,10 +24,10 @@ public class MovieCinemaListPage extends CommonPage {
 
     //==================== Elements ====================
 
-    public WebElement keyElement(){
-        try{
+    public WebElement keyElement() {
+        try {
             return divCinema().get(0);
-        }catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

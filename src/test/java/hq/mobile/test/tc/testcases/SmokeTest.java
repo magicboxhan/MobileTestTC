@@ -52,7 +52,7 @@ public class SmokeTest extends BasicTestCase {
     public void login(String uid, String pwd) {
         try {
             boolean result = true;
-            Thread.sleep(5000);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
@@ -72,7 +72,7 @@ public class SmokeTest extends BasicTestCase {
             result &= pMy.funcVerifyLoginResult();
             Assert.assertEquals(result, true);
         } catch (Exception e) {
-            t.log("=== 测试出错 ===");
+            t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
             t.log(e.getMessage());
             t.takeScreenshot(d, "errorLogin", "jpg");
@@ -113,7 +113,7 @@ public class SmokeTest extends BasicTestCase {
             int day) {
         try {
             boolean result = true;
-            Thread.sleep(5000);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击搜索框");
@@ -173,7 +173,7 @@ public class SmokeTest extends BasicTestCase {
             pSceneryWriteOrder.funcSubmitOrder(getTicketName, getTicketPhone, getTicketCard, month, week, day);
             Assert.assertEquals(true, true);
         } catch (Exception e) {
-            t.log("=== 测试出错 ===");
+            t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
             t.log(e.getMessage());
             t.takeScreenshot(d, "errorScenery", "jpg");
@@ -225,35 +225,34 @@ public class SmokeTest extends BasicTestCase {
             }
             t.log("切换到Webview");
             d.context(webviewName);
-//            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT); //等待页面加载
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
             t.log("点击第一个城市");
             pMovieCityList = new MovieCityListPage(d);
-            Assert.assertEquals(pMovieCityList.funcWaitForKeyElement(BasicTestCase.WAIT_WEB_VIEW), true);
             try {
                 //出现城市列表才点
                 pMovieCityList.divAllCityList();
                 pMovieCityList.ddCityOfAll(0).click();
-            }catch(Exception e){
+            } catch (Exception e) {
                 //Do nothing
             }
             t.log("=== 电影票 - 影片选择 ===");
 //            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             t.log("点击第一个影片");
             pMovieList = new MovieListPage(d);
-            Assert.assertEquals(pMovieList.funcWaitForKeyElement(BasicTestCase.WAIT_WEB_VIEW), true);
+            Assert.assertEquals(pMovieList.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT), true);
             pMovieList.liMovie(0).click();
             t.log("=== 电影票 - 影院选择 ===");
 //            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             t.log("点击第一个影院");
             pMovieCinemaList = new MovieCinemaListPage(d);
-            Assert.assertEquals(pMovieCinemaList.funcWaitForKeyElement(BasicTestCase.WAIT_WEB_VIEW), true);
+            Assert.assertEquals(pMovieCinemaList.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT), true);
             pMovieCinemaList.divCinema().get(0).click();
             t.log("=== 电影票 - 场次选择 ===");
 //            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             t.log("点击第二个场次（如果没有，点击第一场次）");
             pMovieSchedule = new MovieSchedulePage(d);
-            Assert.assertEquals(pMovieSchedule.funcWaitForKeyElement(BasicTestCase.WAIT_WEB_VIEW), true);
-            if(pMovieSchedule.liSchedule().size() > 1) {
+            Assert.assertEquals(pMovieSchedule.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT), true);
+            if (pMovieSchedule.liSchedule().size() > 1) {
                 //场次大于1
                 pMovieSchedule.liSchedule().get(1).click();
             } else {
@@ -261,10 +260,9 @@ public class SmokeTest extends BasicTestCase {
                 pMovieSchedule.liSchedule().get(0).click();
             }
             t.log("=== 电影票 - 座位选择 ===");
-//            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
             pMovieSeatSelect = new MovieSeatSelectPage(d);
-            Assert.assertEquals(pMovieSeatSelect.funcWaitForKeyElement(BasicTestCase.WAIT_WEB_VIEW), true);
-            switch (pMovieSeatSelect.funcGetPageType()){
+            switch (pMovieSeatSelect.funcGetPageType()) {
                 case 1:
                     t.log("=== 带 选好了 按钮的页面 ===");
                     t.log("点击第一行的第一个可用座位");
@@ -281,16 +279,13 @@ public class SmokeTest extends BasicTestCase {
                     pMovieWriteOrder.aSubmitOrder().click();
                     break;
                 default:
-                    t.log("出错 -- 未知页面");
+                    t.log(">>>>>>>>>> 出错 -- 未知页面");
                     Assert.assertEquals(false, true);
                     break;
             }
-
-
-            Thread.sleep(10000);
             Assert.assertEquals(result, true);
         } catch (Exception e) {
-            t.log("=== 测试出错 ===");
+            t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
             t.log(e.getMessage());
             t.takeScreenshot(d, "errorMovie", "jpg");
@@ -312,7 +307,7 @@ public class SmokeTest extends BasicTestCase {
     public void cancelDeleteAllOrders(String uid, String pwd) {
         try {
             boolean result = true;
-            Thread.sleep(5000);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
@@ -336,15 +331,15 @@ public class SmokeTest extends BasicTestCase {
             t.log("=== 订单列表 ===");
             t.log("取消并删除全部订单");
             pOrderList = new OrderListPage(d);
-            d.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+            d.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); //调整隐性等待时间，加速订单取消速度
             pOrderList.funcCancelDeleteAllOrders();
-            Thread.sleep(5000);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             Assert.assertEquals(true, true);
         } catch (Exception e) {
-            t.log("=== 测试出错 ===");
+            t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
             t.log(e.getMessage());
-            t.takeScreenshot(d, "error_cancelDeleteAllOrders", "jpg");
+            t.takeScreenshot(d, "errorCancelDeleteAllOrders", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -354,109 +349,4 @@ public class SmokeTest extends BasicTestCase {
         Assert.assertEquals(true, false);
     }
 
-//    /**
-//     * 同程App
-//     *
-//     * @param searchKeyword -- 搜索关键字
-//     * @param uid           -- 用户名
-//     * @param pwd           -- 密码
-//     */
-//    @Parameters({
-//            "searchKeyword",
-//            "uid",
-//            "pwd"
-//    })
-//    @Test
-//    public void test_tc(
-//            String searchKeyword,
-//            String uid,
-//            String pwd) {
-//        try {
-//            t.log("启动应用");
-//
-//            //等待界面出现
-//            Thread.sleep(5000);
-//
-//
-//            //首页，点击‘跳过’按钮
-//            d.findElement(By.id("com.tongcheng.android:id/iv_close")).click();
-//
-//            //===== 底部导航 =====
-//            //发现
-//            t.log("底部导航");
-//            d.findElement(By.id("com.tongcheng.android:id/iv_home_wallet")).click();
-//            //发现页，点击‘跳过’按钮
-//            d.findElement(By.name("跳过")).click();
-//            //抢购
-//            d.findElement(By.id("com.tongcheng.android:id/iv_home_order")).click();
-//            //我的
-//            d.findElement(By.id("com.tongcheng.android:id/iv_home_my")).click();
-//            //点击登录链接
-//            t.log("登录");
-//            d.findElement(By.id("com.tongcheng.android:id/btn_mytc_login")).click();
-//            //填写登录信息并登录
-//            d.findElement(By.id("com.tongcheng.android:id/login_account")).sendKeys(uid);
-//            d.findElement(By.id("com.tongcheng.android:id/login_password")).sendKeys(pwd);
-//            d.findElement(By.id("com.tongcheng.android:id/login_commit_btn")).click();
-//            //首页
-//            d.findElement(By.id("com.tongcheng.android:id/iv_home_main")).click();
-//
-//            //===== 首页搜索 =====
-//            t.log(String.format("搜索：%s", searchKeyword));
-//            //点击搜索框
-//            d.findElement(By.id("com.tongcheng.android:id/tv_home_actionbar_search")).click();
-//            //输入关键字
-//            d.findElement(By.id("com.tongcheng.android:id/keyword")).sendKeys(searchKeyword);
-//            //点击结果
-//            List<WebElement> names = d.findElements(By.id("com.tongcheng.android:id/name"));
-//            t.log(String.format("搜索结果数：%d", names.size()));
-//            List<WebElement> counts = d.findElements(By.id("com.tongcheng.android:id/count"));
-//            t.log(String.format("搜索结果数量数：%d", names.size()));
-//            for (int i = 0; i < names.size(); i++) {
-//                try {
-//                    t.log(String.format("搜索结果：%s，结果数量：%s", names.get(i).getText(), counts.get(i).getText()));
-//                } catch (Exception e) {
-//                    //do nothing
-//                }
-//            }
-//
-//            //===== 点击一次搜索结果，展示二次搜索结果 =====
-//            t.log("点击第一个产品");
-//            if (names.size() > 0) {
-//                names.get(0).click();
-//            }
-//            //名称
-//            List<WebElement> names2 = d.findElements(By.id("com.tongcheng.android:id/sceneryNameTextView"));
-//            t.log(String.format("产品数：%d", names2.size()));
-//            //价格
-//            List<WebElement> prices2 = d.findElements(By.id("com.tongcheng.android:id/priceTextView"));
-//            t.log(String.format("价格数：%d", prices2.size()));
-//            //评分
-//            List<WebElement> values2 = d.findElements(By.id("com.tongcheng.android:id/ratingTextView"));
-//            t.log(String.format("评分数：%d", values2.size()));
-//            for (int i = 0; i < names2.size(); i++) {
-//                try {
-//                    t.log(String.format("名称：%s，价格：%s，评分：%s", names2.get(i).getText(), prices2.get(i).getText(), values2.get(i).getText()));
-//                } catch (Exception e) {
-//                    //do nothing
-//                }
-//            }
-//
-//            //===== 点击二次搜索结果 =====
-//            if (names2.size() > 0) {
-//                names2.get(0).click();
-//            }
-//
-//            //屏幕截图
-//            t.takeScreenshot(d, "testScreenshot", "jpg");
-//            t.log("屏幕截图完成");
-//
-//            //测试结束，等待10秒
-//            Thread.sleep(10000);
-//        } catch (Exception e) {
-//            t.log("Error!");
-//            e.printStackTrace();
-//            Assert.assertEquals(true, false);
-//        }
-//    }
 }

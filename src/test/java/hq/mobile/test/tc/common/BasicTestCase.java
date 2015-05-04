@@ -6,6 +6,7 @@ import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
 import java.io.File;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -18,11 +19,11 @@ public class BasicTestCase {
 
     protected Tools t = new Tools();
     protected AppiumDriver d;
-    protected final static int WAIT_TIME_VERY_LONG = 30;
-    protected final static int WAIT_TIME_LONG = 15;
-    protected final static int WAIT_TIME_MIDDLE = 10;
-    protected final static int WAIT_TIME_SHORT = 5;
-    protected final static int WAIT_WEB_VIEW = 20; //Webview页面加载等待时间
+    public static int WAIT_TIME_VERY_LONG;
+    public static int WAIT_TIME_LONG;
+    public static int WAIT_TIME_MIDDLE;
+    public static int WAIT_TIME_SHORT;
+    public static int WAIT_KEY_ELEMENT;
 
     @BeforeSuite
     public void setup_suite(
@@ -49,6 +50,8 @@ public class BasicTestCase {
      * @param appActivity        被测试activity名
      * @param appiumURL          appium服务地址
      * @param implicitlyWaitTime 隐性等待时间
+     * @param keyElementWaitTime 关键元素等待时间
+     * @param shortWaitTime      一般等待时间等待时间（短）
      */
     @Parameters({
             "appDir",
@@ -59,7 +62,9 @@ public class BasicTestCase {
             "appPackage",
             "appActivity",
             "appiumURL",
-            "implicitlyWaitTime"
+            "implicitlyWaitTime",
+            "keyElementWaitTime",
+            "shortWaitTime"
     })
     @BeforeTest
     public void setup_test(
@@ -71,7 +76,9 @@ public class BasicTestCase {
             String appPackage,
             String appActivity,
             String appiumURL,
-            int implicitlyWaitTime
+            int implicitlyWaitTime,
+            int keyElementWaitTime,
+            int shortWaitTime
     ) {
         try {
             File dir = new File(appDir);
@@ -98,6 +105,11 @@ public class BasicTestCase {
                 }
             };
             d.manage().timeouts().implicitlyWait(implicitlyWaitTime, TimeUnit.SECONDS);
+            WAIT_KEY_ELEMENT = keyElementWaitTime;
+            WAIT_TIME_SHORT = shortWaitTime;
+            WAIT_TIME_MIDDLE = 2 * shortWaitTime;
+            WAIT_TIME_LONG = 3 * shortWaitTime;
+            WAIT_TIME_VERY_LONG = 6 * shortWaitTime;
         } catch (Exception e) {
             e.printStackTrace();
             Assert.assertEquals(true, false);
@@ -124,5 +136,5 @@ public class BasicTestCase {
             Assert.assertEquals(true, false);
         }
     }
-    
+
 }

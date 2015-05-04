@@ -12,9 +12,10 @@ public class OrderListPage extends CommonPage {
 
     /**
      * 构造方法
+     *
      * @param d 驱动
      */
-    public OrderListPage(AppiumDriver d){
+    public OrderListPage(AppiumDriver d) {
         super(d);
     }
 
@@ -54,11 +55,11 @@ public class OrderListPage extends CommonPage {
      * 取消并删除所有订单
      */
     public void funcCancelDeleteAllOrders() {
-        while ((textViewCancelOrder().size() > 0) || (textViewDeleteOrder().size() > 0)){
-            if(textViewCancelOrder().size() > 0){
+        while ((textViewCancelOrder().size() > 0) || (textViewDeleteOrder().size() > 0)) {
+            if (textViewCancelOrder().size() > 0) {
                 textViewCancelOrder().get(0).click();
                 relativeLayoutCancelReason().get(0).click();
-            }else{
+            } else {
                 textViewDeleteOrder().get(0).click();
                 buttonConfirmDelete().click();
             }

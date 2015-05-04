@@ -1,5 +1,6 @@
 package hq.mobile.test.tc.pageobjects;
 
+import hq.mobile.test.tc.common.BasicTestCase;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -158,7 +159,7 @@ public class MovieSeatSelectPage extends CommonPage {
             t.log(String.format("Seat title: %s", divSeat2(row, col).getAttribute("title")));
             divSeat2(row, col).click();
             aToPayment().click();
-            Thread.sleep(5000);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             for (String context : d.getContextHandles()) {
                 t.log(String.format("Context: [%s]", context));
             }

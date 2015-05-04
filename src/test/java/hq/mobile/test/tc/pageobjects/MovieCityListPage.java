@@ -24,10 +24,10 @@ public class MovieCityListPage extends CommonPage {
 
     //==================== Elements ====================
 
-    public WebElement keyElement(){
-        try{
+    public WebElement keyElement() {
+        try {
             return divAllCityList();
-        }catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

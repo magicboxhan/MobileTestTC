@@ -13,19 +13,20 @@ public class MovieSchedulePage extends CommonPage {
 
     /**
      * 构造方法
+     *
      * @param d 驱动
      */
-    public MovieSchedulePage(AppiumDriver d){
+    public MovieSchedulePage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }
 
     //==================== Elements ====================
 
-    public WebElement keyElement(){
-        try{
+    public WebElement keyElement() {
+        try {
             return liSchedule().get(0);
-        }catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

@@ -50,9 +50,9 @@ public class LoginPage extends BasicPage {
      * @param pwd 密码
      */
     public void funcLogin(String uid, String pwd) {
-        editTextAccount().clear();
+//        editTextAccount().clear();
         editTextAccount().sendKeys(uid);
-        editTextPassword().clear();
+//        editTextPassword().clear();
         editTextPassword().sendKeys(pwd);
         buttonCommit().click();
     }

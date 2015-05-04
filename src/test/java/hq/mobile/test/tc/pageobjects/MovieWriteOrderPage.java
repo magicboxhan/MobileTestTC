@@ -11,19 +11,20 @@ public class MovieWriteOrderPage extends CommonPage {
 
     /**
      * 构造方法
+     *
      * @param d 驱动
      */
-    public MovieWriteOrderPage(AppiumDriver d){
+    public MovieWriteOrderPage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }
 
     //==================== Elements ====================
 
-    public WebElement keyElement(){
-        try{
+    public WebElement keyElement() {
+        try {
             return aSubmitOrder();
-        }catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

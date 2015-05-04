@@ -13,9 +13,10 @@ public class SceneryWriteOrderPage extends CommonPage {
 
     /**
      * 构造方法
+     *
      * @param d 驱动
      */
-    public SceneryWriteOrderPage(AppiumDriver d){
+    public SceneryWriteOrderPage(AppiumDriver d) {
         super(d);
     }
 
@@ -37,17 +38,19 @@ public class SceneryWriteOrderPage extends CommonPage {
 
     /**
      * TextView -- 按照索引返回日历中的日期
+     *
      * @param month 要选择的日历中的月份索引（从0开始）
-     * @param week 要选择的日历中的周索引（从0开始）
-     * @param day 要选择的日历中的日期索引（从0开始）
+     * @param week  要选择的日历中的周索引（从0开始）
+     * @param day   要选择的日历中的日期索引（从0开始）
      */
-    public WebElement textViewCalendarCell(int month, int week, int day){
+    public WebElement textViewCalendarCell(int month, int week, int day) {
         return viewCalendarGrid().get(month).findElements(By.className("android.view.View")).get(week + 1).findElements(By.className("android.widget.TextView")).get(day);
     }
 
 
     /**
      * TextView -- 根据文字获取控件
+     *
      * @param name 文字
      */
     public WebElement textViewDate(String name) {
@@ -86,14 +89,15 @@ public class SceneryWriteOrderPage extends CommonPage {
 
     /**
      * 填写订单并提交
-     * @param name 取票人姓名
+     *
+     * @param name  取票人姓名
      * @param phone 取票人手机号
-     * @param card 取票人证件号
+     * @param card  取票人证件号
      * @param month 要选择的日历中的月份索引（从0开始）
-     * @param week 要选择的日历中的周索引（从0开始）
-     * @param day 要选择的日历中的日期索引（从0开始）
+     * @param week  要选择的日历中的周索引（从0开始）
+     * @param day   要选择的日历中的日期索引（从0开始）
      */
-    public void funcSubmitOrder(String name, String phone, String card, int month, int week, int day){
+    public void funcSubmitOrder(String name, String phone, String card, int month, int week, int day) {
         //选择日期
         textViewSelectDate().click();
         textViewCalendarCell(month, week, day).click();

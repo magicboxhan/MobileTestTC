@@ -24,10 +24,10 @@ public class MovieListPage extends CommonPage {
 
     //==================== Elements ====================
 
-    public WebElement keyElement(){
-        try{
+    public WebElement keyElement() {
+        try {
             return ulMovieList();
-        }catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
     }
