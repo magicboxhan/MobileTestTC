@@ -61,6 +61,8 @@
         <parameter name="uid" value="13584829701"/>
         <parameter name="pwd" value="123456hq"/>
         <parameter name="webviewName" value="WEBVIEW_com.tongcheng.android"/>
+        <parameter name="seatRow" value="0"/>
+        <parameter name="seatCol" value="0"/>
         <classes>
             <class name="hq.mobile.test.tc.testcases.SmokeTest">
                 <methods>

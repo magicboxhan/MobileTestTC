@@ -3,6 +3,7 @@ package hq.mobile.test.tc.pageobjects;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
@@ -11,6 +12,8 @@ import java.util.List;
  * 电影票 - 座位选择页面
  */
 public class MovieSeatSelectPage extends CommonPage {
+
+    public int pageType = 0; //1：带选好了按钮，2：不带选好了按钮
 
     /**
      * 构造方法
@@ -23,6 +26,8 @@ public class MovieSeatSelectPage extends CommonPage {
 
     //==================== Elements ====================
 
+    //===== 不带“选好了”按钮 =====
+
     /**
      * div - 座位列表
      */
@@ -32,10 +37,11 @@ public class MovieSeatSelectPage extends CommonPage {
 
     /**
      * div - 可用座位
+     *
      * @param row 行数
      * @param col 列数
      */
-    public WebElement divSeat(int row, int col) {
+    public WebElement divSeat2(int row, int col) {
         return divSeatMap().findElements(By.className("seatCharts-row")).get(row + 2).findElements(By.className("available")).get(col);
     }
 
@@ -47,14 +53,22 @@ public class MovieSeatSelectPage extends CommonPage {
     }
 
     /**
+     * div - moviesetcharmsg (填写取票收集号码)
+     * @return
+     */
+    public WebElement divMoviesetcharmsg() {
+        return d.findElement(By.id("moviesetcharmsg"));
+    }
+
+    /**
      * a - 确认选座
      */
     public WebElement aConfirm() {
-        return d.findElement(By.className("tccheckout-button"));
+        return divMoviesetcharmsg().findElement(By.className("tccheckout-button"));
     }
 
 
-
+    //===== 带“选好了”按钮 =====
 
     /**
      * iframe - 座位列表
@@ -78,24 +92,78 @@ public class MovieSeatSelectPage extends CommonPage {
     }
 
     /**
-     * div集合 - 可用座位
+     * div - 可用座位
+     * @param row 行数
+     * @param col 列数
      */
-    public List<WebElement> divSeatsAvailable() {
-        return divSeatTable().findElements(By.className("available"));
+    public WebElement divSeat1(int row, int col) {
+        return divSeatTable().findElements(By.className("row")).get(row + 1).findElements(By.className("available")).get(col);
     }
+
+
+
+
+
+
+
 
     //==================== Functions ====================
 
     /**
-     * 选择座位并提交
+     * 切换到iframe
+     */
+    public void funcSwitchToIFrame(){
+        d.switchTo().frame(iframeSeatSelect());
+    }
+
+    /**
+     * 判断当前页面类型
+     * @return 0：异常，1：带“选好了”按钮，2：不带“选好了”按钮
+     */
+    public int funcGetPageType() {
+        try {
+            //不到选好了按钮
+            aToPayment();
+            pageType = 2;
+        } catch (Exception e) {
+            try {
+                //带选好了按钮
+                funcSwitchToIFrame();
+                spanSelect();
+                pageType = 1;
+            } catch (Exception e1) {
+                //Do nothing
+            }
+        }
+        return pageType;
+    }
+
+    /**
+     * 选择座位并提交 -- 不带“选好了”按钮的页面
+     *
      * @param row 行数
      * @param col 列数
      */
     public void funcSelectSeat(int row, int col) throws InterruptedException {
-        divSeat(row, col).click();
-        aToPayment().click();
-        Thread.sleep(2000);
-        aConfirm().click();
+        if(pageType == 1){
+            //带选好了按钮
+//            funcSwitchToIFrame();   //已经切过了，不用再切了
+            t.log(String.format("Seat title: %s", divSeat1(row, col).getAttribute("title")));
+            divSeat1(row, col).click();
+            Actions act = new Actions(d);
+            act.moveToElement(spanSelect()).click().perform(); //用Actions点击
+//            spanSelect().click();
+        }else if(pageType == 2) {
+            //不带选好了按钮
+            t.log(String.format("Seat title: %s", divSeat2(row, col).getAttribute("title")));
+            divSeat2(row, col).click();
+            aToPayment().click();
+            Thread.sleep(5000);
+            for (String context : d.getContextHandles()) {
+                t.log(String.format("Context: [%s]", context));
+            }
+            aConfirm().click();
+        }
     }
 
 }

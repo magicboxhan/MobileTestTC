@@ -184,13 +184,17 @@ public class SmokeTest extends BasicTestCase {
     @Parameters({
             "uid",
             "pwd",
-            "webviewName"
+            "webviewName",
+            "seatRow",
+            "seatCol"
     })
     @Test
     public void movie(
             String uid,
             String pwd,
-            String webviewName) {
+            String webviewName,
+            int seatRow,
+            int seatCol) {
         try {
             boolean result = true;
             Thread.sleep(5000);
@@ -243,19 +247,41 @@ public class SmokeTest extends BasicTestCase {
             pMovieCinemaList.divCinema().get(0).click();
             t.log("=== 电影票 - 场次选择 ===");
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
-            t.log("点击第二个场次");
+            t.log("点击第二个场次（如果没有，点击第一场次）");
             pMovieSchedule = new MovieSchedulePage(d);
-            pMovieSchedule.liSchedule().get(1).click();
+            if(pMovieSchedule.liSchedule().size() > 1) {
+                //场次大于1
+                pMovieSchedule.liSchedule().get(1).click();
+            } else {
+                //场次不大于1
+                pMovieSchedule.liSchedule().get(0).click();
+            }
             t.log("=== 电影票 - 座位选择 ===");
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
-            t.log("点击第一行的第一个可用座位");
             pMovieSeatSelect = new MovieSeatSelectPage(d);
-            pMovieSeatSelect.funcSelectSeat(0, 0);
-            t.log("=== 电影票 - 订单填写 ===");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
-            pMovieWriteOrder = new MovieWriteOrderPage(d);
-            t.log("点击提交订单");
-            pMovieWriteOrder.aSubmitOrder().click();
+            switch (pMovieSeatSelect.funcGetPageType()){
+                case 1:
+                    t.log("=== 带 选好了 按钮的页面 ===");
+                    t.log("点击第一行的第一个可用座位");
+                    pMovieSeatSelect.funcSelectSeat(seatRow, seatCol);
+                    break;
+                case 2:
+                    t.log("=== 不带 选好了 按钮的页面 ===");
+                    t.log("点击第一行的第一个可用座位");
+                    pMovieSeatSelect.funcSelectSeat(seatRow, seatCol);
+                    t.log("=== 电影票 - 订单填写 ===");
+                    Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+                    pMovieWriteOrder = new MovieWriteOrderPage(d);
+                    t.log("点击提交订单");
+                    pMovieWriteOrder.aSubmitOrder().click();
+                    break;
+                default:
+                    t.log("出错 -- 未知页面");
+                    Assert.assertEquals(false, true);
+                    break;
+            }
+
+
             Thread.sleep(10000);
             Assert.assertEquals(result, true);
         } catch (Exception e) {
