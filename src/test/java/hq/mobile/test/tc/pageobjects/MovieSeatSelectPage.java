@@ -25,7 +25,7 @@ public class MovieSeatSelectPage extends CommonPage {
     }
 
     //==================== Elements ====================
-    
+
     //===== 不带“选好了”按钮 =====
 
     /**
@@ -99,6 +99,7 @@ public class MovieSeatSelectPage extends CommonPage {
 
     /**
      * div - 可用座位
+     *
      * @param row 行数
      * @param col 列数
      */
@@ -113,13 +114,7 @@ public class MovieSeatSelectPage extends CommonPage {
      */
     public WebElement divSeat1() {
         return divSeatTable().findElement(By.className("available")).findElement(By.className("num"));
-   }
-
-
-
-
-
-
+    }
 
 
     //==================== Functions ====================
@@ -127,12 +122,13 @@ public class MovieSeatSelectPage extends CommonPage {
     /**
      * 切换到iframe
      */
-    public void funcSwitchToIFrame(){
+    public void funcSwitchToIFrame() {
         d.switchTo().frame(iframeSeatSelect());
     }
 
     /**
      * 判断当前页面类型
+     *
      * @return 0：异常，1：带“选好了”按钮，2：不带“选好了”按钮
      */
     public int funcGetPageType() {
@@ -160,7 +156,7 @@ public class MovieSeatSelectPage extends CommonPage {
      * @param col 列数
      */
     public void funcSelectSeat(int row, int col) throws InterruptedException {
-        if(pageType == 1){
+        if (pageType == 1) {
             //带选好了按钮
 //            funcSwitchToIFrame();   //已经切过了，不用再切了
             t.log(String.format("座位号：%s", divSeat1().getAttribute("title")));
@@ -169,7 +165,7 @@ public class MovieSeatSelectPage extends CommonPage {
             Actions act = new Actions(d);
             act.moveToElement(divSeat1()).click(divSeat1()).perform(); //用Actions点击
             spanSelect().click();
-        }else if(pageType == 2) {
+        } else if (pageType == 2) {
             //不带选好了按钮
             t.log(String.format("座位号：%s", divSeat2().getAttribute("title")));
             divSeat2().click();

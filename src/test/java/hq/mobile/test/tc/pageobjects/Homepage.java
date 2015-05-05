@@ -93,8 +93,8 @@ public class Homepage extends CommonPage {
     /**
      * 检查是否定位成功，如果没有，则手工指定城市
      */
-    public void funcCheckLocation(String name){
-        if(textViewCity().getText().contains("全国")){
+    public void funcCheckLocation(String name) {
+        if (textViewCity().getText().contains("全国")) {
             //表示没有定位成功，需要手工指定城市
             t.log("自动定位失败，将人工选择城市");
             textViewCity().click();

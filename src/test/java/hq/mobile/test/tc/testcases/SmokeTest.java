@@ -39,6 +39,7 @@ public class SmokeTest extends BasicTestCase {
 
     /**
      * 初始化变量
+     *
      * @param pCityName
      */
     @Parameters({
@@ -47,12 +48,13 @@ public class SmokeTest extends BasicTestCase {
     @BeforeClass
     public void beforeClass(
             String pCityName
-    ){
+    ) {
         cityName = pCityName;
     }
 
     /**
      * 进入首页
+     *
      * @throws InterruptedException
      */
     public void enterHomepage() throws InterruptedException {
