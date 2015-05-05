@@ -4,6 +4,7 @@ import hq.mobile.test.tc.common.BasicTestCase;
 import hq.mobile.test.tc.pageobjects.*;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -16,6 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class SmokeTest extends BasicTestCase {
 
+    //页面对象实体
     LoadingPage pLoading;
     Homepage pHome;
     SearchPage pSearch;
@@ -32,11 +34,35 @@ public class SmokeTest extends BasicTestCase {
     SceneryWriteOrderPage pSceneryWriteOrder;
     OrderListPage pOrderList;
 
+    //变量
+    String cityName;    //当前城市
+
+    /**
+     * 初始化变量
+     * @param pCityName
+     */
+    @Parameters({
+            "cityName"
+    })
+    @BeforeClass
+    public void beforeClass(
+            String pCityName
+    ){
+        cityName = pCityName;
+    }
+
+    /**
+     * 进入首页
+     * @throws InterruptedException
+     */
     public void enterHomepage() throws InterruptedException {
         t.log("=== 开始页 ===");
         t.log("滑动并进入首页");
         pLoading = new LoadingPage(d);
         pLoading.funcEnterHomepage();
+        //如果定位失败，则手工定位
+        pHome = new Homepage(d);
+        pHome.funcCheckLocation(cityName);
     }
 
     /**
@@ -232,24 +258,28 @@ public class SmokeTest extends BasicTestCase {
             pHome = new Homepage(d);
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT); //避免由于广告导致的元素位移
             pHome.imageViewMovie().click();
-            t.log("=== 电影票 - 城市选择 ===");
+//            t.log("=== 电影票 - 城市选择 ===");
+//            for (String context : d.getContextHandles()) {
+//                t.log(String.format("Context: [%s]", context));
+//            }
+//            t.log("切换到Webview");
+//            d.context(webviewName);
+//            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
+//            t.log("点击第一个城市");
+//            pMovieCityList = new MovieCityListPage(d);
+//            try {
+//                //出现城市列表才点
+//                pMovieCityList.divAllCityList();
+//                pMovieCityList.ddCityOfAll(0).click();
+//            } catch (Exception e) {
+//                //Do nothing
+//            }
+            t.log("=== 电影票 - 影片选择 ===");
             for (String context : d.getContextHandles()) {
                 t.log(String.format("Context: [%s]", context));
             }
             t.log("切换到Webview");
             d.context(webviewName);
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
-            t.log("点击第一个城市");
-            pMovieCityList = new MovieCityListPage(d);
-            try {
-                //出现城市列表才点
-                pMovieCityList.divAllCityList();
-                pMovieCityList.ddCityOfAll(0).click();
-            } catch (Exception e) {
-                //Do nothing
-            }
-            t.log("=== 电影票 - 影片选择 ===");
-//            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             t.log("点击第一个影片");
             pMovieList = new MovieListPage(d);
             Assert.assertEquals(pMovieList.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT), true);
@@ -296,6 +326,7 @@ public class SmokeTest extends BasicTestCase {
                     Assert.assertEquals(false, true);
                     break;
             }
+            Thread.sleep(10000);
             Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");

@@ -81,7 +81,7 @@ public class Homepage extends CommonPage {
     }
 
     /**
-     * 电影票
+     * ImageView - 电影票
      */
     public WebElement imageViewMovie() {
         return imageViewProject(2);
@@ -90,5 +90,16 @@ public class Homepage extends CommonPage {
 
     //==================== Functions ====================
 
+    /**
+     * 检查是否定位成功，如果没有，则手工指定城市
+     */
+    public void funcCheckLocation(String name){
+        if(textViewCity().getText().contains("全国")){
+            //表示没有定位成功，需要手工指定城市
+            t.log("自动定位失败，将人工选择城市");
+            textViewCity().click();
+            d.findElementByName(name).click();
+        }
+    }
 
 }
