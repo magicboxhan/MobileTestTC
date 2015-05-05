@@ -46,6 +46,13 @@ public class MovieSeatSelectPage extends CommonPage {
     }
 
     /**
+     * div - 可用座位
+     */
+    public WebElement divSeat2() {
+        return divSeatMap().findElement(By.className("available"));
+    }
+
+    /**
      * a - 下一步
      */
     public WebElement aToPayment() {
@@ -80,7 +87,7 @@ public class MovieSeatSelectPage extends CommonPage {
      * span - 选好了
      */
     public WebElement spanSelect() {
-        return d.findElement(By.cssSelector(".m-l-right.btn-disable.btn-pick.btn-lock.checkout-btn"));
+        return d.findElement(By.cssSelector(".btn-pick"));
     }
 
     /**
@@ -96,8 +103,17 @@ public class MovieSeatSelectPage extends CommonPage {
      * @param col 列数
      */
     public WebElement divSeat1(int row, int col) {
-        return divSeatTable().findElements(By.className("row")).get(row + 1).findElements(By.className("available")).get(col);
+        return divSeatTable().findElements(By.className("row")).get(row + 2).findElements(By.className("available")).get(col);
+//        return divSeatTable().findElements(By.className("row")).get(row + 2).findElements(By.className("available")).get(col).findElement(By.className("char"));
+//        return divSeatTable().findElements(By.className("row")).get(row + 2).findElements(By.className("available")).get(col).findElement(By.className("num"));
     }
+
+    /**
+     * div - 可用座位
+     */
+    public WebElement divSeat1() {
+        return divSeatTable().findElement(By.className("available")).findElement(By.className("num"));
+   }
 
 
 
@@ -147,15 +163,16 @@ public class MovieSeatSelectPage extends CommonPage {
         if(pageType == 1){
             //带选好了按钮
 //            funcSwitchToIFrame();   //已经切过了，不用再切了
-            t.log(String.format("Seat title: %s", divSeat1(row, col).getAttribute("title")));
-            divSeat1(row, col).click();
+            t.log(String.format("座位号：%s", divSeat1().getAttribute("title")));
+            divSeat1().click();
+            Thread.sleep(5000);
             Actions act = new Actions(d);
-            act.moveToElement(spanSelect()).click().perform(); //用Actions点击
-//            spanSelect().click();
+            act.moveToElement(divSeat1()).click(divSeat1()).perform(); //用Actions点击
+            spanSelect().click();
         }else if(pageType == 2) {
             //不带选好了按钮
-            t.log(String.format("Seat title: %s", divSeat2(row, col).getAttribute("title")));
-            divSeat2(row, col).click();
+            t.log(String.format("座位号：%s", divSeat2().getAttribute("title")));
+            divSeat2().click();
             aToPayment().click();
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             for (String context : d.getContextHandles()) {

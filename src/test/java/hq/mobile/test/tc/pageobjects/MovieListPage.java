@@ -26,7 +26,7 @@ public class MovieListPage extends CommonPage {
 
     public WebElement keyElement() {
         try {
-            return ulMovieList();
+            return liMovie().get(0);
         } catch (Exception e) {
             return null;
         }
