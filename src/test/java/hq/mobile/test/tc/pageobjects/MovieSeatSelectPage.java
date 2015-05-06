@@ -161,7 +161,6 @@ public class MovieSeatSelectPage extends CommonPage {
 //            funcSwitchToIFrame();   //已经切过了，不用再切了
             t.log(String.format("座位号：%s", divSeat1().getAttribute("title")));
             divSeat1().click();
-            Thread.sleep(5000);
             Actions act = new Actions(d);
             act.moveToElement(divSeat1()).click(divSeat1()).perform(); //用Actions点击
             spanSelect().click();
