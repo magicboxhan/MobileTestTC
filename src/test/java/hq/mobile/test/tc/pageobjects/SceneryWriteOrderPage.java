@@ -31,25 +31,6 @@ public class SceneryWriteOrderPage extends CommonPage {
     }
 
     /**
-     * View -- 日历表格（按月份分）
-     */
-    public List<WebElement> viewCalendarGrid() {
-        return d.findElementsById("com.tongcheng.android:id/calendar_grid");
-    }
-
-    /**
-     * TextView -- 按照索引返回日历中的日期
-     *
-     * @param month 要选择的日历中的月份索引（从0开始）
-     * @param week  要选择的日历中的周索引（从0开始）
-     * @param day   要选择的日历中的日期索引（从0开始）
-     */
-    public WebElement textViewCalendarCell(int month, int week, int day) {
-        return viewCalendarGrid().get(month).findElements(By.className("android.view.View")).get(week + 1).findElements(By.className("android.widget.TextView")).get(day);
-    }
-
-
-    /**
      * TextView -- 根据文字获取控件
      *
      * @param name 文字

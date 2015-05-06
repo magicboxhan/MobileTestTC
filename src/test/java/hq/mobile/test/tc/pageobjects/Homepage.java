@@ -81,6 +81,13 @@ public class Homepage extends CommonPage {
     }
 
     /**
+     *  ImageView - 酒店
+     */
+    public WebElement imageViewHotel() {
+        return imageViewModule(5);
+    }
+
+    /**
      * ImageView - 电影票
      */
     public WebElement imageViewMovie() {
