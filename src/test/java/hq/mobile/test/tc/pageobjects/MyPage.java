@@ -45,7 +45,7 @@ public class MyPage extends CommonPage {
     //==================== Functions ====================
 
     /**
-     * 验证登陆结果
+     * 验证登录结果
      */
     public boolean funcVerifyLoginResult() {
         try {
