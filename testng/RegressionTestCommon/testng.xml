@@ -14,13 +14,13 @@
     <parameter name="shortWaitTime" value="5"/>
     <parameter name="cityName" value="苏州"/>
 
-    <test name="我的 -- 未登录状态 -- 登录" preserve-order="true">
+    <test name="测试 -- 我的" preserve-order="true">
         <parameter name="uid" value="13584829701"/>
         <parameter name="pwd" value="123456hq"/>
         <classes>
             <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
                 <methods>
-                    <include name="tc0001"/>
+                    <include name="common0001"/>
                 </methods>
             </class>
         </classes>

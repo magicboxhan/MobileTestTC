@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Created by hanqing on 2015/3/27.
- * TC 公共页面类
+ * TC 公共页面类 （业务相关）
  */
 public class CommonPage extends BasicPage {
 

@@ -5,13 +5,13 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by hanqing on 2015/3/27.
- * 框架基类
+ * 框架基类 （业务无关）
  */
 public class BasicPage {
 
     protected Tools t = new Tools();
     protected AppiumDriver d;
-    protected boolean checkKeyElement = false;
+    protected boolean checkKeyElement = false;  //是否需要检查关键元素
 
     /**
      * 构造方法
@@ -35,6 +35,25 @@ public class BasicPage {
     //==================== Functions ====================
 
     /**
+     * 自检
+     * @return 自检是否通过
+     */
+    public boolean funcSelfcheck(String pageName) {
+        if (!checkKeyElement) {
+            t.log("不需要自检");
+            return true;
+        }
+        t.log(String.format("执行页面 [%s] 的自检功能", pageName));
+        if (keyElement() != null) {
+            t.log("自检通过");
+            return true;
+        }else{
+            t.log("自检失败");
+            return false;
+        }
+    }
+
+    /**
      * 等待页面加载完成 -- 目前发现隐性等待对webview不起作用，所以定义这个方法
      *
      * @param sec 等待时间（秒）
@@ -47,14 +66,14 @@ public class BasicPage {
         }
         int i = 0;
         while ((keyElement() == null) && (i < sec)) {
-            t.log("Waiting for key element...");
+            t.log("等待关键页面元素...");
             Thread.sleep(1000);
             i++;
         }
         if (i >= sec) {
             //等待超时
-            t.log(">>>>>>>>>> Wait timeout. Can not find key element");
-            t.takeScreenshot(d, "checkKeyElement", "jpg");
+            t.log(">>>>>>>>>> 等待超时，无法获得关键页面元素");
+            t.takeScreenshot(d, "自检失败", "jpg");
             return false;
         } else {
             return true;

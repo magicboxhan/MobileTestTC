@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created by hanqing on 2015/3/27.
- * 框架基类，用于定义测试用例
+ * 框架基类，用于定义测试用例 （业务无关）
  */
 public class BasicTestCase {
 

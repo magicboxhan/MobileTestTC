@@ -16,9 +16,18 @@ public class MyPage extends CommonPage {
      */
     public MyPage(AppiumDriver d) {
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement() {
+        try {
+            return imageViewMy();
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     /**
      * TextView -- 登录
