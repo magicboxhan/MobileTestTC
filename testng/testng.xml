@@ -15,17 +15,17 @@
     <parameter name="shortWaitTime" value="5"/>
     <parameter name="cityName" value="苏州"/>
 
-    <!--<test name="登录" preserve-order="true">-->
-        <!--<parameter name="uid" value="13584829701"/>-->
-        <!--<parameter name="pwd" value="123456hq"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
-                <!--<methods>-->
-                    <!--<include name="login"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="登录" preserve-order="true">
+        <parameter name="uid" value="13584829701"/>
+        <parameter name="pwd" value="123456hq"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.SmokeTest">
+                <methods>
+                    <include name="login"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
     <!--<test name="景点下单" preserve-order="true">-->
         <!--<parameter name="searchKeyword" value="苏州乐园"/>-->
@@ -48,20 +48,20 @@
         <!--</classes>-->
     <!--</test>-->
 
-    <test name="电影票下单" preserve-order="true">
-        <parameter name="uid" value="13584829701"/>
-        <parameter name="pwd" value="123456hq"/>
-        <parameter name="webviewName" value="WEBVIEW_com.tongcheng.android"/>
-        <parameter name="seatRow" value="0"/>
-        <parameter name="seatCol" value="0"/>
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.SmokeTest">
-                <methods>
-                    <include name="movie"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+    <!--<test name="电影票下单" preserve-order="true">-->
+        <!--<parameter name="uid" value="13584829701"/>-->
+        <!--<parameter name="pwd" value="123456hq"/>-->
+        <!--<parameter name="webviewName" value="WEBVIEW_com.tongcheng.android"/>-->
+        <!--<parameter name="seatRow" value="0"/>-->
+        <!--<parameter name="seatCol" value="0"/>-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
+                <!--<methods>-->
+                    <!--<include name="movie"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
     <!--<test name="取消删除所有订单" preserve-order="true">-->
         <!--<parameter name="uid" value="13584829701"/>-->
