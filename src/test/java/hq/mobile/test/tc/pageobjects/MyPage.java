@@ -44,10 +44,52 @@ public class MyPage extends CommonPage {
     }
 
     /**
+     * TextView -- 签到
+     */
+    public WebElement textViewQiandao() {
+        return d.findElementById("com.tongcheng.android:id/tv_mytc_qiandao");
+    }
+
+    /**
+     * TextView -- 我的消息
+     */
+    public WebElement textViewMessage() {
+        return d.findElementById("com.tongcheng.android:id/tv_mytc_message");
+    }
+
+    /**
      * TextView -- 全部订单
      */
     public WebElement textViewAllOrder() {
         return d.findElementById("com.tongcheng.android:id/tv_order_all");
+    }
+
+    /**
+     * TextView -- 待支付
+     */
+    public WebElement textViewToPay() {
+        return d.findElementById("com.tongcheng.android:id/tv_order_to_be_pad");
+    }
+
+    /**
+     * TextView -- 待出行
+     */
+    public WebElement textViewToTravel() {
+        return d.findElementById("com.tongcheng.android:id/tv_order_to_be_travel");
+    }
+
+    /**
+     * TextView -- 待点评
+     */
+    public WebElement textViewToComment() {
+        return d.findElementById("com.tongcheng.android:id/tv_order_to_comment");
+    }
+
+    /**
+     * TextView -- 我的财富
+     */
+    public WebElement textViewWoDeCaiFu() {
+        return d.findElementByName("我的财富");
     }
 
 

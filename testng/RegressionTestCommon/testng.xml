@@ -5,7 +5,7 @@
     <parameter name="deviceName" value="Android Emulator"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="platformVersion" value="4.4"/>
-    <parameter name="appiumURL" value="http://127.0.0.1:4491/wd/hub"/>
+    <parameter name="appiumURL" value="http://10.1.200.193:4491/wd/hub"/>
     <parameter name="appName" value="tongcheng_client_731_prod.apk"/>
     <parameter name="appPackage" value="com.tongcheng.android"/>
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
@@ -21,6 +21,7 @@
             <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
                 <methods>
                     <include name="common0001"/>
+                    <include name="common0002"/>
                 </methods>
             </class>
         </classes>

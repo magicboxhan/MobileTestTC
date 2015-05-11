@@ -62,6 +62,10 @@ public class RegressionTestCommon extends CommonTestcase {
         try {
             t.log("===== 用例名称：点击会员信息入口 =====");
             boolean result = true;
+            t.log("=== 我的 ===");
+            Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
+            t.log("=== 点击用户名 ===");
+            pMy.textViewLoginName().click();
 
             Assert.assertEquals(result, true);
         } catch (Exception e) {
