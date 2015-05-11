@@ -33,11 +33,11 @@ public class Tools {
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
             String timeStr = df.format(new Date());
             File screenShotFile = d.getScreenshotAs(OutputType.FILE);
-            String fileFullPath = String.format("%s//%s_%s.%s", filePath, fileName, timeStr, extName);
+            String fileFullPath = String.format("%s//screenshot//%s_%s.%s", filePath, fileName, timeStr, extName);
             FileUtils.copyFile(screenShotFile, new File(fileFullPath));
-            log(String.format("Screenshot file name: %s_%s.%s", fileName, timeStr, extName));
+            log(String.format("截图文件名：%s_%s.%s", fileName, timeStr, extName));
         } catch (Exception e) {
-            log("Error when taking screenshot");
+            log(">>>>>>>>>> 截图时出错");
             e.printStackTrace();
         }
     }
