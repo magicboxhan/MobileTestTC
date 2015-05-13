@@ -95,10 +95,7 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击签到");
             pMy.textViewQiandao().click();
             t.log("=== 签到页 ===");
-            switchToWebView();
-            pSignPage.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
             result &= pSignPage.funcSelfcheck("签到页");
-            switchToNativeView();
             t.log("点击后退，返回我的同程页");
             pSignPage.textViewBack().click();
             Assert.assertEquals(result, true);

@@ -19,16 +19,23 @@ public class SignPage extends CommonPage {
 
     public WebElement keyElement() {
         try {
-            return divSign();
+            return viewSign();
         } catch (Exception e) {
             return null;
         }
     }
 
     /**
-     * div -- 签到
+     * div -- 签到（通过webview定位元素）
      */
     public WebElement divSign() {
         return d.findElement(By.id("signBtn"));
+    }
+
+    /**
+     * view -- 签到（通过native定位元素）
+     */
+    public WebElement viewSign() {
+        return d.findElementByName("签到");
     }
 }
