@@ -1,6 +1,7 @@
 package hq.mobile.test.tc.testcases;
 
 import hq.mobile.test.tc.common.BasicTestCase;
+import hq.mobile.test.tc.common.MyMessagePage;
 import hq.mobile.test.tc.pageobjects.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -28,6 +29,11 @@ public class CommonTestcase extends BasicTestCase {
     MovieWriteOrderPage pMovieWriteOrder;       //电影票 - 订单填写页
     UserInfoPage pUserInfo;                     //个人资料管理页
     SignPage pSignPage;                         //签到页
+    MyMessagePage pMyMessage;                   //我的消息页
+    OrderNeedPayPage pOrderNeedPay;             //待支付订单页
+    OrderNeedGoPage pOrderNeedGo;               //待出行订单页
+    OrderNeedCommentPage pOrderNeedComment;     //待点评订单页
+
 
     //变量
     String cityName;    //当前城市
@@ -63,6 +69,10 @@ public class CommonTestcase extends BasicTestCase {
         pOrderList = new OrderListPage(d);
         pUserInfo = new UserInfoPage(d);
         pSignPage = new SignPage(d);
+        pMyMessage = new MyMessagePage(d);
+        pOrderNeedPay = new OrderNeedPayPage(d);
+        pOrderNeedGo = new OrderNeedGoPage(d);
+        pOrderNeedComment = new OrderNeedCommentPage(d);
     }
 
     /**

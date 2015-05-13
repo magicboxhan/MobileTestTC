@@ -33,10 +33,4 @@ public class UserInfoPage extends CommonPage {
         return d.findElementById("com.tongcheng.android:id/myaccount_nickname");
     }
 
-    /**
-     * TextView -- 返回按钮
-     */
-    public WebElement textViewBack() {
-        return d.findElementById("com.tongcheng.android:id/actionbar_title");
-    }
 }

@@ -23,6 +23,11 @@
                     <include name="common0001"/>
                     <include name="common0002"/>
                     <include name="common0003"/>
+                    <include name="common0004"/>
+                    <include name="common0005"/>
+                    <include name="common0006"/>
+                    <include name="common0007"/>
+                    <include name="common0008"/>
                 </methods>
             </class>
         </classes>

@@ -25,10 +25,17 @@ public class CommonPage extends BasicPage {
     //==================== Elements ====================
 
     /**
+     * TextView -- 标题按钮
+     */
+    public WebElement textViewTitle() {
+        return d.findElementById("com.tongcheng.android:id/tv_actionbar_title");
+    }
+
+    /**
      * TextView -- 返回按钮
      */
     public WebElement textViewBack() {
-        return d.findElementById("com.tongcheng.android:id/tv_actionbar_title");
+        return d.findElementById("com.tongcheng.android:id/actionbar_back");
     }
 
     /**
@@ -83,11 +90,6 @@ public class CommonPage extends BasicPage {
     public WebElement textViewCalendarCell(int month, int week, int day) {
         return viewCalendarGrid().get(month).findElements(By.className("android.view.View")).get(week + 1).findElements(By.className("android.widget.TextView")).get(day);
     }
-
-
-
-
-
 
 
     //==================== Functions ====================

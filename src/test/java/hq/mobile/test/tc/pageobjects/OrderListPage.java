@@ -18,9 +18,32 @@ public class OrderListPage extends CommonPage {
      */
     public OrderListPage(AppiumDriver d) {
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement() {
+        try {
+            return textViewTitle();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * TextView -- 返回按钮
+     */
+    public WebElement textViewBack() {
+        return d.findElementById("com.tongcheng.android:id/img_actionbar_icon");
+    }
+
+    /**
+     * TextView -- 标题（三个月内/三个月前）
+     */
+    public WebElement textViewTitle(){
+        return d.findElementById("com.tongcheng.android:id/tv_title");
+    }
 
     /**
      * TextView集合 -- 取消订单
