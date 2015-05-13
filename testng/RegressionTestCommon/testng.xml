@@ -14,7 +14,7 @@
     <parameter name="shortWaitTime" value="5"/>
     <parameter name="cityName" value="苏州"/>
 
-    <test name="测试 -- 我的" preserve-order="true">
+    <test name="测试 -- 我的同程" preserve-order="true">
         <parameter name="uid" value="13584829701"/>
         <parameter name="pwd" value="123456hq"/>
         <classes>
@@ -22,6 +22,7 @@
                 <methods>
                     <include name="common0001"/>
                     <include name="common0002"/>
+                    <include name="common0003"/>
                 </methods>
             </class>
         </classes>

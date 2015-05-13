@@ -31,14 +31,14 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("=== 首页 ===");
             t.log("点击“我的”");
             pHome.imageViewMy().click();
-            t.log("=== 我的 ===");
+            t.log("=== 我的同程页 ===");
             t.log("点击登录");
             pMy.textViewLogin().click();
             t.log("=== 登录页 ===");
             t.log(String.format("输入用户名：[%s]，密码：[%s]", uid, pwd));
             t.log("点击登录按钮");
             pLogin.funcLogin(uid, pwd);
-            t.log("=== 我的 ===");
+            t.log("=== 我的同程页 ===");
             Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
             t.log("验证登录");
             result &= pMy.funcVerifyLoginResult();
@@ -60,19 +60,53 @@ public class RegressionTestCommon extends CommonTestcase {
     @Test
     public void common0002() {
         try {
-            t.log("===== 用例名称：点击会员信息入口 =====");
             boolean result = true;
-            t.log("=== 我的 ===");
+            t.log("===== 用例名称：点击会员信息入口 =====");
+            t.log("=== 我的同程页 ===");
             Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
-            t.log("=== 点击用户名 ===");
+            t.log("点击用户名");
             pMy.textViewLoginName().click();
-
+            t.log("=== 个人资料管理页 ===");
+            result &= pUserInfo.funcSelfcheck("个人资料管理");
+            t.log("点击后退，返回我的同程页");
+            pUserInfo.textViewBack().click();
             Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
             t.log(e.getMessage());
             t.takeScreenshot(d, "common0002错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：签到入口跳转
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0003() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：签到入口跳转 =====");
+            t.log("=== 我的同程页 ===");
+            Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
+            t.log("点击签到");
+            pMy.textViewQiandao().click();
+            t.log("=== 签到页 ===");
+            switchToWebView();
+            pSignPage.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
+            result &= pSignPage.funcSelfcheck("签到页");
+            switchToNativeView();
+            t.log("点击后退，返回我的同程页");
+            pSignPage.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0003错误截图", "jpg");
             Assert.assertEquals(false, true);
         }
     }

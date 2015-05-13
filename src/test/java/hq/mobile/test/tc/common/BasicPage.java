@@ -45,10 +45,11 @@ public class BasicPage {
         }
         t.log(String.format("执行页面 [%s] 的自检功能", pageName));
         if (keyElement() != null) {
-            t.log("自检通过");
+            t.log("Pass -- 自检通过");
             return true;
         }else{
-            t.log("自检失败");
+            t.log(">>>>>>>>>> 自检失败");
+            t.takeScreenshot(d, "自检失败截图", "jpg");
             return false;
         }
     }

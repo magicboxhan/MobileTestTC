@@ -26,6 +26,8 @@ public class CommonTestcase extends BasicTestCase {
     MovieSchedulePage pMovieSchedule;           //电影票 - 场次列表页
     MovieSeatSelectPage pMovieSeatSelect;       //电影票 - 选座页
     MovieWriteOrderPage pMovieWriteOrder;       //电影票 - 订单填写页
+    UserInfoPage pUserInfo;                     //个人资料管理页
+    SignPage pSignPage;                         //签到页
 
     //变量
     String cityName;    //当前城市
@@ -59,6 +61,8 @@ public class CommonTestcase extends BasicTestCase {
         pMovieWriteOrder = new MovieWriteOrderPage(d);
         pSceneryWriteOrder = new SceneryWriteOrderPage(d);
         pOrderList = new OrderListPage(d);
+        pUserInfo = new UserInfoPage(d);
+        pSignPage = new SignPage(d);
     }
 
     /**
@@ -72,6 +76,38 @@ public class CommonTestcase extends BasicTestCase {
         pLoading.funcEnterHomepage();
         //如果定位失败，则手工定位
         pHome.funcCheckLocation(cityName);
+    }
+
+    /**
+     * 尝试切换到 WebView
+     * @return 是否切换成功
+     */
+    public boolean switchToWebView(){
+        for (String viewName : d.getContextHandles()) {
+            if (viewName.toLowerCase().contains("webview")){
+                d.context(viewName);
+                t.log(String.format("切换到 WebView：[%s]", viewName));
+                return true;
+            }
+        }
+        t.log(">>>>>>>>>> 不存在 WebView，无法切换");
+        return false;
+    }
+
+    /**
+     * 尝试切换到 NativeView
+     * @return 是否切换成功
+     */
+    public boolean switchToNativeView(){
+        for (String viewName : d.getContextHandles()) {
+            if (viewName.toLowerCase().contains("native")){
+                d.context(viewName);
+                t.log(String.format("切换到 NativeView：[%s]", viewName));
+                return true;
+            }
+        }
+        t.log(">>>>>>>>>> 不存在 NativeView，无法切换");
+        return false;
     }
 
 }

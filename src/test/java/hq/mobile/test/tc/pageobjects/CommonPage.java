@@ -25,6 +25,13 @@ public class CommonPage extends BasicPage {
     //==================== Elements ====================
 
     /**
+     * TextView -- 返回按钮
+     */
+    public WebElement textViewBack() {
+        return d.findElementById("com.tongcheng.android:id/tv_actionbar_title");
+    }
+
+    /**
      * 底部导航 -- 首页
      */
     public WebElement imageViewHome() {

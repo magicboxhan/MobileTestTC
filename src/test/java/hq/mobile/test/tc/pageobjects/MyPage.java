@@ -92,6 +92,36 @@ public class MyPage extends CommonPage {
         return d.findElementByName("我的财富");
     }
 
+    /**
+     * TextView -- 我的卡券
+     */
+    public WebElement textViewWoDeKaQuan() {
+        return d.findElementByName("我的卡券");
+    }
+
+    /**
+     * TextView -- 行程助手
+     */
+    public WebElement textViewAssistant() {
+        return d.findElementById("com.tongcheng.android:id/tv_assistant");
+    }
+
+    /**
+     * TextView -- 出境达人
+     */
+    public WebElement textViewChuJingCard() {
+        return d.findElementById("com.tongcheng.android:id/tv_mytc_chuJingCard");
+    }
+
+    /**
+     * TextView -- 1元景点日历
+     */
+    public WebElement textViewYiYuanJingDianRiLi() {
+        return d.findElementByName("1元景点日历");
+    }
+
+
+
 
     //==================== Functions ====================
 
