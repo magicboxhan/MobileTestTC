@@ -25,7 +25,7 @@ public class OrderListPage extends CommonPage {
 
     public WebElement keyElement() {
         try {
-            return textViewTitle();
+            return textViewSubTitle();
         } catch (Exception e) {
             return null;
         }
@@ -41,7 +41,7 @@ public class OrderListPage extends CommonPage {
     /**
      * TextView -- 标题（三个月内/三个月前）
      */
-    public WebElement textViewTitle(){
+    public WebElement textViewSubTitle(){
         return d.findElementById("com.tongcheng.android:id/tv_title");
     }
 

@@ -1,6 +1,5 @@
-package hq.mobile.test.tc.common;
+package hq.mobile.test.tc.pageobjects;
 
-import hq.mobile.test.tc.pageobjects.CommonPage;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 
@@ -19,7 +18,7 @@ public class MyMessagePage extends CommonPage{
 
     public WebElement keyElement() {
         try {
-            return textViewTitle();
+            return textViewSubTitle();
         } catch (Exception e) {
             return null;
         }
@@ -30,5 +29,12 @@ public class MyMessagePage extends CommonPage{
      */
     public WebElement textViewTitle() {
         return d.findElementByName("我的消息");
+    }
+
+    /**
+     * TextView -- 标题（用户消息/系统消息）
+     */
+    public WebElement textViewSubTitle(){
+        return d.findElementById("com.tongcheng.android:id/tv_title");
     }
 }
