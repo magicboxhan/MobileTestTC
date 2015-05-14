@@ -1,15 +1,16 @@
 package hq.mobile.test.tc.pageobjects;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 /**
  * Created by hq11258 on 2015/5/14.
- * 立返账户页
+ * 有票卡页
  */
-public class MyLiFanPage extends CommonPage {
+public class MyYouPiaoKaPage extends CommonPage {
 
-    public MyLiFanPage(AppiumDriver d) {
+    public MyYouPiaoKaPage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }
@@ -18,16 +19,16 @@ public class MyLiFanPage extends CommonPage {
 
     public WebElement keyElement() {
         try {
-            return textViewTitle();
+            return spanSubmit();
         } catch (Exception e) {
             return null;
         }
     }
 
     /**
-     * TextView -- 立返账户
+     * Span -- 激活
      */
-    public WebElement textViewTitle() {
-        return d.findElementByName("立返账户");
+    public WebElement spanSubmit(){
+        return d.findElement(By.className("btn-submit"));
     }
 }

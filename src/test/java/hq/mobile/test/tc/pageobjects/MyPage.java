@@ -95,7 +95,7 @@ public class MyPage extends CommonPage {
     /**
      * TextView -- 我的卡券
      */
-    public WebElement textViewWoDeKaQuan() {
+    public WebElement textViewMyCard() {
         return d.findElementByName("我的卡券");
     }
 

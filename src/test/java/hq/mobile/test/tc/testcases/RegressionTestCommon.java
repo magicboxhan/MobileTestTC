@@ -305,9 +305,9 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击奖金账户");
             pMyWealth.textViewJiangJin().click();
             t.log("=== 奖金账户页 ===");
-            result &= pMyJiangJin.funcSelfcheck("奖金账户");
+            result &= pMyJiangJinZhangHu.funcSelfcheck("奖金账户");
             t.log("点击后退，返回我的财富页");
-            pMyJiangJin.textViewBack().click();
+            pMyJiangJinZhangHu.textViewBack().click();
             Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
@@ -333,9 +333,9 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击立返账户");
             pMyWealth.textViewLiFan().click();
             t.log("=== 立返账户页 ===");
-            result &= pMyLiFan.funcSelfcheck("立返账户");
+            result &= pMyLiFanZhangHu.funcSelfcheck("立返账户");
             t.log("点击后退，返回我的财富页");
-            pMyLiFan.textViewBack().click();
+            pMyLiFanZhangHu.textViewBack().click();
             Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
@@ -361,9 +361,9 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击抵现红包");
             pMyWealth.textViewDiXian().click();
             t.log("=== 抵现红包页 ===");
-            result &= pMyDiXian.funcSelfcheck("抵现红包");
+            result &= pMyDiXianHongBao.funcSelfcheck("抵现红包");
             t.log("点击后退，返回我的财富页");
-            pMyDiXian.textViewBack().click();
+            pMyDiXianHongBao.textViewBack().click();
             Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
@@ -391,7 +391,8 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("=== 返现红包页 ===");
             if(pMyWealth.switchToWebView()){
                 //WebView切换成功
-                result &= pMyFanXian.funcSelfcheck("返现红包");
+                pMyFanXianHongBao.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
+                result &= pMyFanXianHongBao.funcSelfcheck("返现红包");
                 pMyWealth.switchToNativeView();
             }else {
                 //WebView切换失败
@@ -400,13 +401,187 @@ public class RegressionTestCommon extends CommonTestcase {
                 result &= false;
             }
             t.log("点击后退，返回我的财富页");
-            pMyFanXian.textViewBack().click();
+            pMyFanXianHongBao.textViewBack().click();
             Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
             t.log(e.getMessage());
             t.takeScreenshot(d, "common0013错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：我的卡券入口
+     */
+    @Parameters({
+            "uid",
+            "pwd"
+    })
+    @Test
+    public void common0014(String uid, String pwd) {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：我的卡券入口 =====");
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            enterHomepage();
+            t.log("=== 首页 ===");
+            t.log("点击“我的”");
+            pHome.imageViewMy().click();
+            t.log("=== 我的同程页 ===");
+            t.log("点击登录");
+            pMy.textViewLogin().click();
+            t.log("=== 登录页 ===");
+            t.log(String.format("输入用户名：[%s]，密码：[%s]", uid, pwd));
+            t.log("点击登录按钮");
+            pLogin.funcLogin(uid, pwd);
+            t.log("=== 我的同程页 ===");
+            Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
+            t.log("验证登录");
+            result &= pMy.funcVerifyLoginResult();
+            t.log("点击我的卡券");
+            pMy.textViewMyCard().click();
+            t.log("=== 我的卡券页 ===");
+            Assert.assertEquals(pMyCard.funcSelfcheck("我的卡券"), true);
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0014错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：电子票入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0015() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：电子票入口 =====");
+            t.log("=== 我的卡券页 ===");
+            Assert.assertEquals(pMyCard.funcSelfcheck("我的卡券"), true);
+            t.log("点击电子票");
+            pMyCard.textViewDianZiPiao().click();
+            t.log("=== 电子票页 ===");
+            result &= pMyDianZiPiao.funcSelfcheck("电子票");
+            t.log("点击后退，返回我的卡券页");
+            pMyDianZiPiao.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0015错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：周末卡入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0016() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：周末卡入口 =====");
+            t.log("=== 我的卡券页 ===");
+            Assert.assertEquals(pMyCard.funcSelfcheck("我的卡券"), true);
+            t.log("点击周末卡");
+            pMyCard.textViewZhouMoKa().click();
+            t.log("=== 周末卡页 ===");
+            result &= pMyZhouMoKa.funcSelfcheck("周末卡");
+            t.log("点击后退，返回我的卡券页");
+            pMyZhouMoKa.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0016错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：爱旅卡入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0017() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：爱旅卡入口 =====");
+            t.log("=== 我的卡券页 ===");
+            Assert.assertEquals(pMyCard.funcSelfcheck("我的卡券"), true);
+            t.log("点击爱旅卡");
+            pMyCard.textViewAiLvKa().click();
+            t.log("=== 爱旅卡页 ===");
+            if(pMyCard.switchToWebView()){
+                //WebView切换成功
+                pMyAiLvKa.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
+                result &= pMyAiLvKa.funcSelfcheck("爱旅卡");
+                pMyAiLvKa.switchToNativeView();
+            }else {
+                //WebView切换失败
+                t.log(">>>>>>>>>> 自检失败");
+                t.takeScreenshot(d, "自检失败截图", "jpg");
+                result &= false;
+            }
+            t.log("点击后退，返回我的卡券页");
+            pMyAiLvKa.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0017错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：有票卡入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0018() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：有票卡入口 =====");
+            t.log("=== 我的卡券页 ===");
+            Assert.assertEquals(pMyCard.funcSelfcheck("我的卡券"), true);
+            t.log("点击有票卡");
+            pMyCard.textViewYouPiaoKa().click();
+            t.log("=== 返现红包页 ===");
+            if(pMyCard.switchToWebView()){
+                //WebView切换成功
+                pMyYouPiaoKa.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
+                result &= pMyYouPiaoKa.funcSelfcheck("有票卡");
+                pMyYouPiaoKa.switchToNativeView();
+            }else {
+                //WebView切换失败
+                t.log(">>>>>>>>>> 自检失败");
+                t.takeScreenshot(d, "自检失败截图", "jpg");
+                result &= false;
+            }
+            t.log("点击后退，返回我的卡券页");
+            pMyYouPiaoKa.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0018错误截图", "jpg");
             Assert.assertEquals(false, true);
         }
     }

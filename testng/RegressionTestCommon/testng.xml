@@ -47,4 +47,18 @@
         </classes>
     </test>
 
+    <test name="测试 -- 我的卡券" preserve-order="true">
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
+                <methods>
+                    <include name="common0014"/>
+                    <include name="common0015"/>
+                    <include name="common0016"/>
+                    <include name="common0017"/>
+                    <include name="common0018"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 </suite>

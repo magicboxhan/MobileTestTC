@@ -13,31 +13,36 @@ import org.testng.annotations.Parameters;
 public class CommonTestcase extends BasicTestCase {
 
     //页面对象实体
-    LoadingPage pLoading;                       //加载页
-    Homepage pHome;                             //首页
-    SearchPage pSearch;                         //搜索页
-    MyPage pMy;                                 //我的同程页
-    OrderListPage pOrderList;                   //我的订单页
-    LoginPage pLogin;                           //登录页
-    ScenerySearchResultPage pSearchResult;      //景点 - 景点列表页
-    SceneryDetailPage pSceneryDetail;           //景点 - 详情页
-    SceneryWriteOrderPage pSceneryWriteOrder;   //景点 - 订单填写页
-    MovieListPage pMovieList;                   //电影票 - 影片列表页
-    MovieCinemaListPage pMovieCinemaList;       //电影票 - 影院列表页
-    MovieSchedulePage pMovieSchedule;           //电影票 - 场次列表页
-    MovieSeatSelectPage pMovieSeatSelect;       //电影票 - 选座页
-    MovieWriteOrderPage pMovieWriteOrder;       //电影票 - 订单填写页
-    UserInfoPage pUserInfo;                     //个人资料管理页
-    SignPage pSignPage;                         //签到页
-    MyMessagePage pMyMessage;                   //我的消息页
-    OrderNeedPayPage pOrderNeedPay;             //待支付订单页
-    OrderNeedGoPage pOrderNeedGo;               //待出行订单页
-    OrderNeedCommentPage pOrderNeedComment;     //待点评订单页
-    MyWealthPage pMyWealth;                     //我的同程 - 我的财富页
-    MyJiangJinPage pMyJiangJin;                 //我的财富 - 奖金账户页
-    MyLiFanPage pMyLiFan;                       //我的财富 - 立返账户页
-    MyDiXianPage pMyDiXian;                     //我的财富 - 抵现红包
-    MyFanXianPage pMyFanXian;                   //我的财富 - 返现红包
+    LoadingPage pLoading;                                           //加载页
+    Homepage pHome;                                                 //首页
+    SearchPage pSearch;                                             //搜索页
+    MyPage pMy;                                                     //我的同程页
+    OrderListPage pOrderList;                                       //我的订单页
+    LoginPage pLogin;                                               //登录页
+    ScenerySearchResultPage pSearchResult;                          //景点 - 景点列表页
+    SceneryDetailPage pSceneryDetail;                               //景点 - 详情页
+    SceneryWriteOrderPage pSceneryWriteOrder;                       //景点 - 订单填写页
+    MovieListPage pMovieList;                                       //电影票 - 影片列表页
+    MovieCinemaListPage pMovieCinemaList;                           //电影票 - 影院列表页
+    MovieSchedulePage pMovieSchedule;                               //电影票 - 场次列表页
+    MovieSeatSelectPage pMovieSeatSelect;                           //电影票 - 选座页
+    MovieWriteOrderPage pMovieWriteOrder;                           //电影票 - 订单填写页
+    UserInfoPage pUserInfo;                                         //个人资料管理页
+    SignPage pSignPage;                                             //签到页
+    MyMessagePage pMyMessage;                                       //我的消息页
+    OrderNeedPayPage pOrderNeedPay;                                 //待支付订单页
+    OrderNeedGoPage pOrderNeedGo;                                   //待出行订单页
+    OrderNeedCommentPage pOrderNeedComment;                         //待点评订单页
+    MyWealthPage pMyWealth;                                         //我的同程 - 我的财富页
+    MyJiangJinZhangHuPage pMyJiangJinZhangHu;                       //我的财富 - 奖金账户页
+    MyLiFanZhangHuPage pMyLiFanZhangHu;                             //我的财富 - 立返账户页
+    MyDiXianHongBaoPage pMyDiXianHongBao;                           //我的财富 - 抵现红包
+    MyFanXianHongBaoPage pMyFanXianHongBao;                         //我的财富 - 返现红包
+    MyCardPage pMyCard;                                             //我的同程 - 我的卡券页
+    MyDianZiPiaoPage pMyDianZiPiao;                                 //我的卡券 - 电子票
+    MyZhouMoKaPage pMyZhouMoKa;                                     //我的卡券 - 周末卡
+    MyAiLvKaPage pMyAiLvKa;                                         //我的卡券 - 爱旅卡
+    MyYouPiaoKaPage pMyYouPiaoKa;                                   //我的卡券 - 有票卡
 
 
     //变量
@@ -79,10 +84,15 @@ public class CommonTestcase extends BasicTestCase {
         pOrderNeedGo = new OrderNeedGoPage(d);
         pOrderNeedComment = new OrderNeedCommentPage(d);
         pMyWealth = new MyWealthPage(d);
-        pMyJiangJin = new MyJiangJinPage(d);
-        pMyLiFan = new MyLiFanPage(d);
-        pMyDiXian = new MyDiXianPage(d);
-        pMyFanXian = new MyFanXianPage(d);
+        pMyJiangJinZhangHu = new MyJiangJinZhangHuPage(d);
+        pMyLiFanZhangHu = new MyLiFanZhangHuPage(d);
+        pMyDiXianHongBao = new MyDiXianHongBaoPage(d);
+        pMyFanXianHongBao = new MyFanXianHongBaoPage(d);
+        pMyCard = new MyCardPage(d);
+        pMyDianZiPiao = new MyDianZiPiaoPage(d);
+        pMyZhouMoKa = new MyZhouMoKaPage(d);
+        pMyAiLvKa = new MyAiLvKaPage(d);
+        pMyYouPiaoKa = new MyYouPiaoKaPage(d);
     }
 
     /**

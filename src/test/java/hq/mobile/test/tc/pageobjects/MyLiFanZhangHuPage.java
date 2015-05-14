@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by hq11258 on 2015/5/14.
- * 奖金账户页
+ * 立返账户页
  */
-public class MyJiangJinPage extends CommonPage {
+public class MyLiFanZhangHuPage extends CommonPage {
 
-    public MyJiangJinPage(AppiumDriver d) {
+    public MyLiFanZhangHuPage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }
@@ -25,9 +25,9 @@ public class MyJiangJinPage extends CommonPage {
     }
 
     /**
-     * TextView -- 奖金账户
+     * TextView -- 立返账户
      */
     public WebElement textViewTitle() {
-        return d.findElementByName("奖金账户");
+        return d.findElementByName("立返账户");
     }
 }
