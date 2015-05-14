@@ -28,6 +28,8 @@
                     <include name="common0006"/>
                     <include name="common0007"/>
                     <include name="common0008"/>
+                    <include name="common0019"/>
+                    <include name="common0020"/>
                 </methods>
             </class>
         </classes>

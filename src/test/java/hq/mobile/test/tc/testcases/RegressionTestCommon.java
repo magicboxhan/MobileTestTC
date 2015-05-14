@@ -401,7 +401,7 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击返现红包");
             pMyWealth.textViewFanXian().click();
             t.log("=== 返现红包页 ===");
-            if(pMyWealth.switchToWebView()){
+            if(pMyFanXianHongBao.switchToWebView()){
                 //WebView切换成功
                 pMyFanXianHongBao.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
                 result &= pMyFanXianHongBao.funcSelfcheck("返现红包");
@@ -541,7 +541,7 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击爱旅卡");
             pMyCard.textViewAiLvKa().click();
             t.log("=== 爱旅卡页 ===");
-            if(pMyCard.switchToWebView()){
+            if(pMyAiLvKa.switchToWebView()){
                 //WebView切换成功
                 pMyAiLvKa.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
                 result &= pMyAiLvKa.funcSelfcheck("爱旅卡");
@@ -580,7 +580,7 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击有票卡");
             pMyCard.textViewYouPiaoKa().click();
             t.log("=== 返现红包页 ===");
-            if(pMyCard.switchToWebView()){
+            if(pMyYouPiaoKa.switchToWebView()){
                 //WebView切换成功
                 pMyYouPiaoKa.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
                 result &= pMyYouPiaoKa.funcSelfcheck("有票卡");
@@ -600,6 +600,74 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log(e.getMessage());
             pCommon.switchToNativeView();
             t.takeScreenshot(d, "common0018错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：行程助手入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0019() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：行程助手入口 =====");
+            t.log("=== 我的同程页 ===");
+            Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
+            t.log("点击行程助手");
+            pMy.textViewAssistant().click();
+            t.log("=== 行程助手页 ===");
+            result &= pMyAssistant.funcSelfcheck("行程助手");
+            t.log("点击后退，返回我的同程页");
+            pMyAssistant.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            pCommon.switchToNativeView();
+            t.takeScreenshot(d, "common0019错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：出境达人入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0020() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：出境达人入口 =====");
+            t.log("=== 我的同程页 ===");
+            Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
+            t.log("点击出境达人");
+            pMy.textViewChuJingCard().click();
+            t.log("=== 出境达人页 ===");
+            if(pMyChuJingDaRen.switchToWebView()){
+                //WebView切换成功
+                pMyChuJingDaRen.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
+                result &= pMyChuJingDaRen.funcSelfcheck("出境达人");
+                pMyChuJingDaRen.switchToNativeView();
+            }else {
+                //WebView切换失败
+                t.log(">>>>>>>>>> 自检失败");
+                t.takeScreenshot(d, "自检失败截图", "jpg");
+                result &= false;
+            }
+            t.log("点击后退，返回我的同程页");
+            pMyChuJingDaRen.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            pCommon.switchToNativeView();
+            t.takeScreenshot(d, "common0020错误截图", "jpg");
             Assert.assertEquals(false, true);
         }
     }
