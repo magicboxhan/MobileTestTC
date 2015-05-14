@@ -13,6 +13,7 @@ import org.testng.annotations.Parameters;
 public class CommonTestcase extends BasicTestCase {
 
     //页面对象实体
+    CommonPage pCommon;                                             //公共页
     LoadingPage pLoading;                                           //加载页
     Homepage pHome;                                                 //首页
     SearchPage pSearch;                                             //搜索页
@@ -63,6 +64,7 @@ public class CommonTestcase extends BasicTestCase {
         cityName = pCityName;
 
         //初始化页面对象实体
+        pCommon = new CommonPage(d);
         pLoading = new LoadingPage(d);
         pHome = new Homepage(d);
         pSearch = new SearchPage(d);
