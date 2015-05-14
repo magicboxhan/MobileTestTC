@@ -88,7 +88,7 @@ public class MyPage extends CommonPage {
     /**
      * TextView -- 我的财富
      */
-    public WebElement textViewWoDeCaiFu() {
+    public WebElement textViewMyWealth() {
         return d.findElementByName("我的财富");
     }
 

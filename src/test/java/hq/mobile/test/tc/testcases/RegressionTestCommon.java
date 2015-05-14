@@ -247,4 +247,166 @@ public class RegressionTestCommon extends CommonTestcase {
             Assert.assertEquals(false, true);
         }
     }
+
+    /**
+     * 用例名称：我的财富入口
+     */
+    @Parameters({
+            "uid",
+            "pwd"
+    })
+    @Test
+    public void common0009(String uid, String pwd) {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：我的财富入口 =====");
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            enterHomepage();
+            t.log("=== 首页 ===");
+            t.log("点击“我的”");
+            pHome.imageViewMy().click();
+            t.log("=== 我的同程页 ===");
+            t.log("点击登录");
+            pMy.textViewLogin().click();
+            t.log("=== 登录页 ===");
+            t.log(String.format("输入用户名：[%s]，密码：[%s]", uid, pwd));
+            t.log("点击登录按钮");
+            pLogin.funcLogin(uid, pwd);
+            t.log("=== 我的同程页 ===");
+            Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
+            t.log("验证登录");
+            result &= pMy.funcVerifyLoginResult();
+            t.log("点击我的财富");
+            pMy.textViewMyWealth().click();
+            t.log("=== 我的财富页 ===");
+            Assert.assertEquals(pMyWealth.funcSelfcheck("我的财富"), true);
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0009错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：奖金账户入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0010() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：奖金账户入口 =====");
+            t.log("=== 我的财富页 ===");
+            Assert.assertEquals(pMyWealth.funcSelfcheck("我的财富"), true);
+            t.log("点击奖金账户");
+            pMyWealth.textViewJiangJin().click();
+            t.log("=== 奖金账户页 ===");
+            result &= pMyJiangJin.funcSelfcheck("奖金账户");
+            t.log("点击后退，返回我的财富页");
+            pMyJiangJin.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0010错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：立返账户入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0011() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：立返账户入口 =====");
+            t.log("=== 我的财富页 ===");
+            Assert.assertEquals(pMyWealth.funcSelfcheck("我的财富"), true);
+            t.log("点击立返账户");
+            pMyWealth.textViewLiFan().click();
+            t.log("=== 立返账户页 ===");
+            result &= pMyLiFan.funcSelfcheck("立返账户");
+            t.log("点击后退，返回我的财富页");
+            pMyLiFan.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0011错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：抵现红包入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0012() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：抵现红包入口 =====");
+            t.log("=== 我的财富页 ===");
+            Assert.assertEquals(pMyWealth.funcSelfcheck("我的财富"), true);
+            t.log("点击抵现红包");
+            pMyWealth.textViewDiXian().click();
+            t.log("=== 抵现红包页 ===");
+            result &= pMyDiXian.funcSelfcheck("抵现红包");
+            t.log("点击后退，返回我的财富页");
+            pMyDiXian.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0012错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：返现红包入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0013() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：返现红包入口 =====");
+            t.log("=== 我的财富页 ===");
+            Assert.assertEquals(pMyWealth.funcSelfcheck("我的财富"), true);
+            t.log("点击返现红包");
+            pMyWealth.textViewFanXian().click();
+            t.log("=== 返现红包页 ===");
+            if(pMyWealth.switchToWebView()){
+                //WebView切换成功
+                result &= pMyFanXian.funcSelfcheck("返现红包");
+                pMyWealth.switchToNativeView();
+            }else {
+                //WebView切换失败
+                t.log(">>>>>>>>>> Fail -- 自检失败");
+                result &= false;
+            }
+            t.log("点击后退，返回我的财富页");
+            pMyFanXian.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            t.takeScreenshot(d, "common0013错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
 }

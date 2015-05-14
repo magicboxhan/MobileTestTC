@@ -33,6 +33,11 @@ public class CommonTestcase extends BasicTestCase {
     OrderNeedPayPage pOrderNeedPay;             //待支付订单页
     OrderNeedGoPage pOrderNeedGo;               //待出行订单页
     OrderNeedCommentPage pOrderNeedComment;     //待点评订单页
+    MyWealthPage pMyWealth;                     //我的同程 - 我的财富页
+    MyJiangJinPage pMyJiangJin;                 //我的财富 - 奖金账户页
+    MyLiFanPage pMyLiFan;                       //我的财富 - 立返账户页
+    MyDiXianPage pMyDiXian;                     //我的财富 - 抵现红包
+    MyFanXianPage pMyFanXian;                   //我的财富 - 返现红包
 
 
     //变量
@@ -73,6 +78,11 @@ public class CommonTestcase extends BasicTestCase {
         pOrderNeedPay = new OrderNeedPayPage(d);
         pOrderNeedGo = new OrderNeedGoPage(d);
         pOrderNeedComment = new OrderNeedCommentPage(d);
+        pMyWealth = new MyWealthPage(d);
+        pMyJiangJin = new MyJiangJinPage(d);
+        pMyLiFan = new MyLiFanPage(d);
+        pMyDiXian = new MyDiXianPage(d);
+        pMyFanXian = new MyFanXianPage(d);
     }
 
     /**
@@ -86,38 +96,6 @@ public class CommonTestcase extends BasicTestCase {
         pLoading.funcEnterHomepage();
         //如果定位失败，则手工定位
         pHome.funcCheckLocation(cityName);
-    }
-
-    /**
-     * 尝试切换到 WebView
-     * @return 是否切换成功
-     */
-    public boolean switchToWebView(){
-        for (String viewName : d.getContextHandles()) {
-            if (viewName.toLowerCase().contains("webview")){
-                d.context(viewName);
-                t.log(String.format("切换到 WebView：[%s]", viewName));
-                return true;
-            }
-        }
-        t.log(">>>>>>>>>> 不存在 WebView，无法切换");
-        return false;
-    }
-
-    /**
-     * 尝试切换到 NativeView
-     * @return 是否切换成功
-     */
-    public boolean switchToNativeView(){
-        for (String viewName : d.getContextHandles()) {
-            if (viewName.toLowerCase().contains("native")){
-                d.context(viewName);
-                t.log(String.format("切换到 NativeView：[%s]", viewName));
-                return true;
-            }
-        }
-        t.log(">>>>>>>>>> 不存在 NativeView，无法切换");
-        return false;
     }
 
 }

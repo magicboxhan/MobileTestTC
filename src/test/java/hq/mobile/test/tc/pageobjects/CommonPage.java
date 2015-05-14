@@ -25,6 +25,13 @@ public class CommonPage extends BasicPage {
     //==================== Elements ====================
 
     /**
+     * WebView
+     */
+    public WebElement webView() {
+        return d.findElementByClassName("android.webkit.WebView");
+    }
+
+    /**
      * TextView -- 标题按钮
      */
     public WebElement textViewTitle() {
@@ -93,4 +100,54 @@ public class CommonPage extends BasicPage {
 
 
     //==================== Functions ====================
+
+    /**
+     * 检查当前页面是否存在 WebView 控件
+     * @return
+     */
+    public boolean funcDoesWebViewExist(){
+        try{
+            webView();
+            t.log("当前页面存在 WebView 控件");
+            return true;
+        }catch (Exception e){
+            t.log("当前页面不存在 WebView 控件");
+            return false;
+        }
+    }
+
+    /**
+     * 尝试切换到 WebView
+     * @return 是否切换成功
+     */
+    public boolean switchToWebView(){
+        if (!funcDoesWebViewExist()){
+            return false;
+        }
+        for (String viewName : d.getContextHandles()) {
+            if (viewName.toLowerCase().contains("webview")){
+                d.context(viewName);
+                t.log(String.format("切换到 WebView：[%s]", viewName));
+                return true;
+            }
+        }
+        t.log(">>>>>>>>>> 不存在 WebView，无法切换");
+        return false;
+    }
+
+    /**
+     * 尝试切换到 NativeView
+     * @return 是否切换成功
+     */
+    public boolean switchToNativeView(){
+        for (String viewName : d.getContextHandles()) {
+            if (viewName.toLowerCase().contains("native")){
+                d.context(viewName);
+                t.log(String.format("切换到 NativeView：[%s]", viewName));
+                return true;
+            }
+        }
+        t.log(">>>>>>>>>> 不存在 NativeView，无法切换");
+        return false;
+    }
 }
