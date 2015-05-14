@@ -395,7 +395,8 @@ public class RegressionTestCommon extends CommonTestcase {
                 pMyWealth.switchToNativeView();
             }else {
                 //WebView切换失败
-                t.log(">>>>>>>>>> Fail -- 自检失败");
+                t.log(">>>>>>>>>> 自检失败");
+                t.takeScreenshot(d, "自检失败截图", "jpg");
                 result &= false;
             }
             t.log("点击后退，返回我的财富页");
