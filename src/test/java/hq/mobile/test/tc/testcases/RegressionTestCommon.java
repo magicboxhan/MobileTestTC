@@ -579,7 +579,7 @@ public class RegressionTestCommon extends CommonTestcase {
             Assert.assertEquals(pMyCard.funcSelfcheck("我的卡券"), true);
             t.log("点击有票卡");
             pMyCard.textViewYouPiaoKa().click();
-            t.log("=== 返现红包页 ===");
+            t.log("=== 有票卡页 ===");
             if (pMyYouPiaoKa.funcSwitchToWebView()) {
                 //WebView切换成功
                 pMyYouPiaoKa.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
