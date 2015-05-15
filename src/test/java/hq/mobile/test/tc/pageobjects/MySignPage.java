@@ -43,7 +43,7 @@ public class MySignPage extends CommonPage {
         try {
             return d.findElementById("com.tongcheng.android:id/actionbar_back");
         } catch (Exception e) {
-            return d.findElementById("com.tongcheng.android:id/img_actionbar_icon");
+            return d.findElementById("com.tongcheng.android:id/img_actionbar_back");
         }
     }
 
