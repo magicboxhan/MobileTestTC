@@ -28,7 +28,7 @@ public class CommonTestcase extends BasicTestCase {
     MovieSeatSelectPage pMovieSeatSelect;                           //电影票 - 选座页
     MovieWriteOrderPage pMovieWriteOrder;                           //电影票 - 订单填写页
     UserInfoPage pUserInfo;                                         //个人资料管理页
-    SignPage pSignPage;                                             //签到页
+    MySignPage pMySignPage;                                             //签到页
     MyMessagePage pMyMessage;                                       //我的消息页
     OrderNeedPayPage pOrderNeedPay;                                 //待支付订单页
     OrderNeedGoPage pOrderNeedGo;                                   //待出行订单页
@@ -92,7 +92,7 @@ public class CommonTestcase extends BasicTestCase {
         pSceneryWriteOrder = new SceneryWriteOrderPage(d);
         pOrderList = new OrderListPage(d);
         pUserInfo = new UserInfoPage(d);
-        pSignPage = new SignPage(d);
+        pMySignPage = new MySignPage(d);
         pMyMessage = new MyMessagePage(d);
         pOrderNeedPay = new OrderNeedPayPage(d);
         pOrderNeedGo = new OrderNeedGoPage(d);

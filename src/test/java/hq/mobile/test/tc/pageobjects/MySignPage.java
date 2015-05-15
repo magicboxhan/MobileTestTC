@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
  * Created by hq11258 on 2015/5/11.
  * 签到页
  */
-public class SignPage extends CommonPage {
+public class MySignPage extends CommonPage {
 
-    public SignPage(AppiumDriver d) {
+    public MySignPage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }
@@ -33,6 +33,17 @@ public class SignPage extends CommonPage {
             return d.findElementById("com.tongcheng.android:id/tv_actionbar_title");
         } catch (Exception e) {
             return d.findElementById("com.tongcheng.android:id/actionbar_title");
+        }
+    }
+
+    /**
+     * TextView -- 返回按钮
+     */
+    public WebElement textViewBack() {
+        try {
+            return d.findElementById("com.tongcheng.android:id/actionbar_back");
+        } catch (Exception e) {
+            return d.findElementById("com.tongcheng.android:id/img_actionbar_icon");
         }
     }
 
