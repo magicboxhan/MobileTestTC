@@ -1,7 +1,6 @@
 package hq.mobile.test.tc.testcases;
 
 import hq.mobile.test.tc.common.BasicTestCase;
-import hq.mobile.test.tc.pageobjects.MyMessagePage;
 import hq.mobile.test.tc.pageobjects.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -50,6 +49,13 @@ public class CommonTestcase extends BasicTestCase {
     MyChangYongXinXiPage pMyChangYongXinXi;                         //我的同程 - 常用信息
     MyChangYongLvKePage pMyChangYongLvKe;                           //常用信息 - 常用旅客
     MyChangYongYouJiDiZhiPage pMyChangYongYouJiDiZhi;               //常用信息 - 常用邮寄地址
+    MyFavouritePage pMyFavourite;                                   //我的同程 - 我的收藏
+    MyChuJingYouLunShouCangPage pMyChuJingYouLunShouCang;           //我的收藏 - 出境游轮收藏
+    MyFaXianShouCang pMyFaXianShouCang;                             //我的收藏 - 发现收藏
+    MyGongLueShouCangPage pMyGongLueShouCang;                       //我的收藏 - 攻略收藏
+    MyJingDianMenPiaoShouCangPage pMyJingDianMenPiaoShouCang;       //我的收藏 - 景点门票收藏
+    MyJiuDianShouCangPage pMyJiuDianShouCang;                       //我的收藏 - 酒店收藏
+    MyZhouBianYouShouCangPage pMyZhouBianYouShouCang;               //我的收藏 - 周边游收藏
 
 
     //变量
@@ -107,6 +113,13 @@ public class CommonTestcase extends BasicTestCase {
         pMyChangYongXinXi = new MyChangYongXinXiPage(d);
         pMyChangYongLvKe = new MyChangYongLvKePage(d);
         pMyChangYongYouJiDiZhi = new MyChangYongYouJiDiZhiPage(d);
+        pMyFavourite = new MyFavouritePage(d);
+        pMyChuJingYouLunShouCang = new MyChuJingYouLunShouCangPage(d);
+        pMyFaXianShouCang = new MyFaXianShouCang(d);
+        pMyGongLueShouCang = new MyGongLueShouCangPage(d);
+        pMyJingDianMenPiaoShouCang = new MyJingDianMenPiaoShouCangPage(d);
+        pMyJiuDianShouCang = new MyJiuDianShouCangPage(d);
+        pMyZhouBianYouShouCang = new MyZhouBianYouShouCangPage(d);
     }
 
     /**

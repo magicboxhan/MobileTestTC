@@ -1,6 +1,5 @@
 package hq.mobile.test.tc.pageobjects;
 
-import hq.mobile.test.tc.common.BasicPage;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 

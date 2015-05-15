@@ -1,10 +1,7 @@
 package hq.mobile.test.tc.pageobjects;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 /**
  * Created by hq11258 on 2015/4/28.

@@ -76,4 +76,20 @@
         </classes>
     </test>
 
+    <test name="测试 -- 我的收藏" preserve-order="true">
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
+                <methods>
+                    <include name="common0025"/>
+                    <include name="common0026"/>
+                    <include name="common0027"/>
+                    <include name="common0028"/>
+                    <include name="common0029"/>
+                    <include name="common0030"/>
+                    <include name="common0031"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 </suite>

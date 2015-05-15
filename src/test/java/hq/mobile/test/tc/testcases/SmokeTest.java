@@ -4,7 +4,6 @@ import hq.mobile.test.tc.common.BasicTestCase;
 import hq.mobile.test.tc.pageobjects.*;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 

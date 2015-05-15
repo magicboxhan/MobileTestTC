@@ -4,12 +4,12 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * Created by hq11258 on 2015/5/13.
- * 待支付订单页
+ * Created by hq11258 on 2015/5/15.
+ * 周边游收藏页
  */
-public class OrderNeedPayPage extends CommonPage {
+public class MyZhouBianYouShouCangPage extends CommonPage {
 
-    public OrderNeedPayPage(AppiumDriver d) {
+    public MyZhouBianYouShouCangPage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }
@@ -25,16 +25,9 @@ public class OrderNeedPayPage extends CommonPage {
     }
 
     /**
-     * TextView -- 返回按钮
-     */
-    public WebElement textViewBack() {
-        return d.findElementById("com.tongcheng.android:id/img_actionbar_icon");
-    }
-
-    /**
-     * TextView -- 标题
+     * TextView -- 周边游收藏
      */
     public WebElement textViewTitle() {
-        return d.findElementByName("待支付");
+        return d.findElementByName("周边游收藏");
     }
 }

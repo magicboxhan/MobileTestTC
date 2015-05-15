@@ -729,7 +729,7 @@ public class RegressionTestCommon extends CommonTestcase {
             Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
             t.log("验证登录");
             result &= pMy.funcVerifyLoginResult();
-            t.log("向下滑动屏幕");
+            t.log("向上滑动屏幕");
             pMy.funcSwipeUp();
             t.log("点击常用信息");
             pMy.textViewChangYongXinXi().click();
@@ -800,6 +800,225 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
             t.takeScreenshot(d, "common0024错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：我的收藏入口
+     */
+    @Parameters({
+            "uid",
+            "pwd"
+    })
+    @Test
+    public void common0025(String uid, String pwd) {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：我的收藏入口 =====");
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            enterHomepage();
+            t.log("=== 首页 ===");
+            t.log("点击“我的”");
+            pHome.imageViewMy().click();
+            t.log("=== 我的同程页 ===");
+            t.log("点击登录");
+            pMy.textViewLogin().click();
+            t.log("=== 登录页 ===");
+            t.log(String.format("输入用户名：[%s]，密码：[%s]", uid, pwd));
+            t.log("点击登录按钮");
+            pLogin.funcLogin(uid, pwd);
+            t.log("=== 我的同程页 ===");
+            Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
+            t.log("验证登录");
+            result &= pMy.funcVerifyLoginResult();
+            t.log("向上滑动屏幕");
+            pMy.funcSwipeUp();
+            t.log("点击我的收藏");
+            pMy.textViewMyFavourite().click();
+            t.log("=== 我的收藏页 ===");
+            Assert.assertEquals(pMyFavourite.funcSelfcheck("我的收藏"), true);
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            pCommon.funcSwitchToNativeView();
+            t.takeScreenshot(d, "common0025错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：酒店收藏入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0026() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：酒店收藏入口 =====");
+            t.log("=== 我的收藏页 ===");
+            Assert.assertEquals(pMyFavourite.funcSelfcheck("我的收藏"), true);
+            t.log("点击酒店收藏");
+            pMyFavourite.textViewJiuDianShouCang().click();
+            t.log("=== 酒店收藏页 ===");
+            result &= pMyJiuDianShouCang.funcSelfcheck("酒店收藏");
+            t.log("点击后退，返回我的收藏页");
+            pMyJiuDianShouCang.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            pCommon.funcSwitchToNativeView();
+            t.takeScreenshot(d, "common0026错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：景点门票收藏入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0027() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：景点门票收藏入口 =====");
+            t.log("=== 我的收藏页 ===");
+            Assert.assertEquals(pMyFavourite.funcSelfcheck("我的收藏"), true);
+            t.log("点击景点门票收藏");
+            pMyFavourite.textViewJingDianMenPiaoShouCang().click();
+            t.log("=== 景点门票收藏页 ===");
+            result &= pMyJingDianMenPiaoShouCang.funcSelfcheck("景点门票收藏");
+            t.log("点击后退，返回我的收藏页");
+            pMyJingDianMenPiaoShouCang.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            pCommon.funcSwitchToNativeView();
+            t.takeScreenshot(d, "common0027错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：周边游收藏入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0028() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：周边游收藏入口 =====");
+            t.log("=== 我的收藏页 ===");
+            Assert.assertEquals(pMyFavourite.funcSelfcheck("我的收藏"), true);
+            t.log("点击周边游收藏");
+            pMyFavourite.textViewZhouBianYouShouCang().click();
+            t.log("=== 周边游收藏页 ===");
+            result &= pMyZhouBianYouShouCang.funcSelfcheck("周边游收藏");
+            t.log("点击后退，返回我的收藏页");
+            pMyZhouBianYouShouCang.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            pCommon.funcSwitchToNativeView();
+            t.takeScreenshot(d, "common0028错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：出境邮轮收藏入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0029() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：出境邮轮收藏入口 =====");
+            t.log("=== 我的收藏页 ===");
+            Assert.assertEquals(pMyFavourite.funcSelfcheck("我的收藏"), true);
+            t.log("点击出境邮轮收藏");
+            pMyFavourite.textViewChuJingYouLunShouCang().click();
+            t.log("=== 酒店收藏页 ===");
+            result &= pMyChuJingYouLunShouCang.funcSelfcheck("出境邮轮收藏");
+            t.log("点击后退，返回我的收藏页");
+            pMyChuJingYouLunShouCang.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            pCommon.funcSwitchToNativeView();
+            t.takeScreenshot(d, "common0029错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：攻略收藏入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0030() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：攻略收藏入口 =====");
+            t.log("=== 我的收藏页 ===");
+            Assert.assertEquals(pMyFavourite.funcSelfcheck("我的收藏"), true);
+            t.log("点击攻略收藏");
+            pMyFavourite.textViewGongLueShouCang().click();
+            t.log("=== 攻略收藏页 ===");
+            result &= pMyGongLueShouCang.funcSelfcheck("攻略收藏");
+            t.log("点击后退，返回我的收藏页");
+            pMyGongLueShouCang.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            pCommon.funcSwitchToNativeView();
+            t.takeScreenshot(d, "common0030错误截图", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+    /**
+     * 用例名称：发现收藏入口
+     */
+    @Parameters({
+    })
+    @Test
+    public void common0031() {
+        try {
+            boolean result = true;
+            t.log("===== 用例名称：发现收藏入口 =====");
+            t.log("=== 我的收藏页 ===");
+            Assert.assertEquals(pMyFavourite.funcSelfcheck("我的收藏"), true);
+            t.log("点击发现收藏");
+            pMyFavourite.textViewFaXianShouCang().click();
+            t.log("=== 发现收藏页 ===");
+            result &= pMyFaXianShouCang.funcSelfcheck("发现收藏");
+            t.log("点击后退，返回我的收藏页");
+            pMyFaXianShouCang.textViewBack().click();
+            Assert.assertEquals(result, true);
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            pCommon.funcSwitchToNativeView();
+            t.takeScreenshot(d, "common0031错误截图", "jpg");
             Assert.assertEquals(false, true);
         }
     }

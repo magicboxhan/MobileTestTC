@@ -5,11 +5,10 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by hq11258 on 2015/5/15.
- * 一元景点日历
+ * 出境游轮收藏页
  */
-public class MyYiYuanJingDianPage extends CommonPage {
-
-    public MyYiYuanJingDianPage(AppiumDriver d) {
+public class MyChuJingYouLunShouCangPage extends CommonPage {
+    public MyChuJingYouLunShouCangPage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }
@@ -18,16 +17,18 @@ public class MyYiYuanJingDianPage extends CommonPage {
 
     public WebElement keyElement() {
         try {
-            return linearLayoutCalendar();
+            return textViewSubTitle();
         } catch (Exception e) {
             return null;
         }
     }
 
     /**
-     * LinearLayout -- 日历
+     * TextView -- 出境游收藏
      */
-    public WebElement linearLayoutCalendar() {
-        return d.findElementById("com.tongcheng.android:id/calendar_view");
+    public WebElement textViewSubTitle() {
+        return d.findElementByName("出境游收藏");
     }
+
+
 }

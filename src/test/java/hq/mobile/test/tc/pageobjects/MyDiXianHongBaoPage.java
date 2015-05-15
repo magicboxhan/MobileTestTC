@@ -18,7 +18,7 @@ public class MyDiXianHongBaoPage extends CommonPage {
 
     public WebElement keyElement() {
         try {
-            return textViewSubTitle();
+            return textViewSubTitle(0);
         } catch (Exception e) {
             return null;
         }
@@ -27,8 +27,8 @@ public class MyDiXianHongBaoPage extends CommonPage {
     /**
      * TextView -- 标题（未使用/已失效）
      */
-    public WebElement textViewSubTitle() {
-        return d.findElementById("com.tongcheng.android:id/tv_title");
+    public WebElement textViewSubTitle(int index) {
+        return d.findElementsById("com.tongcheng.android:id/tv_title").get(index);
     }
 
     /**
