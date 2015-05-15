@@ -26,7 +26,7 @@ public class RegressionTestCommon extends CommonTestcase {
         try {
             t.log("===== 用例名称：我的 -- 未登录状态 -- 登录 =====");
             boolean result = true;
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
             enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
@@ -268,7 +268,7 @@ public class RegressionTestCommon extends CommonTestcase {
         try {
             boolean result = true;
             t.log("===== 用例名称：我的财富入口 =====");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
             enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
@@ -437,7 +437,7 @@ public class RegressionTestCommon extends CommonTestcase {
         try {
             boolean result = true;
             t.log("===== 用例名称：我的卡券入口 =====");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
             enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
@@ -713,7 +713,7 @@ public class RegressionTestCommon extends CommonTestcase {
         try {
             boolean result = true;
             t.log("===== 用例名称：常用信息入口 =====");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
             enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
@@ -816,7 +816,7 @@ public class RegressionTestCommon extends CommonTestcase {
         try {
             boolean result = true;
             t.log("===== 用例名称：我的收藏入口 =====");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
             enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");

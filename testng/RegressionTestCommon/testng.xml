@@ -9,7 +9,7 @@
     <parameter name="appName" value="tongcheng_client_731_debug.apk"/>
     <parameter name="appPackage" value="com.tongcheng.android"/>
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
-    <parameter name="implicitlyWaitTime" value="10"/>
+    <parameter name="implicitlyWaitTime" value="15"/>
     <parameter name="keyElementWaitTime" value="30"/>
     <parameter name="shortWaitTime" value="5"/>
     <parameter name="cityName" value="苏州"/>
