@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
  */
 public class SignPage extends CommonPage {
 
-    public SignPage(AppiumDriver d){
+    public SignPage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }

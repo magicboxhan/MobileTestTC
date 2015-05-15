@@ -30,6 +30,7 @@
                     <include name="common0008"/>
                     <include name="common0019"/>
                     <include name="common0020"/>
+                    <include name="common0021"/>
                 </methods>
             </class>
         </classes>
@@ -58,6 +59,18 @@
                     <include name="common0016"/>
                     <include name="common0017"/>
                     <include name="common0018"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="测试 -- 常用信息" preserve-order="true">
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
+                <methods>
+                    <include name="common0022"/>
+                    <include name="common0023"/>
+                    <include name="common0024"/>
                 </methods>
             </class>
         </classes>

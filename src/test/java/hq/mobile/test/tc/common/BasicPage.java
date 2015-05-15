@@ -36,6 +36,7 @@ public class BasicPage {
 
     /**
      * 自检
+     *
      * @return 自检是否通过
      */
     public boolean funcSelfcheck(String pageName) {
@@ -47,7 +48,7 @@ public class BasicPage {
         if (keyElement() != null) {
             t.log("Pass -- 自检通过");
             return true;
-        }else{
+        } else {
             t.log(">>>>>>>>>> 自检失败");
             t.takeScreenshot(d, "自检失败截图", "jpg");
             return false;

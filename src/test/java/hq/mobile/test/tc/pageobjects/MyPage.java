@@ -120,7 +120,47 @@ public class MyPage extends CommonPage {
         return d.findElementByName("1元景点日历");
     }
 
+    /**
+     * TextView -- 常用信息
+     */
+    public WebElement textViewChangYongXinXi() {
+        return d.findElementByName("常用信息");
+    }
 
+    /**
+     * TextView -- 我的收藏
+     */
+    public WebElement textViewMyFavourite() {
+        return d.findElementByName("我的收藏");
+    }
+
+    /**
+     * TextView -- 我的图片
+     */
+    public WebElement textViewMyPicture() {
+        return d.findElementByName("我的图片");
+    }
+
+    /**
+     * TextView -- 我的同程故事
+     */
+    public WebElement textViewMyStory() {
+        return d.findElementById("com.tongcheng.android:id/tv_mytc_invite");
+    }
+
+    /**
+     * TextView -- 设置
+     */
+    public WebElement textViewSetting() {
+        return d.findElementByName("设置");
+    }
+
+    /**
+     * TextView -- 关于同程旅游
+     */
+    public WebElement textViewAbout() {
+        return d.findElementById("com.tongcheng.android:id/tv_about");
+    }
 
 
     //==================== Functions ====================
@@ -135,7 +175,7 @@ public class MyPage extends CommonPage {
             return true;
         } catch (Exception e) {
             t.log(">>>>>>>>>> Fail -- 登录失败");
-            t.takeScreenshot(d, "loginFailed", "jpg");
+            t.takeScreenshot(d, "登录失败错误截图", "jpg");
             return false;
         }
     }

@@ -4,12 +4,12 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * Created by hq11258 on 2015/5/14.
- * 抵现红包页
+ * Created by hq11258 on 2015/5/15.
+ * 常用旅客页
  */
-public class MyDiXianHongBaoPage extends CommonPage {
+public class MyChangYongLvKePage extends CommonPage {
 
-    public MyDiXianHongBaoPage(AppiumDriver d) {
+    public MyChangYongLvKePage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }
@@ -18,17 +18,17 @@ public class MyDiXianHongBaoPage extends CommonPage {
 
     public WebElement keyElement() {
         try {
-            return textViewSubTitle();
+            return buttonAdd();
         } catch (Exception e) {
             return null;
         }
     }
 
     /**
-     * TextView -- 标题（未使用/已失效）
+     * Button -- 添加常用旅客
      */
-    public WebElement textViewSubTitle() {
-        return d.findElementById("com.tongcheng.android:id/tv_title");
+    public WebElement buttonAdd() {
+        return d.findElementById("com.tongcheng.android:id/contact_btn_add");
     }
 
     /**

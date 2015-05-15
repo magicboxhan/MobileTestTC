@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
  * Created by hq11258 on 2015/5/14.
  * 我的财富页
  */
-public class MyWealthPage extends CommonPage{
+public class MyWealthPage extends CommonPage {
 
     public MyWealthPage(AppiumDriver d) {
         super(d);

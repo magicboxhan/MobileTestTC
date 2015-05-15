@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
  * Created by hq11258 on 2015/5/13.
  * 待支付订单页
  */
-public class OrderNeedPayPage extends CommonPage{
+public class OrderNeedPayPage extends CommonPage {
 
-    public OrderNeedPayPage(AppiumDriver d){
+    public OrderNeedPayPage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }

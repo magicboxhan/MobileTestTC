@@ -103,14 +103,15 @@ public class CommonPage extends BasicPage {
 
     /**
      * 检查当前页面是否存在 WebView 控件
+     *
      * @return
      */
-    public boolean funcDoesWebViewExist(){
-        try{
+    public boolean funcDoesWebViewExist() {
+        try {
             webView();
             t.log("当前页面存在 WebView 控件");
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             t.log("当前页面不存在 WebView 控件");
             return false;
         }
@@ -118,14 +119,15 @@ public class CommonPage extends BasicPage {
 
     /**
      * 尝试切换到 WebView
+     *
      * @return 是否切换成功
      */
-    public boolean switchToWebView(){
-        if (!funcDoesWebViewExist()){
+    public boolean funcSwitchToWebView() {
+        if (!funcDoesWebViewExist()) {
             return false;
         }
         for (String viewName : d.getContextHandles()) {
-            if (viewName.toLowerCase().contains("webview")){
+            if (viewName.toLowerCase().contains("webview")) {
                 d.context(viewName);
                 t.log(String.format("切换到 WebView：[%s]", viewName));
                 return true;
@@ -137,11 +139,12 @@ public class CommonPage extends BasicPage {
 
     /**
      * 尝试切换到 NativeView
+     *
      * @return 是否切换成功
      */
-    public boolean switchToNativeView(){
+    public boolean funcSwitchToNativeView() {
         for (String viewName : d.getContextHandles()) {
-            if (viewName.toLowerCase().contains("native")){
+            if (viewName.toLowerCase().contains("native")) {
                 d.context(viewName);
                 t.log(String.format("切换到 NativeView：[%s]", viewName));
                 return true;
@@ -149,5 +152,13 @@ public class CommonPage extends BasicPage {
         }
         t.log(">>>>>>>>>> 不存在 NativeView，无法切换");
         return false;
+    }
+
+    /**
+     * 屏幕向上滑动
+     */
+    public void funcSwipeUp() {
+        t.log("向上滑动屏幕");
+        d.swipe(100, 1000, 100, 100, 1000);
     }
 }

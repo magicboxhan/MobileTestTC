@@ -8,7 +8,7 @@ import io.appium.java_client.AppiumDriver;
  */
 public class HotelAreaListPage extends CommonPage {
 
-    public HotelAreaListPage(AppiumDriver d){
+    public HotelAreaListPage(AppiumDriver d) {
         super(d);
     }
 

@@ -28,7 +28,7 @@ public class MyAiLvKaPage extends CommonPage {
     /**
      * Span -- 激活
      */
-    public WebElement spanSubmit(){
+    public WebElement spanSubmit() {
         return d.findElement(By.className("btn-submit"));
     }
 }

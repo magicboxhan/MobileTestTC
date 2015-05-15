@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
  * Created by hq11258 on 2015/5/14.
  * 行程助手页
  */
-public class MyAssistantPage extends CommonPage{
+public class MyAssistantPage extends CommonPage {
 
     public MyAssistantPage(AppiumDriver d) {
         super(d);

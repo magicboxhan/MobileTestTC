@@ -4,12 +4,12 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * Created by hq11258 on 2015/5/14.
- * 抵现红包页
+ * Created by hq11258 on 2015/5/15.
+ * 常用邮寄地址页
  */
-public class MyDiXianHongBaoPage extends CommonPage {
+public class MyChangYongYouJiDiZhiPage extends CommonPage {
 
-    public MyDiXianHongBaoPage(AppiumDriver d) {
+    public MyChangYongYouJiDiZhiPage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }
@@ -18,17 +18,17 @@ public class MyDiXianHongBaoPage extends CommonPage {
 
     public WebElement keyElement() {
         try {
-            return textViewSubTitle();
+            return textViewAdd();
         } catch (Exception e) {
             return null;
         }
     }
 
     /**
-     * TextView -- 标题（未使用/已失效）
+     * TextView -- 添加常用邮寄地址
      */
-    public WebElement textViewSubTitle() {
-        return d.findElementById("com.tongcheng.android:id/tv_title");
+    public WebElement textViewAdd() {
+        return d.findElementByName("添加常用邮寄地址");
     }
 
     /**

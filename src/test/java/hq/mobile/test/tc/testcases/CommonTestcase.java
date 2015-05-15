@@ -46,6 +46,10 @@ public class CommonTestcase extends BasicTestCase {
     MyYouPiaoKaPage pMyYouPiaoKa;                                   //我的卡券 - 有票卡
     MyAssistantPage pMyAssistant;                                   //我的同程 - 行程助手
     MyChuJingDaRenPage pMyChuJingDaRen;                             //我的同程 - 出境达人
+    MyYiYuanJingDianPage pMyYiYuanJingDian;                         //我的同程 - 一元景点
+    MyChangYongXinXiPage pMyChangYongXinXi;                         //我的同程 - 常用信息
+    MyChangYongLvKePage pMyChangYongLvKe;                           //常用信息 - 常用旅客
+    MyChangYongYouJiDiZhiPage pMyChangYongYouJiDiZhi;               //常用信息 - 常用邮寄地址
 
 
     //变量
@@ -99,6 +103,10 @@ public class CommonTestcase extends BasicTestCase {
         pMyYouPiaoKa = new MyYouPiaoKaPage(d);
         pMyAssistant = new MyAssistantPage(d);
         pMyChuJingDaRen = new MyChuJingDaRenPage(d);
+        pMyYiYuanJingDian = new MyYiYuanJingDianPage(d);
+        pMyChangYongXinXi = new MyChangYongXinXiPage(d);
+        pMyChangYongLvKe = new MyChangYongLvKePage(d);
+        pMyChangYongYouJiDiZhi = new MyChangYongYouJiDiZhiPage(d);
     }
 
     /**

@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
  */
 public class HotelHomepage extends CommonPage {
 
-    public HotelHomepage(AppiumDriver d){
+    public HotelHomepage(AppiumDriver d) {
         super(d);
     }
 

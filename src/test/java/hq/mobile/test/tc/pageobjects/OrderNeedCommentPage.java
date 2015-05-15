@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
  * Created by hq11258 on 2015/5/13.
  * 待点评订单页
  */
-public class OrderNeedCommentPage extends CommonPage{
+public class OrderNeedCommentPage extends CommonPage {
 
-    public OrderNeedCommentPage(AppiumDriver d){
+    public OrderNeedCommentPage(AppiumDriver d) {
         super(d);
         checkKeyElement = true;
     }
