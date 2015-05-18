@@ -401,7 +401,6 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击返现红包");
             pMyWealth.textViewFanXian().click();
             t.log("=== 返现红包页 ===");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             if (pMyFanXianHongBao.funcSwitchToWebView()) {
                 //WebView切换成功
                 pMyFanXianHongBao.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
@@ -542,7 +541,6 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击爱旅卡");
             pMyCard.textViewAiLvKa().click();
             t.log("=== 爱旅卡页 ===");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             if (pMyAiLvKa.funcSwitchToWebView()) {
                 //WebView切换成功
                 pMyAiLvKa.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
@@ -582,7 +580,6 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击有票卡");
             pMyCard.textViewYouPiaoKa().click();
             t.log("=== 有票卡页 ===");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             if (pMyYouPiaoKa.funcSwitchToWebView()) {
                 //WebView切换成功
                 pMyYouPiaoKa.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
@@ -651,7 +648,6 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log("点击出境达人");
             pMy.textViewChuJingCard().click();
             t.log("=== 出境达人页 ===");
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             if (pMyChuJingDaRen.funcSwitchToWebView()) {
                 //WebView切换成功
                 pMyChuJingDaRen.funcWaitForKeyElement(BasicTestCase.WAIT_KEY_ELEMENT);
