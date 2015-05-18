@@ -733,7 +733,6 @@ public class RegressionTestCommon extends CommonTestcase {
             Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
             t.log("验证登录");
             result &= pMy.funcVerifyLoginResult();
-            t.log("向上滑动屏幕");
             pMy.funcSwipeUp();
             t.log("点击常用信息");
             pMy.textViewChangYongXinXi().click();
@@ -836,7 +835,6 @@ public class RegressionTestCommon extends CommonTestcase {
             Assert.assertEquals(pMy.funcSelfcheck("我的同程"), true);
             t.log("验证登录");
             result &= pMy.funcVerifyLoginResult();
-            t.log("向上滑动屏幕");
             pMy.funcSwipeUp();
             t.log("点击我的收藏");
             pMy.textViewMyFavourite().click();

@@ -157,8 +157,9 @@ public class CommonPage extends BasicPage {
     /**
      * 屏幕向上滑动
      */
-    public void funcSwipeUp() {
+    public void funcSwipeUp() throws InterruptedException {
         t.log("向上滑动屏幕");
         d.swipe(100, 1000, 100, 100, 1000);
+        Thread.sleep(2000);
     }
 }
