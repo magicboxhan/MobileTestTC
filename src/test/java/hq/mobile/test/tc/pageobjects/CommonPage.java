@@ -102,6 +102,56 @@ public class CommonPage extends BasicPage {
     //==================== Functions ====================
 
     /**
+     * 自检
+     *
+     * @return 自检是否通过
+     */
+    public boolean funcSelfcheck(String pageName) {
+        if (!checkKeyElement) {
+            t.log("不需要自检");
+            return true;
+        }
+        t.log(String.format("执行页面 [%s] 的自检功能", pageName));
+        if (keyElement() != null) {
+            t.log("Pass -- 自检通过");
+            funcSwitchToNativeView();
+            t.takeScreenshot(d, String.format("[%s]自检通过截图", pageName), "jpg");
+            return true;
+        } else {
+            t.log(">>>>>>>>>> 自检失败");
+            t.takeScreenshot(d, String.format("[%s]自检失败截图", pageName), "jpg");
+            return false;
+        }
+    }
+
+    /**
+     * 等待页面加载完成 -- 目前发现隐性等待对webview不起作用，所以定义这个方法
+     *
+     * @param sec 等待时间（秒）
+     * @return 关键元素是否存在
+     * @throws InterruptedException
+     */
+    public boolean funcWaitForKeyElement(int sec) throws InterruptedException {
+        if (!checkKeyElement) {
+            return true;
+        }
+        int i = 0;
+        while ((keyElement() == null) && (i < sec)) {
+            t.log("等待关键页面元素...");
+            Thread.sleep(1000);
+            i++;
+        }
+        if (i >= sec) {
+            //等待超时
+            t.log(">>>>>>>>>> 等待超时，无法获得关键页面元素");
+            t.takeScreenshot(d, "自检失败", "jpg");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
      * 检查当前页面是否存在 WebView 控件
      *
      * @return
