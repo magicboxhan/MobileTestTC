@@ -47,10 +47,11 @@ public class BasicPage {
         t.log(String.format("执行页面 [%s] 的自检功能", pageName));
         if (keyElement() != null) {
             t.log("Pass -- 自检通过");
+            t.takeScreenshot(d, String.format("[%s]自检通过截图", pageName), "jpg");
             return true;
         } else {
             t.log(">>>>>>>>>> 自检失败");
-            t.takeScreenshot(d, "自检失败截图", "jpg");
+            t.takeScreenshot(d, String.format("[%s]自检失败截图", pageName), "jpg");
             return false;
         }
     }

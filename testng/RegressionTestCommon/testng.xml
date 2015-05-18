@@ -6,7 +6,7 @@
     <parameter name="platformName" value="Android"/>
     <parameter name="platformVersion" value="4.4"/>
     <parameter name="appiumURL" value="http://10.1.200.193:4491/wd/hub"/>
-    <parameter name="appName" value="tongcheng_client_731_debug.apk"/>
+    <parameter name="appName" value="tongcheng_client_150518.apk"/>
     <parameter name="appPackage" value="com.tongcheng.android"/>
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
     <parameter name="implicitlyWaitTime" value="15"/>
@@ -58,6 +58,17 @@
                     <include name="common0015"/>
                     <include name="common0016"/>
                     <include name="common0017"/>
+                    <!--<include name="common0018"/>-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="测试 -- 我的卡券2" preserve-order="true">
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
+                <methods>
+                    <include name="common0014"/>
                     <include name="common0018"/>
                 </methods>
             </class>

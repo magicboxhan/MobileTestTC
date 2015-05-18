@@ -409,7 +409,7 @@ public class RegressionTestCommon extends CommonTestcase {
             } else {
                 //WebView切换失败
                 t.log(">>>>>>>>>> 自检失败");
-                t.takeScreenshot(d, "自检失败截图", "jpg");
+                t.takeScreenshot(d, "[返现红包]自检失败截图", "jpg");
                 result &= false;
             }
             t.log("点击后退，返回我的财富页");
@@ -549,7 +549,7 @@ public class RegressionTestCommon extends CommonTestcase {
             } else {
                 //WebView切换失败
                 t.log(">>>>>>>>>> 自检失败");
-                t.takeScreenshot(d, "自检失败截图", "jpg");
+                t.takeScreenshot(d, "[爱旅卡]自检失败截图", "jpg");
                 result &= false;
             }
             t.log("点击后退，返回我的卡券页");
@@ -588,7 +588,7 @@ public class RegressionTestCommon extends CommonTestcase {
             } else {
                 //WebView切换失败
                 t.log(">>>>>>>>>> 自检失败");
-                t.takeScreenshot(d, "自检失败截图", "jpg");
+                t.takeScreenshot(d, "[有票卡]自检失败截图", "jpg");
                 result &= false;
             }
             t.log("点击后退，返回我的卡券页");
@@ -656,7 +656,7 @@ public class RegressionTestCommon extends CommonTestcase {
             } else {
                 //WebView切换失败
                 t.log(">>>>>>>>>> 自检失败");
-                t.takeScreenshot(d, "自检失败截图", "jpg");
+                t.takeScreenshot(d, "[出境达人]自检失败截图", "jpg");
                 result &= false;
             }
             t.log("点击后退，返回我的同程页");
