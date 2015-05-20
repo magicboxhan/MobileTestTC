@@ -115,11 +115,11 @@ public class CommonPage extends BasicPage {
         if (keyElement() != null) {
             t.log("Pass -- 自检通过");
             funcSwitchToNativeView();
-            t.takeScreenshot(d, String.format("[%s]自检通过截图", pageName), "jpg");
+            t.takeScreenshot(d, String.format("[%s]自检通过", pageName), "jpg");
             return true;
         } else {
             t.log(">>>>>>>>>> 自检失败");
-            t.takeScreenshot(d, String.format("[%s]自检失败截图", pageName), "jpg");
+            t.takeScreenshot(d, String.format("自检失败__[%s]", pageName), "jpg");
             return false;
         }
     }
