@@ -19,6 +19,7 @@ import java.util.Date;
 public class Tools {
 
     protected Logger l = LogManager.getLogger(this.getClass().getName());
+    String code = "hqhqhqhqhq";
 
     /**
      * 截图
@@ -37,7 +38,6 @@ public class Tools {
             FileUtils.copyFile(screenShotFile, new File(fileFullPath));
             String fileFullName = String.format("%s_%s.%s", fileName, timeStr, extName);
 //            log(String.format("截图文件名：%s", fileFullName));
-            String code = "hqhqhqhqhq";
             log(String.format("%s<a href=\"../../%s\" target=\"_blank\">截图链接：%s</a>", code, fileFullName, fileFullName));
         } catch (Exception e) {
             log(">>>>>>>>>> 截图时出错");
@@ -51,7 +51,7 @@ public class Tools {
      * @param info 日志内容
      */
     public void log(String info) {
-        l.info(info);
+        l.info(info.replace(code, ""));
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         Reporter.log(String.format("%s - %s", sdf.format(Calendar.getInstance().getTime()), info));
     }
