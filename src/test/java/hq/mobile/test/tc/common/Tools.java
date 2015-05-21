@@ -35,7 +35,10 @@ public class Tools {
             File screenShotFile = d.getScreenshotAs(OutputType.FILE);
             String fileFullPath = String.format("%s//%s_%s.%s", filePath, fileName, timeStr, extName);
             FileUtils.copyFile(screenShotFile, new File(fileFullPath));
-            log(String.format("截图文件名：%s_%s.%s", fileName, timeStr, extName));
+            String fileFullName = String.format("%s_%s.%s", fileName, timeStr, extName);
+//            log(String.format("截图文件名：%s", fileFullName));
+            String code = "hqhqhqhqhq";
+            log(String.format("%s<a href=\"../../%s\" target=\"_blank\">截图链接：%s</a>", code, fileFullName, fileFullName));
         } catch (Exception e) {
             log(">>>>>>>>>> 截图时出错");
             e.printStackTrace();
