@@ -2,6 +2,7 @@ package hq.mobile.test.tc.testcases;
 
 import hq.mobile.test.tc.common.BasicTestCase;
 import hq.mobile.test.tc.pageobjects.*;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -56,7 +57,13 @@ public class CommonTestcase extends BasicTestCase {
     MyJingDianMenPiaoShouCangPage pMyJingDianMenPiaoShouCang;       //我的收藏 - 景点门票收藏
     MyJiuDianShouCangPage pMyJiuDianShouCang;                       //我的收藏 - 酒店收藏
     MyZhouBianYouShouCangPage pMyZhouBianYouShouCang;               //我的收藏 - 周边游收藏
-
+    TravelHomepage pTravelHome;                                     //周边游 - 首页
+    TravelSearchPage pTravelSearch;                                 //周边游 - 搜索页
+    TravelSearchResultPage pTravelSearchResult;                     //周边游 - 搜索结果页
+    TravelDetailPage pTravelDetail;                                 //周边游 - 详情页
+    TravelTicketListPage pTravelTicketList;                         //周边游 - 套餐列表
+    TravelWriteOrderPage pTravelWriteOrder;                         //周边游 - 订单填写页
+    TravelOrderResultPage pTravelOrderResult;                       //周边游 - 订单提交结果页
 
     //变量
     String cityName;    //当前城市
@@ -120,6 +127,13 @@ public class CommonTestcase extends BasicTestCase {
         pMyJingDianMenPiaoShouCang = new MyJingDianMenPiaoShouCangPage(d);
         pMyJiuDianShouCang = new MyJiuDianShouCangPage(d);
         pMyZhouBianYouShouCang = new MyZhouBianYouShouCangPage(d);
+        pTravelHome = new TravelHomepage(d);
+        pTravelSearch = new TravelSearchPage(d);
+        pTravelSearchResult = new TravelSearchResultPage(d);
+        pTravelDetail = new TravelDetailPage(d);
+        pTravelTicketList = new TravelTicketListPage(d);
+        pTravelWriteOrder = new TravelWriteOrderPage(d);
+        pTravelOrderResult = new TravelOrderResultPage(d);
     }
 
     /**
@@ -133,6 +147,25 @@ public class CommonTestcase extends BasicTestCase {
         pLoading.funcEnterHomepage();
         //如果定位失败，则手工定位
         pHome.funcCheckLocation(cityName);
+    }
+
+    /**
+     * 从首页登录
+     * @param uid 用户名
+     * @param pwd 密码
+     * @throws InterruptedException
+     */
+    public void login(String uid, String pwd) throws InterruptedException {
+        t.log("=== 首页 ===");
+        t.log("点击“我的”");
+        pHome.imageViewMy().click();
+        t.log("=== 我的同程页 ===");
+        t.log("点击登录");
+        pMy.textViewLogin().click();
+        t.log("=== 登录页 ===");
+        t.log(String.format("输入用户名：[%s]，密码：[%s]", uid, pwd));
+        t.log("点击登录按钮");
+        pLogin.funcLogin(uid, pwd);
     }
 
 }
