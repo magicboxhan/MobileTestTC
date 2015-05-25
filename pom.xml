@@ -115,7 +115,7 @@
                     </properties>
                     <workingDirectory>target/</workingDirectory>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng/RegressionTestTravel/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>testng/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
