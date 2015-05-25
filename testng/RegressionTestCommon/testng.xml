@@ -6,7 +6,7 @@
     <parameter name="platformName" value="Android"/>
     <parameter name="platformVersion" value="4.4"/>
     <parameter name="appiumURL" value="http://10.1.200.193:4491/wd/hub"/>
-    <parameter name="appName" value="tongcheng_client_150525.apk"/>
+    <parameter name="appName" value="tongcheng_client_150518.apk"/>
     <parameter name="appPackage" value="com.tongcheng.android"/>
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
     <parameter name="implicitlyWaitTime" value="15"/>
