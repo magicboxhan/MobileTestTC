@@ -49,7 +49,8 @@ public class OrderListPage extends CommonPage {
      * TextView集合 -- 取消订单
      */
     public List<WebElement> textViewCancelOrder() {
-        return d.findElementsById("com.tongcheng.android:id/tv_cancel");
+//        return d.findElementsById("com.tongcheng.android:id/tv_cancel");
+        return d.findElementsByName("取消订单");
     }
 
     /**
@@ -63,7 +64,8 @@ public class OrderListPage extends CommonPage {
      * TextView集合 -- 删除订单
      */
     public List<WebElement> textViewDeleteOrder() {
-        return d.findElementsById("com.tongcheng.android:id/tv_delete");
+//        return d.findElementsById("com.tongcheng.android:id/tv_delete");
+        return d.findElementsByName("删除订单");
     }
 
     /**
@@ -82,7 +84,8 @@ public class OrderListPage extends CommonPage {
         while ((textViewCancelOrder().size() > 0) || (textViewDeleteOrder().size() > 0)) {
             if (textViewCancelOrder().size() > 0) {
                 textViewCancelOrder().get(0).click();
-                relativeLayoutCancelReason().get(0).click();
+                buttonConfirmDelete().click();
+//                relativeLayoutCancelReason().get(0).click();
             } else {
                 textViewDeleteOrder().get(0).click();
                 buttonConfirmDelete().click();

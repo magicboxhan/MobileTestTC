@@ -351,9 +351,6 @@ public class SmokeTest extends CommonTestcase {
     @Test
     public void cancelDeleteAllOrders(String uid, String pwd) {
         try {
-            t.log("");
-            t.log("");
-            t.log("");
             t.log("===== 取消删除所有订单 =====");
             boolean result = true;
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);

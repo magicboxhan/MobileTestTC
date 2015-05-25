@@ -58,7 +58,8 @@ public class RegressionTestTravel extends CommonTestcase{
             "pwd",
             "searchKeyword",
             "name",
-            "phone"
+            "phone",
+            "idCard"
     })
     @Test
     public void travel0001(
@@ -66,9 +67,10 @@ public class RegressionTestTravel extends CommonTestcase{
             String pwd,
             String searchKeyword,
             String name,
-            String phone) {
+            String phone,
+            String idCard) {
         try {
-            t.log("===== 用例名称：会员下单 -- 单景点 =====");
+            t.log("===== 用例名称：会员下单 =====");
             boolean result = true;
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
             enterHomepage();
@@ -96,16 +98,8 @@ public class RegressionTestTravel extends CommonTestcase{
             //订单填写页
             t.log("=== 订单填写页 ===");
             Assert.assertEquals(pTravelWriteOrder.funcSelfcheck("订单填写页"), true);
-            t.log("点击选择游玩日期");
-            pTravelWriteOrder.textViewCalendar().click();
-            pTravelWriteOrder.textViewCalendarCell(1, 0, 0).click();
-            t.log("填写出游人信息");
-            pTravelWriteOrder.editTextName().clear();
-            pTravelWriteOrder.editTextName().sendKeys(name);
-            pTravelWriteOrder.editTextPhone().clear();
-            pTravelWriteOrder.editTextPhone().sendKeys(phone);
-            t.log("提交订单");
-            pTravelWriteOrder.buttonCommit().click();
+            t.log("填写订单信息");
+            pTravelWriteOrder.funcWriteOrder(name, phone, idCard);
             //订单提交结果页
             t.log("=== 订单提交结果页 ===");
             Assert.assertEquals(pTravelOrderResult.funcSelfcheck("订单提交结果页"), true);
@@ -119,4 +113,5 @@ public class RegressionTestTravel extends CommonTestcase{
             Assert.assertEquals(false, true);
         }
     }
+
 }
