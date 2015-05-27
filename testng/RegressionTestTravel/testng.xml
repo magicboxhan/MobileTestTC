@@ -5,7 +5,7 @@
     <parameter name="deviceName" value="Android Emulator"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="platformVersion" value="4.4"/>
-    <parameter name="appiumURL" value="http://10.1.200.193:4491/wd/hub"/>
+    <parameter name="appiumURL" value="http://10.1.200.193:4492/wd/hub"/>
     <parameter name="appName" value="tongcheng_client_150527.apk"/>
     <parameter name="appPackage" value="com.tongcheng.android"/>
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
@@ -18,83 +18,85 @@
     <parameter name="name" value="测试"/>
     <parameter name="phone" value="15262342068"/>
     <parameter name="idCard" value="63252519760324553X"/>
+    <parameter name="isMultiHotel" value="0"/>
 
-    <!--<test name="会员下单 &#45;&#45; 单景点" preserve-order="true">-->
-        <!--<parameter name="searchKeyword" value="44988"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestTravel">-->
-                <!--<methods>-->
-                    <!--<include name="travel0001"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="会员下单 -- 单景点" preserve-order="true">
+        <parameter name="searchKeyword" value="44988"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestTravel">
+                <methods>
+                    <include name="travel0001"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-    <!--<test name="会员下单 &#45;&#45; 单酒店多景点" preserve-order="true">-->
-        <!--<parameter name="searchKeyword" value="46194"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestTravel">-->
-                <!--<methods>-->
-                    <!--<include name="travel0001"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="会员下单 -- 单酒店多景点" preserve-order="true">
+        <parameter name="searchKeyword" value="46194"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestTravel">
+                <methods>
+                    <include name="travel0001"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-    <!--<test name="会员下单 &#45;&#45; 多景点" preserve-order="true">-->
-        <!--<parameter name="searchKeyword" value="58732"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestTravel">-->
-                <!--<methods>-->
-                    <!--<include name="travel0001"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="会员下单 -- 多景点" preserve-order="true">
+        <parameter name="searchKeyword" value="58732"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestTravel">
+                <methods>
+                    <include name="travel0001"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-    <!--<test name="会员下单 &#45;&#45; 多酒店多景点（注意：手工测试点中没有多酒店多景点，需要处理下）" preserve-order="true">-->
-        <!--<parameter name="searchKeyword" value="58732"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestTravel">-->
-                <!--<methods>-->
-                    <!--<include name="travel0001x"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="会员下单 -- 多酒店多景点" preserve-order="true">
+        <parameter name="searchKeyword" value="71721"/>
+        <parameter name="isMultiHotel" value="1"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestTravel">
+                <methods>
+                    <include name="travel0001"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-    <!--<test name="会员下单 &#45;&#45; 单酒店" preserve-order="true">-->
-        <!--<parameter name="searchKeyword" value="55673"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestTravel">-->
-                <!--<methods>-->
-                    <!--<include name="travel0001"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="会员下单 -- 单酒店" preserve-order="true">
+        <parameter name="searchKeyword" value="55673"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestTravel">
+                <methods>
+                    <include name="travel0001"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-    <!--<test name="会员下单 &#45;&#45; 单酒店单景点" preserve-order="true">-->
-        <!--<parameter name="searchKeyword" value="54168"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestTravel">-->
-                <!--<methods>-->
-                    <!--<include name="travel0001"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="会员下单 -- 单酒店单景点" preserve-order="true">
+        <parameter name="searchKeyword" value="54168"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestTravel">
+                <methods>
+                    <include name="travel0001"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-    <!--<test name="会员下单 &#45;&#45; 身份证套餐" preserve-order="true">-->
-        <!--<parameter name="searchKeyword" value="54132"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestTravel">-->
-                <!--<methods>-->
-                    <!--<include name="travel0001"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="会员下单 -- 身份证套餐" preserve-order="true">
+        <parameter name="searchKeyword" value="54132"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestTravel">
+                <methods>
+                    <include name="travel0001"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 
 

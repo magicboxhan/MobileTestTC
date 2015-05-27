@@ -53,13 +53,24 @@ public class RegressionTestTravel extends CommonTestcase{
 
     //==================== TestCases ====================
 
+    /**
+     * 会员下单
+     * @param uid 用户名
+     * @param pwd 密码
+     * @param searchKeyword 搜索关键字
+     * @param name 出游人姓名
+     * @param phone 出游人电话
+     * @param idCard 出游人身份证
+     * @param isMultiHotel 是否多酒店（0：否，1：是）
+     */
     @Parameters({
             "uid",
             "pwd",
             "searchKeyword",
             "name",
             "phone",
-            "idCard"
+            "idCard",
+            "isMultiHotel"
     })
     @Test
     public void travel0001(
@@ -68,7 +79,8 @@ public class RegressionTestTravel extends CommonTestcase{
             String searchKeyword,
             String name,
             String phone,
-            String idCard) {
+            String idCard,
+            int isMultiHotel) {
         try {
             t.log("===== 用例名称：会员下单 =====");
             boolean result = true;
@@ -103,7 +115,7 @@ public class RegressionTestTravel extends CommonTestcase{
             t.log("=== 订单填写页 ===");
             Assert.assertEquals(pTravelWriteOrder.funcSelfcheck("订单填写页"), true);
             t.log("填写订单信息");
-            pTravelWriteOrder.funcWriteOrder(name, phone, idCard);
+            pTravelWriteOrder.funcWriteOrder(name, phone, idCard, isMultiHotel);
             //订单提交结果页
             t.log("=== 订单提交结果页 ===");
             Assert.assertEquals(pTravelOrderResult.funcSelfcheck("订单提交结果页"), true);

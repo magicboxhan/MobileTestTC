@@ -83,9 +83,21 @@ public class TravelWriteOrderPage extends CommonPage{
 
     //==================== Functions ====================
 
-    public void funcWriteOrder(String name, String phone, String idCard) throws InterruptedException {
+    /**
+     * 填写订单
+     * @param name 姓名
+     * @param phone 电话
+     * @param idCard 身份证
+     * @param isMultiHotel 是否多酒店（0：否，1：是）
+     * @throws InterruptedException
+     */
+    public void funcWriteOrder(String name, String phone, String idCard, int isMultiHotel) throws InterruptedException {
         t.log("从日历选择日期");
-        funcSelectDateFromCalendar();
+        if (isMultiHotel == 0) {
+            funcSelectDateFromCalendar();
+        } else if(isMultiHotel == 1){
+            funcSwipeUp();
+        }
         t.log("向上滑动页面");
         funcSwipeUp();
         t.log("填写出游人信息");
@@ -103,33 +115,15 @@ public class TravelWriteOrderPage extends CommonPage{
         buttonCommit().click();
     }
 
+    /**
+     * 选择日历（从第二个链接开始一次选择，第一个链接默认选好了）
+     * @throws InterruptedException
+     */
     public void funcSelectDateFromCalendar() throws InterruptedException {
-
-
         for (int i=1; i<textViewTravelCalendar().size(); i++){
             t.log("点击选择游玩日期");
             textViewTravelCalendar().get(i).click();
             textViewCalendarCell(0, 0, 0).click();
         }
-
-//        //如果存在旅游日历链接
-//        if (textViewTravelCalendar().size() > 0){
-//            t.log("点击选择游玩日期");
-//            textViewTravelCalendar().get(0).click();
-//            textViewCalendarCell(1, 0, 0).click();
-//        }
-
-//        //如果存在酒店日历链接
-//        if (textViewHotelCalendar() != null){
-//            t.log("查看套餐价格日历");
-//            textViewHotelCalendar().click();
-//            textViewCalendarCell(1, 0, 0).click();
-//            for (WebElement e :textViewTravelCalendar()){
-//                t.log("选择价格套餐日历后，点击选择游玩日期");
-//                e.click();
-//                textViewCalendarCell(0, 0, 0).click();
-//            }
-//        }
-
     }
 }
