@@ -6,7 +6,7 @@
     <parameter name="platformName" value="Android"/>
     <parameter name="platformVersion" value="4.4"/>
     <parameter name="appiumURL" value="http://10.1.200.193:4491/wd/hub"/>
-    <parameter name="appName" value="tongcheng_client_150518.apk"/>
+    <parameter name="appName" value="tongcheng_client_150527.apk"/>
     <parameter name="appPackage" value="com.tongcheng.android"/>
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
     <parameter name="implicitlyWaitTime" value="10"/>
@@ -16,19 +16,19 @@
     <parameter name="uid" value="15262342068"/>
     <parameter name="pwd" value="123456"/>
 
-    <test name="会员下单 -- 单景点" preserve-order="true">
-        <parameter name="searchKeyword" value="44988"/>
-        <parameter name="name" value="测试"/>
-        <parameter name="phone" value="15262342068"/>
-        <parameter name="idCard" value="63252519760324553X"/>
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.RegressionTestTravel">
-                <methods>
-                    <include name="travel0001"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+    <!--<test name="会员下单 &#45;&#45; 单景点" preserve-order="true">-->
+        <!--<parameter name="searchKeyword" value="44988"/>-->
+        <!--<parameter name="name" value="测试"/>-->
+        <!--<parameter name="phone" value="15262342068"/>-->
+        <!--<parameter name="idCard" value="63252519760324553X"/>-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestTravel">-->
+                <!--<methods>-->
+                    <!--<include name="travel0001"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
     <test name="会员下单 -- 单酒店多景点" preserve-order="true">
         <parameter name="searchKeyword" value="46194"/>
@@ -109,14 +109,14 @@
         <!--</classes>-->
     <!--</test>-->
 
-    <test name="取消删除所有订单" preserve-order="true">
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.SmokeTest">
-                <methods>
-                    <include name="cancelDeleteAllOrders"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+    <!--<test name="取消删除所有订单" preserve-order="true">-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
+                <!--<methods>-->
+                    <!--<include name="cancelDeleteAllOrders"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
 </suite>

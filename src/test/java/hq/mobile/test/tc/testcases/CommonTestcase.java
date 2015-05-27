@@ -64,6 +64,7 @@ public class CommonTestcase extends BasicTestCase {
     TravelTicketListPage pTravelTicketList;                         //周边游 - 套餐列表
     TravelWriteOrderPage pTravelWriteOrder;                         //周边游 - 订单填写页
     TravelOrderResultPage pTravelOrderResult;                       //周边游 - 订单提交结果页
+    CalendarPage pCalendar;                                         //日历选择页
 
     //变量
     String cityName;    //当前城市
@@ -134,6 +135,7 @@ public class CommonTestcase extends BasicTestCase {
         pTravelTicketList = new TravelTicketListPage(d);
         pTravelWriteOrder = new TravelWriteOrderPage(d);
         pTravelOrderResult = new TravelOrderResultPage(d);
+        pCalendar = new CalendarPage(d);
     }
 
     /**

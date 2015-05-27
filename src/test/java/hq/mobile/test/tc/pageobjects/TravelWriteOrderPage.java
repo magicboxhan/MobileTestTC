@@ -42,19 +42,19 @@ public class TravelWriteOrderPage extends CommonPage{
      * TextView集合 -- 选择游玩日期
      */
     public List<WebElement> textViewTravelCalendar() {
-        return d.findElementsById("com.tongcheng.android:id/tv_scenery_date");
+        return d.findElementsById("com.tongcheng.android:id/rl_date");
     }
 
-    /**
-     * TextView -- 查看套餐价格日历
-     */
-    public WebElement textViewHotelCalendar() {
-        try {
-            return d.findElementById("com.tongcheng.android:id/tv_hotel_start_date");
-        }catch (Exception e){
-            return null;
-        }
-    }
+//    /**
+//     * TextView -- 查看套餐价格日历
+//     */
+//    public WebElement textViewHotelCalendar() {
+//        try {
+//            return d.findElementById("com.tongcheng.android:id/tv_hotel_start_date");
+//        }catch (Exception e){
+//            return null;
+//        }
+//    }
 
     /**
      * EditText -- 出游人姓名
@@ -86,6 +86,8 @@ public class TravelWriteOrderPage extends CommonPage{
     public void funcWriteOrder(String name, String phone, String idCard) throws InterruptedException {
         t.log("从日历选择日期");
         funcSelectDateFromCalendar();
+        t.log("向上滑动页面");
+        funcSwipeUp();
         t.log("填写出游人信息");
         editTextName().clear();
         editTextName().sendKeys(name);
@@ -103,23 +105,31 @@ public class TravelWriteOrderPage extends CommonPage{
 
     public void funcSelectDateFromCalendar() throws InterruptedException {
 
-        //如果存在旅游日历链接
-        if (textViewTravelCalendar().size() > 0){
+
+        for (int i=1; i<textViewTravelCalendar().size(); i++){
             t.log("点击选择游玩日期");
-            textViewTravelCalendar().get(0).click();
-            textViewCalendarCell(1, 0, 0).click();
+            textViewTravelCalendar().get(i).click();
+            textViewCalendarCell(0, 0, 0).click();
         }
-        //如果存在酒店日历链接
-        if (textViewHotelCalendar() != null){
-            t.log("查看套餐价格日历");
-            textViewHotelCalendar().click();
-            textViewCalendarCell(1, 0, 0).click();
-            for (WebElement e :textViewTravelCalendar()){
-                t.log("选择价格套餐日历后，点击选择游玩日期");
-                e.click();
-                textViewCalendarCell(0, 0, 0).click();
-            }
-        }
+
+//        //如果存在旅游日历链接
+//        if (textViewTravelCalendar().size() > 0){
+//            t.log("点击选择游玩日期");
+//            textViewTravelCalendar().get(0).click();
+//            textViewCalendarCell(1, 0, 0).click();
+//        }
+
+//        //如果存在酒店日历链接
+//        if (textViewHotelCalendar() != null){
+//            t.log("查看套餐价格日历");
+//            textViewHotelCalendar().click();
+//            textViewCalendarCell(1, 0, 0).click();
+//            for (WebElement e :textViewTravelCalendar()){
+//                t.log("选择价格套餐日历后，点击选择游玩日期");
+//                e.click();
+//                textViewCalendarCell(0, 0, 0).click();
+//            }
+//        }
 
     }
 }
