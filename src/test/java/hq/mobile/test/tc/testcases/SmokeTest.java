@@ -374,12 +374,13 @@ public class SmokeTest extends CommonTestcase {
             Assert.assertEquals(true, result);
             t.log("点击全部订单");
             pMy.textViewAllOrder().click();
-            t.log("=== 订单列表 ===");
+            t.log("=== 订单列表页 ===");
+            Assert.assertEquals(pOrderList.funcSelfcheck("订单列表页"), true);
             t.log("取消并删除全部订单");
             pOrderList = new OrderListPage(d);
             d.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); //调整隐性等待时间，加速订单取消速度
             pOrderList.funcCancelDeleteAllOrders();
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            Assert.assertEquals(pOrderList.funcSelfcheck("订单列表页"), true);
             Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");

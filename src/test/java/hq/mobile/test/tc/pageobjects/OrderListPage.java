@@ -85,10 +85,11 @@ public class OrderListPage extends CommonPage {
             if (textViewCancelOrder().size() > 0) {
                 textViewCancelOrder().get(0).click();
                 buttonConfirmDelete().click();
-//                relativeLayoutCancelReason().get(0).click();
+                t.log("取消订单");
             } else {
                 textViewDeleteOrder().get(0).click();
                 buttonConfirmDelete().click();
+                t.log("删除订单");
             }
         }
     }

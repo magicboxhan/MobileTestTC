@@ -16,9 +16,18 @@ public class LoginPage extends CommonPage {
      */
     public LoginPage(AppiumDriver d) {
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement() {
+        try {
+            return buttonCommit();
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     /**
      * EditText -- 用户名
@@ -39,6 +48,13 @@ public class LoginPage extends CommonPage {
      */
     public WebElement buttonCommit() {
         return d.findElementById("com.tongcheng.android:id/login_commit_btn");
+    }
+
+    /**
+     * Button -- 非会员登录按钮
+     */
+    public WebElement buttonNoMemberCommit() {
+        return d.findElementById("com.tongcheng.android:id/btn_nomember_book");
     }
 
     //==================== Functions ====================
