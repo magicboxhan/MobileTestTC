@@ -106,7 +106,7 @@ public class RegressionTestTravel extends CommonTestcase{
             t.log("=== 套餐列表页 ===");
             Assert.assertEquals(pTravelTicketList.funcSelfcheck("套餐列表页"), true);
             t.log("点击第一个套餐");
-            pTravelTicketList.buttonBook().get(0).click();
+            pTravelTicketList.buttonBook().get(1).click();
             t.log("=== 日历选择页 ===");
             Assert.assertEquals(pCalendar.funcSelfcheck("日历选择页"), true);
             t.log("选择日历");
