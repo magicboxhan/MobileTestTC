@@ -98,6 +98,22 @@ public class CommonPage extends BasicPage {
         return viewCalendarGrid().get(month).findElements(By.className("android.view.View")).get(week + 1).findElements(By.className("android.widget.TextView")).get(day);
     }
 
+    /**
+     * TextView -- 可点击日期
+     */
+    public WebElement textViewCalendarCellAvailable() {
+        WebElement month = viewCalendarGrid().get(0);       //第一个月
+        List<WebElement> weeks = month.findElements(By.className("android.view.View"));
+        WebElement week = weeks.get(weeks.size() - 1);      //最后一周
+        List<WebElement> days = week.findElements(By.className("android.widget.TextView"));
+        for (WebElement day : days){                        //可点击的日期
+            if (day.isEnabled()){
+                return day;
+            }
+        }
+        return null;
+    }
+
 
     //==================== Functions ====================
 
