@@ -105,8 +105,13 @@ public class RegressionTestTravel extends CommonTestcase{
             //套餐列表页
             t.log("=== 套餐列表页 ===");
             Assert.assertEquals(pTravelTicketList.funcSelfcheck("套餐列表页"), true);
-            t.log("点击第一个套餐");
-            pTravelTicketList.buttonBook().get(1).click();
+            t.log("点击套餐");
+            if(pTravelTicketList.buttonBook().size() > 1) {
+                //有第二个点第二个，某些产品日历只能选本月，不好搞
+                pTravelTicketList.buttonBook().get(1).click();
+            }else{
+                pTravelTicketList.buttonBook().get(0).click();
+            }
             t.log("=== 日历选择页 ===");
             Assert.assertEquals(pCalendar.funcSelfcheck("日历选择页"), true);
             t.log("选择日历");
