@@ -79,7 +79,8 @@ public class SceneryWriteOrderPage extends CommonPage {
     public void funcSubmitOrder(String name, String phone, String card, int month, int week, int day) {
         //选择日期
         textViewSelectDate().click();
-        textViewCalendarCell(month, week, day).click();
+//        textViewCalendarCell(month, week, day).click();
+        textViewCalendarCellAvailable().click();
         //取票人姓名
         editTextGetTicketName().clear();
         editTextGetTicketName().sendKeys(name);
