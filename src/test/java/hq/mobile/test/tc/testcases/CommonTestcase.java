@@ -20,6 +20,8 @@ public class CommonTestcase extends BasicTestCase {
     MyPage pMy;                                                     //我的同程页
     OrderListPage pOrderList;                                       //我的订单页
     LoginPage pLogin;                                               //登录页
+    SceneryHomepage pSceneryHome;                                   //景区 - 首页
+    ScenerySearchPage pScenerySearch;                               //景区 - 搜索页
     ScenerySearchResultPage pSearchResult;                          //景点 - 景点列表页
     SceneryDetailPage pSceneryDetail;                               //景点 - 详情页
     SceneryWriteOrderPage pSceneryWriteOrder;                       //景点 - 订单填写页
@@ -88,6 +90,8 @@ public class CommonTestcase extends BasicTestCase {
         pLoading = new LoadingPage(d);
         pHome = new Homepage(d);
         pSearch = new SearchPage(d);
+        pSceneryHome = new SceneryHomepage(d);
+        pScenerySearch = new ScenerySearchPage(d);
         pSearchResult = new ScenerySearchResultPage(d);
         pSceneryDetail = new SceneryDetailPage(d);
         pMy = new MyPage(d);

@@ -20,16 +20,16 @@
     <parameter name="idCard" value="63252519760324553X"/>
     <parameter name="isMultiHotel" value="0"/>
 
-    <!--<test name="会员下单 &#45;&#45; 单景点" preserve-order="true">-->
-        <!--<parameter name="searchKeyword" value="44988"/>-->
-        <!--<classes>-->
-            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestTravel">-->
-                <!--<methods>-->
-                    <!--<include name="travel0001"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="会员下单 -- 普通票 + 身份证票型" preserve-order="true">
+        <parameter name="searchKeyword" value="苏州乐园"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestTravel">
+                <methods>
+                    <include name="scenery0001"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
     <test name="取消删除所有订单" preserve-order="true">
         <classes>

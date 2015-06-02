@@ -18,9 +18,25 @@ public class ScenerySearchResultPage extends CommonPage {
      */
     public ScenerySearchResultPage(AppiumDriver d) {
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement() {
+        try {
+            return textViewSceneryName().get(0);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * TextView集合 -- 景区名称
+     */
+    public List<WebElement> textViewSceneryName() {
+        return d.findElementsById("com.tongcheng.android:id/sceneryNameTextView");
+    }
 
     /**
      * ImageView -- 后退
@@ -90,20 +106,13 @@ public class ScenerySearchResultPage extends CommonPage {
     }
 
     /**
-     * TextView -- 景点名称集合
-     */
-    public List<WebElement> textViewSceneryNames() {
-        return d.findElementsById("com.tongcheng.android:id/sceneryNameTextView");
-    }
-
-    /**
      * TextView -- 景点名称（根据索引）
      *
      * @param index 索引
      */
     public WebElement textViewSceneryName(int index) {
         try {
-            return textViewSceneryNames().get(index);
+            return textViewSceneryName().get(index);
         } catch (Exception e) {
             return null;
         }
