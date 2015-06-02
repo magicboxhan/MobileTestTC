@@ -177,7 +177,7 @@ public class RegressionTestTravel extends CommonTestcase{
             //套餐列表页
             t.log("=== 套餐列表页 ===");
             Assert.assertEquals(pTravelTicketList.funcSelfcheck("套餐列表页"), true);
-            t.log("点击第一个套餐");
+            t.log("点击套餐");
             pTravelTicketList.buttonBook().get(0).click();
             //非会员登录
             t.log("=== 登录页 ===");
@@ -187,7 +187,7 @@ public class RegressionTestTravel extends CommonTestcase{
             t.log("=== 日历选择页 ===");
             Assert.assertEquals(pCalendar.funcSelfcheck("日历选择页"), true);
             t.log("选择日历");
-            pCalendar.textViewCalendarCell(1, 0, 0).click();
+            pCalendar.textViewCalendarCellAvailable().click();
             //订单填写页
             t.log("=== 订单填写页 ===");
             Assert.assertEquals(pTravelWriteOrder.funcSelfcheck("订单填写页"), true);
