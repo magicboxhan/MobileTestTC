@@ -98,7 +98,6 @@ public class TravelWriteOrderPage extends CommonPage{
         } else if(isMultiHotel == 1){
             funcSwipeUp();
         }
-        t.log("向上滑动页面");
         funcSwipeUp();
         t.log("填写出游人信息");
         editTextName().clear();
