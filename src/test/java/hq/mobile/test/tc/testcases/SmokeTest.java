@@ -167,7 +167,7 @@ public class SmokeTest extends CommonTestcase {
             eKeywords.get(keywordIndex).click();
             t.log("=== 搜索结果页 ===");
             pSearchResult = new ScenerySearchResultPage(d);
-            List<WebElement> sceneryNames = pSearchResult.textViewSceneryNames();
+            List<WebElement> sceneryNames = pSearchResult.textViewSceneryName();
             int sceneryCount = sceneryNames.size();
             t.log(String.format("共搜索到%d个景点（页面展示）", sceneryCount));
 //            for (int i = 0; i < sceneryCount; i++) {
