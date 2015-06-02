@@ -20,7 +20,7 @@
     <parameter name="idCard" value="63252519760324553X"/>
     <parameter name="isMultiHotel" value="0"/>
 
-    <test name="取消删除所有订单" preserve-order="true">
+    <test name="取消删除所有订单1" preserve-order="true">
         <classes>
             <class name="hq.mobile.test.tc.testcases.SmokeTest">
                 <methods>
@@ -186,7 +186,7 @@
         </classes>
     </test>
 
-    <test name="取消删除所有订单" preserve-order="true">
+    <test name="取消删除所有订单2" preserve-order="true">
         <classes>
             <class name="hq.mobile.test.tc.testcases.SmokeTest">
                 <methods>
