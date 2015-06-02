@@ -35,6 +35,7 @@ public class RegressionTestTravel extends CommonTestcase{
             Assert.assertEquals(false, true);
         }
         t.log("点击搜索框");
+        Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
         pTravelHome.aSearchText().click();
         pTravelHome.funcSwitchToNativeView();
         //周边游搜索页
