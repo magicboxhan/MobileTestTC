@@ -68,8 +68,15 @@ public class RegressionTestScenery extends CommonTestcase{
             //景区列表页
             t.log("=== 景区列表页 ===");
             Assert.assertEquals(pScenerySearch.funcSelfcheck("景区列表页"), true);
+            //景区详情页
+            t.log("=== 景区详情页 ===");
+            Assert.assertEquals(pSceneryDetail.funcSelfcheck("景区详情页"), true);
+            t.log("点击预订按钮");
+            pSceneryDetail.buttonOrder().get(0).click();
             //订单填写页
-
+            t.log("=== 景区订单填写页 ===");
+            Assert.assertEquals(pSceneryWriteOrder.funcSelfcheck("景区订单填写页"), true);
+            pSceneryWriteOrder.funcSubmitOrder(name, phone, idCard);
             //订单提交完成页
 
             Assert.assertEquals(result, true);

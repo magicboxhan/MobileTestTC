@@ -3,6 +3,8 @@ package hq.mobile.test.tc.pageobjects;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 /**
  * Created by hanqing on 2015/3/30.
  * 景点详情页
@@ -16,9 +18,25 @@ public class SceneryDetailPage extends CommonPage {
      */
     public SceneryDetailPage(AppiumDriver d) {
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement() {
+        try {
+            return buttonOrder().get(0);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * Button集合 -- 预订
+     */
+    public List<WebElement> buttonOrder() {
+        return d.findElementsById("com.tongcheng.android:id/btn_order");
+    }
 
     /**
      * TextView -- 景点名称
@@ -82,14 +100,6 @@ public class SceneryDetailPage extends CommonPage {
     public WebElement textViewGroupPrice() {
         return d.findElementById("com.tongcheng.android:id/groupPrice");
     }
-
-    /**
-     * Button -- 预订
-     */
-    public WebElement buttonOrder() {
-        return d.findElementById("com.tongcheng.android:id/btn_order");
-    }
-
 
     //==================== Functions ====================
 

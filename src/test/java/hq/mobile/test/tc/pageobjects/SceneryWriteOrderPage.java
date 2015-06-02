@@ -16,9 +16,18 @@ public class SceneryWriteOrderPage extends CommonPage {
      */
     public SceneryWriteOrderPage(AppiumDriver d) {
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement() {
+        try {
+            return buttonSubmitOrder();
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     /**
      * TextView -- 点击选择日期
@@ -72,14 +81,10 @@ public class SceneryWriteOrderPage extends CommonPage {
      * @param name  取票人姓名
      * @param phone 取票人手机号
      * @param card  取票人证件号
-     * @param month 要选择的日历中的月份索引（从0开始）
-     * @param week  要选择的日历中的周索引（从0开始）
-     * @param day   要选择的日历中的日期索引（从0开始）
      */
-    public void funcSubmitOrder(String name, String phone, String card, int month, int week, int day) {
+    public void funcSubmitOrder(String name, String phone, String card) {
         //选择日期
         textViewSelectDate().click();
-//        textViewCalendarCell(month, week, day).click();
         textViewCalendarCellAvailable().click();
         //取票人姓名
         editTextGetTicketName().clear();
