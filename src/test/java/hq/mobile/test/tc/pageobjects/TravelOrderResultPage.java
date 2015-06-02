@@ -57,11 +57,11 @@ public class TravelOrderResultPage extends CommonPage{
         if ((keyElement() != null) || (keyElement2() != null)) {
             t.log("Pass -- 自检通过");
             funcSwitchToNativeView();
-            t.takeScreenshot(d, String.format("[%s]自检通过", pageName), "jpg");
+            t.takeScreenshot(d, String.format("[%s]SelfCheckPassed", pageName), "jpg");
             return true;
         } else {
             t.log(">>>>>>>>>> 自检失败");
-            t.takeScreenshot(d, String.format("自检失败__[%s]", pageName), "jpg");
+            t.takeScreenshot(d, String.format("SelfCheckFailed__[%s]", pageName), "jpg");
             return false;
         }
     }

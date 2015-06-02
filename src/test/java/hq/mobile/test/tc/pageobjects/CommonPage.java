@@ -131,11 +131,11 @@ public class CommonPage extends BasicPage {
         if (keyElement() != null) {
             t.log("Pass -- 自检通过");
             funcSwitchToNativeView();
-            t.takeScreenshot(d, String.format("[%s]自检通过", pageName), "jpg");
+            t.takeScreenshot(d, String.format("[%s]SelfCheckPassed", pageName), "jpg");
             return true;
         } else {
             t.log(">>>>>>>>>> 自检失败");
-            t.takeScreenshot(d, String.format("自检失败__[%s]", pageName), "jpg");
+            t.takeScreenshot(d, String.format("SelfCheckFailed__[%s]", pageName), "jpg");
             return false;
         }
     }
@@ -160,7 +160,7 @@ public class CommonPage extends BasicPage {
         if (i >= sec) {
             //等待超时
             t.log(">>>>>>>>>> 等待超时，无法获得关键页面元素");
-            t.takeScreenshot(d, "自检失败", "jpg");
+            t.takeScreenshot(d, "SelfCheckFailed", "jpg");
             return false;
         } else {
             return true;

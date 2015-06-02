@@ -175,7 +175,7 @@ public class MyPage extends CommonPage {
             return true;
         } catch (Exception e) {
             t.log(">>>>>>>>>> Fail -- 登录失败");
-            t.takeScreenshot(d, "登录失败错误截图", "jpg");
+            t.takeScreenshot(d, "LoginFailed", "jpg");
             return false;
         }
     }

@@ -48,7 +48,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0001错误截图", "jpg");
+            t.takeScreenshot(d, "common0001", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -77,7 +77,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0002错误截图", "jpg");
+            t.takeScreenshot(d, "common0002", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -106,7 +106,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0003错误截图", "jpg");
+            t.takeScreenshot(d, "common0003", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -135,7 +135,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0004错误截图", "jpg");
+            t.takeScreenshot(d, "common0004", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -164,7 +164,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0005错误截图", "jpg");
+            t.takeScreenshot(d, "common0005", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -193,7 +193,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0006错误截图", "jpg");
+            t.takeScreenshot(d, "common0006", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -222,7 +222,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0007错误截图", "jpg");
+            t.takeScreenshot(d, "common0007", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -251,7 +251,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0008错误截图", "jpg");
+            t.takeScreenshot(d, "common0008", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -294,7 +294,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0009错误截图", "jpg");
+            t.takeScreenshot(d, "common0009", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -323,7 +323,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0010错误截图", "jpg");
+            t.takeScreenshot(d, "common0010", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -352,7 +352,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0011错误截图", "jpg");
+            t.takeScreenshot(d, "common0011", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -381,7 +381,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0012错误截图", "jpg");
+            t.takeScreenshot(d, "common0012", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -409,7 +409,7 @@ public class RegressionTestCommon extends CommonTestcase {
             } else {
                 //WebView切换失败
                 t.log(">>>>>>>>>> 自检失败");
-                t.takeScreenshot(d, "[返现红包]自检失败截图", "jpg");
+                t.takeScreenshot(d, "SelfCheckFailed", "jpg");
                 result &= false;
             }
             t.log("点击后退，返回我的财富页");
@@ -420,7 +420,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0013错误截图", "jpg");
+            t.takeScreenshot(d, "common0013", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -463,7 +463,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0014错误截图", "jpg");
+            t.takeScreenshot(d, "common0014", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -492,7 +492,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0015错误截图", "jpg");
+            t.takeScreenshot(d, "common0015", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -521,7 +521,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0016错误截图", "jpg");
+            t.takeScreenshot(d, "common0016", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -549,7 +549,7 @@ public class RegressionTestCommon extends CommonTestcase {
             } else {
                 //WebView切换失败
                 t.log(">>>>>>>>>> 自检失败");
-                t.takeScreenshot(d, "[爱旅卡]自检失败截图", "jpg");
+                t.takeScreenshot(d, "SelfCheckFailed", "jpg");
                 result &= false;
             }
             t.log("点击后退，返回我的卡券页");
@@ -560,7 +560,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0017错误截图", "jpg");
+            t.takeScreenshot(d, "common0017", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -588,7 +588,7 @@ public class RegressionTestCommon extends CommonTestcase {
             } else {
                 //WebView切换失败
                 t.log(">>>>>>>>>> 自检失败");
-                t.takeScreenshot(d, "[有票卡]自检失败截图", "jpg");
+                t.takeScreenshot(d, "SelfCheckFailed", "jpg");
                 result &= false;
             }
             t.log("点击后退，返回我的卡券页");
@@ -599,7 +599,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0018错误截图", "jpg");
+            t.takeScreenshot(d, "common0018", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -628,7 +628,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0019错误截图", "jpg");
+            t.takeScreenshot(d, "common0019", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -656,7 +656,7 @@ public class RegressionTestCommon extends CommonTestcase {
             } else {
                 //WebView切换失败
                 t.log(">>>>>>>>>> 自检失败");
-                t.takeScreenshot(d, "[出境达人]自检失败截图", "jpg");
+                t.takeScreenshot(d, "SelfCheckFailed", "jpg");
                 result &= false;
             }
             t.log("点击后退，返回我的同程页");
@@ -667,7 +667,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0020错误截图", "jpg");
+            t.takeScreenshot(d, "common0020", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -696,7 +696,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0021错误截图", "jpg");
+            t.takeScreenshot(d, "common0021", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -740,7 +740,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0022错误截图", "jpg");
+            t.takeScreenshot(d, "common0022", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -769,7 +769,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0023错误截图", "jpg");
+            t.takeScreenshot(d, "common0023", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -798,7 +798,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0024错误截图", "jpg");
+            t.takeScreenshot(d, "common0024", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -842,7 +842,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0025错误截图", "jpg");
+            t.takeScreenshot(d, "common0025", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -871,7 +871,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0026错误截图", "jpg");
+            t.takeScreenshot(d, "common0026", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -900,7 +900,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0027错误截图", "jpg");
+            t.takeScreenshot(d, "common0027", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -929,7 +929,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0028错误截图", "jpg");
+            t.takeScreenshot(d, "common0028", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -958,7 +958,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0029错误截图", "jpg");
+            t.takeScreenshot(d, "common0029", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -987,7 +987,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0030错误截图", "jpg");
+            t.takeScreenshot(d, "common0030", "jpg");
             Assert.assertEquals(false, true);
         }
     }
@@ -1016,7 +1016,7 @@ public class RegressionTestCommon extends CommonTestcase {
             e.printStackTrace();
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
-            t.takeScreenshot(d, "common0031错误截图", "jpg");
+            t.takeScreenshot(d, "common0031", "jpg");
             Assert.assertEquals(false, true);
         }
     }

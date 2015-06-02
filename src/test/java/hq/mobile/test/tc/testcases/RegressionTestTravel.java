@@ -31,7 +31,7 @@ public class RegressionTestTravel extends CommonTestcase{
         } else {
             //WebView切换失败
             t.log(">>>>>>>>>> 自检失败");
-            t.takeScreenshot(d, "[周边游首页]自检失败截图", "jpg");
+            t.takeScreenshot(d, "SelfCheckFailed", "jpg");
             Assert.assertEquals(false, true);
         }
         t.log("点击搜索框");

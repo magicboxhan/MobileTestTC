@@ -198,7 +198,7 @@ public class SmokeTest extends CommonTestcase {
             t.log(String.format("景点名称景点地址：[%s]", pSceneryDetail.textViewAddress().getText()));
             t.log(String.format("景点门票类型：[%s]", pSceneryDetail.textViewGroupName().getText()));
             t.log(String.format("景点门票价格：[%s]", pSceneryDetail.textViewGroupPrice().getText()));
-            t.takeScreenshot(d, String.format("[%s]景点详情截图", pSceneryDetail.textViewSceneryName().getText()), "jpg");
+            t.takeScreenshot(d, String.format("[%s]", pSceneryDetail.textViewSceneryName().getText()), "jpg");
             t.log("点击预订按钮");
             pSceneryDetail.buttonOrder().click();
             t.log("=== 登录页 ===");
