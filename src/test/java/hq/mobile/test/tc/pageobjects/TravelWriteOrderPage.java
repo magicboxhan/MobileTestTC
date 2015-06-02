@@ -123,7 +123,8 @@ public class TravelWriteOrderPage extends CommonPage{
         for (int i=1; i<textViewTravelCalendar().size(); i++){
             t.log("点击选择游玩日期");
             textViewTravelCalendar().get(i).click();
-            textViewCalendarCell(0, 0, 0).click();
+//            textViewCalendarCell(0, 0, 0).click();
+            textViewCalendarCellAvailable().click();
         }
     }
 }
