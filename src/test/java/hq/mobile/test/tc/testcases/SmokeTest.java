@@ -166,8 +166,8 @@ public class SmokeTest extends CommonTestcase {
             t.log(String.format("点击第%s个关键字", keywordIndex));
             eKeywords.get(keywordIndex).click();
             t.log("=== 搜索结果页 ===");
-            pSearchResult = new ScenerySearchResultPage(d);
-            List<WebElement> sceneryNames = pSearchResult.textViewSceneryName();
+            pScenerySearchResult = new ScenerySearchResultPage(d);
+            List<WebElement> sceneryNames = pScenerySearchResult.textViewSceneryName();
             int sceneryCount = sceneryNames.size();
             t.log(String.format("共搜索到%d个景点（页面展示）", sceneryCount));
 //            for (int i = 0; i < sceneryCount; i++) {
@@ -200,13 +200,13 @@ public class SmokeTest extends CommonTestcase {
             t.log(String.format("景点门票价格：[%s]", pSceneryDetail.textViewGroupPrice().getText()));
             t.takeScreenshot(d, String.format("[%s]", pSceneryDetail.textViewSceneryName().getText()), "jpg");
             t.log("点击预订按钮");
-            pSceneryDetail.buttonOrder().click();
+            pSceneryDetail.buttonOrder().get(0).click();
             t.log("=== 登录页 ===");
             pLogin = new LoginPage(d);
             pLogin.funcLogin(uid, pwd);
             t.log("=== 景点订单填写页 ===");
             pSceneryWriteOrder = new SceneryWriteOrderPage(d);
-            pSceneryWriteOrder.funcSubmitOrder(getTicketName, getTicketPhone, getTicketCard, month, week, day);
+            pSceneryWriteOrder.funcSubmitOrder(getTicketName, getTicketPhone, getTicketCard);
             Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");

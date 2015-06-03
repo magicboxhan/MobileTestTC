@@ -22,9 +22,10 @@ public class CommonTestcase extends BasicTestCase {
     LoginPage pLogin;                                               //登录页
     SceneryHomepage pSceneryHome;                                   //景区 - 首页
     ScenerySearchPage pScenerySearch;                               //景区 - 搜索页
-    ScenerySearchResultPage pSearchResult;                          //景点 - 景点列表页
+    ScenerySearchResultPage pScenerySearchResult;                   //景点 - 景点列表页
     SceneryDetailPage pSceneryDetail;                               //景点 - 详情页
     SceneryWriteOrderPage pSceneryWriteOrder;                       //景点 - 订单填写页
+    SceneryOrderResultPage pSceneryOrderResult;                     //景点 - 订单提交结果页
     MovieListPage pMovieList;                                       //电影票 - 影片列表页
     MovieCinemaListPage pMovieCinemaList;                           //电影票 - 影院列表页
     MovieSchedulePage pMovieSchedule;                               //电影票 - 场次列表页
@@ -92,8 +93,9 @@ public class CommonTestcase extends BasicTestCase {
         pSearch = new SearchPage(d);
         pSceneryHome = new SceneryHomepage(d);
         pScenerySearch = new ScenerySearchPage(d);
-        pSearchResult = new ScenerySearchResultPage(d);
+        pScenerySearchResult = new ScenerySearchResultPage(d);
         pSceneryDetail = new SceneryDetailPage(d);
+        pSceneryOrderResult = new SceneryOrderResultPage(d);
         pMy = new MyPage(d);
         pLogin = new LoginPage(d);
         pMovieList = new MovieListPage(d);
