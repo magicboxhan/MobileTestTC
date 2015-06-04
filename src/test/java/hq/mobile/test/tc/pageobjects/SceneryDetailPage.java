@@ -35,7 +35,7 @@ public class SceneryDetailPage extends CommonPage {
      * Button集合 -- 预订
      */
     public List<WebElement> buttonOrder() {
-        return d.findElementsById("com.tongcheng.android:id/btn_order");
+        return d.findElementsById("com.tongcheng.android:id/ll_book");
     }
 
     /**

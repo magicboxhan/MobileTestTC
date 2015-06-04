@@ -20,12 +20,23 @@
     <parameter name="idCard" value="63252519760324553X"/>
     <parameter name="isMultiHotel" value="0"/>
 
-    <test name="会员下单 -- 普通票 + 身份证票型" preserve-order="true">
+    <test name="非会员下单 -- 普通票 + 身份证票型" preserve-order="true">
         <parameter name="searchKeyword" value="苏州乐园"/>
         <classes>
             <class name="hq.mobile.test.tc.testcases.RegressionTestScenery">
                 <methods>
-                    <include name="scenery0001"/>
+                    <include name="scenery0002"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="非会员下单 -- 实名制票型" preserve-order="true">
+        <parameter name="searchKeyword" value="遂宁中国死海"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestScenery">
+                <methods>
+                    <include name="scenery0002"/>
                 </methods>
             </class>
         </classes>
