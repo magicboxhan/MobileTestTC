@@ -23,7 +23,7 @@
     <test name="会员下单 -- 普通票 + 身份证票型" preserve-order="true">
         <parameter name="searchKeyword" value="苏州乐园"/>
         <classes>
-            <class name="hq.mobile.test.tc.testcases.RegressionTestTravel">
+            <class name="hq.mobile.test.tc.testcases.RegressionTestScenery">
                 <methods>
                     <include name="scenery0001"/>
                 </methods>
