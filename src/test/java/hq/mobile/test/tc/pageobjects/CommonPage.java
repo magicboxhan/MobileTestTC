@@ -228,4 +228,26 @@ public class CommonPage extends BasicPage {
         d.swipe(100, 1000, 100, 100, 1000);
         Thread.sleep(2000);
     }
+
+    /**
+     * 向上滑动直到指定文字的元素出现
+     * @throws InterruptedException
+     */
+    public boolean funcSwipeUpUntilElementShowUp(String name) throws InterruptedException {
+        t.log(String.format("向上滑动寻找指定元素：[%s]", name));
+        boolean result = true;
+        int i = 0;  //最大滑动次数
+        int maxSwipeCount = 5;
+        while ((i < maxSwipeCount) && (d.findElementsByName(name).size() == 0)){
+            funcSwipeUp();
+            i++;
+        }
+        if (i == maxSwipeCount){
+            t.log(String.format(">>>>>>>>>> 未找到指定元素", name));
+            result = false;
+        }else{
+            t.log(String.format("找到指定元素", name));
+        }
+        return result;
+    }
 }

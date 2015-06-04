@@ -1,6 +1,7 @@
 package hq.mobile.test.tc.pageobjects;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class SceneryDetailPage extends CommonPage {
 
     public WebElement keyElement() {
         try {
-            return buttonOrder().get(0);
+            return textViewSceneryName();
         } catch (Exception e) {
             return null;
         }
@@ -42,7 +43,7 @@ public class SceneryDetailPage extends CommonPage {
      * TextView -- 景点名称
      */
     public WebElement textViewSceneryName() {
-        return d.findElementById("com.tongcheng.android:id/sceneryName");
+        return d.findElementById("com.tongcheng.android:id/tv_scenery_name");
     }
 
     /**
@@ -103,5 +104,30 @@ public class SceneryDetailPage extends CommonPage {
 
     //==================== Functions ====================
 
+    /**
+     * 点击组合优惠票
+     * @throws InterruptedException
+     */
+    public void funcClickZuHeYouHuiPiao() throws InterruptedException {
+        if(funcSwipeUpUntilElementShowUp("组合优惠票")){
+            d.findElementByName("组合优惠票").click();
+        }
+    }
+
+    /**
+     * 点击联票预定按钮
+     * @throws InterruptedException
+     */
+    public void funcClickLianPiao() throws InterruptedException {
+        if(funcSwipeUpUntilElementShowUp("惠")){
+            for(WebElement ll : d.findElementsByClassName("android.widget.LinearLayout")){
+                //遍历页面上的LL，每个代表一个票型
+                if(ll.findElements(By.name("惠")).size() > 0){
+                    ll.findElement(By.id("com.tongcheng.android:id/ll_book")).click();
+                    return;
+                }
+            }
+        }
+    }
 
 }

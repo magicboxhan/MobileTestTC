@@ -18,7 +18,7 @@
     <parameter name="name" value="测试"/>
     <parameter name="phone" value="15262342068"/>
     <parameter name="idCard" value="63252519760324553X"/>
-    <parameter name="isMultiHotel" value="0"/>
+    <parameter name="isLianPiao" value="0"/>
 
     <test name="非会员下单 -- 普通票 + 身份证票型" preserve-order="true">
         <parameter name="searchKeyword" value="苏州乐园"/>
@@ -31,8 +31,20 @@
         </classes>
     </test>
 
-    <test name="非会员下单 -- 实名制票型" preserve-order="true">
-        <parameter name="searchKeyword" value="遂宁中国死海"/>
+    <!--<test name="非会员下单 &#45;&#45; 普通票 + 实名制票型" preserve-order="true">-->
+        <!--<parameter name="searchKeyword" value="遂宁中国死海"/>-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestScenery">-->
+                <!--<methods>-->
+                    <!--<include name="scenery0002"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name="非会员下单 -- 联票 + 身份证" preserve-order="true">
+        <parameter name="searchKeyword" value="灵山大佛"/>
+        <parameter name="isLianPiao" value="1"/>
         <classes>
             <class name="hq.mobile.test.tc.testcases.RegressionTestScenery">
                 <methods>

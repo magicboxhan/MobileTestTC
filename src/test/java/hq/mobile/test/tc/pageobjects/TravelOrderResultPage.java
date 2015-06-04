@@ -44,6 +44,24 @@ public class TravelOrderResultPage extends CommonPage{
     }
 
     /**
+     * TextView -- 订单提交成功
+     */
+    public WebElement textViewSuccess() {
+        return d.findElementById("com.tongcheng.android:id/tv_success");
+    }
+
+    /**
+     * TextView -- 标题：选择支付方式
+     */
+    public WebElement textViewTitle() {
+        return d.findElementByName("选择支付方式");
+    }
+
+
+
+    //==================== Functions ====================
+
+    /**
      * 自检
      *
      * @return 自检是否通过
@@ -64,19 +82,5 @@ public class TravelOrderResultPage extends CommonPage{
             t.takeScreenshot(d, "SelfCheckFailed", "jpg");
             return false;
         }
-    }
-
-    /**
-     * TextView -- 订单提交成功
-     */
-    public WebElement textViewSuccess() {
-        return d.findElementById("com.tongcheng.android:id/tv_success");
-    }
-
-    /**
-     * TextView -- 标题：选择支付方式
-     */
-    public WebElement textViewTitle() {
-        return d.findElementByName("选择支付方式");
     }
 }
