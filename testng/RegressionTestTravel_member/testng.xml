@@ -20,6 +20,16 @@
     <parameter name="idCard" value="63252519760324553X"/>
     <parameter name="isMultiHotel" value="0"/>
 
+    <test name="取消删除所有订单(前提)" preserve-order="true">
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.SmokeTest">
+                <methods>
+                    <include name="cancelDeleteAllOrders"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
     <test name="会员下单 -- 单景点" preserve-order="true">
         <parameter name="searchKeyword" value="44988"/>
         <classes>

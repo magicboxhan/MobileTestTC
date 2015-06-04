@@ -380,6 +380,7 @@ public class SmokeTest extends CommonTestcase {
             pOrderList = new OrderListPage(d);
             d.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); //调整隐性等待时间，加速订单取消速度
             pOrderList.funcCancelDeleteAllOrders();
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
             Assert.assertEquals(pOrderList.funcSelfcheck("订单列表页"), true);
             Assert.assertEquals(result, true);
         } catch (Exception e) {
