@@ -44,6 +44,17 @@ public class SceneryOrderResultPage extends CommonPage {
     }
 
     /**
+     * 该页面有两种成功判断标准，元素3代表：提交成功
+     */
+    public WebElement keyElement3() {
+        try {
+            return textViewTitle2();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
      * TextView -- 订单提交成功
      */
     public WebElement textViewSuccess() {
@@ -54,6 +65,13 @@ public class SceneryOrderResultPage extends CommonPage {
      * TextView -- 标题：选择支付方式
      */
     public WebElement textViewTitle() {
+        return d.findElementByName("支付方式");
+    }
+
+    /**
+     * TextView -- 标题：提交成功
+     */
+    public WebElement textViewTitle2() {
         return d.findElementByName("支付方式");
     }
 
@@ -71,7 +89,7 @@ public class SceneryOrderResultPage extends CommonPage {
             return true;
         }
         t.log(String.format("执行页面 [%s] 的自检功能", pageName));
-        if ((keyElement() != null) || (keyElement2() != null)) {
+        if ((keyElement() != null) || (keyElement2() != null) || (keyElement3() != null)) {
             t.log("Pass -- 自检通过");
             funcSwitchToNativeView();
             t.takeScreenshot(d, "SelfCheckPassed", "jpg");
