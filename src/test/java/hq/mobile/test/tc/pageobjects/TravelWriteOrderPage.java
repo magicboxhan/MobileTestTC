@@ -9,7 +9,7 @@ import java.util.List;
  * Created by hq11258 on 2015/5/22.
  * 周边游订单填写页
  */
-public class TravelWriteOrderPage extends CommonPage{
+public class TravelWriteOrderPage extends CommonPage {
 
     /**
      * 构造方法
@@ -78,16 +78,14 @@ public class TravelWriteOrderPage extends CommonPage{
     }
 
 
-
-
-
     //==================== Functions ====================
 
     /**
      * 填写订单
-     * @param name 姓名
-     * @param phone 电话
-     * @param idCard 身份证
+     *
+     * @param name         姓名
+     * @param phone        电话
+     * @param idCard       身份证
      * @param isMultiHotel 是否多酒店（0：否，1：是）
      * @throws InterruptedException
      */
@@ -95,7 +93,7 @@ public class TravelWriteOrderPage extends CommonPage{
         t.log("从日历选择日期");
         if (isMultiHotel == 0) {
             funcSelectDateFromCalendar();
-        } else if(isMultiHotel == 1){
+        } else if (isMultiHotel == 1) {
             funcSwipeUp();
         }
         funcSwipeUp();
@@ -104,10 +102,10 @@ public class TravelWriteOrderPage extends CommonPage{
         editTextName().sendKeys(name);
         editTextPhone().clear();
         editTextPhone().sendKeys(phone);
-        try{
+        try {
             editTextIDCard().clear();
             editTextIDCard().sendKeys(idCard);
-        }catch (Exception e){
+        } catch (Exception e) {
             //Do nothing
         }
         t.log("提交订单");
@@ -116,10 +114,11 @@ public class TravelWriteOrderPage extends CommonPage{
 
     /**
      * 选择日历（从第二个链接开始一次选择，第一个链接默认选好了）
+     *
      * @throws InterruptedException
      */
     public void funcSelectDateFromCalendar() throws InterruptedException {
-        for (int i=1; i<textViewTravelCalendar().size(); i++){
+        for (int i = 1; i < textViewTravelCalendar().size(); i++) {
             t.log("点击选择游玩日期");
             textViewTravelCalendar().get(i).click();
 //            textViewCalendarCell(0, 0, 0).click();

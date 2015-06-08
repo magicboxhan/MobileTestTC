@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
  * Created by hq11258 on 2015/5/27.
  * 日历选择页
  */
-public class CalendarPage extends CommonPage{
+public class CalendarPage extends CommonPage {
 
     /**
      * 构造方法

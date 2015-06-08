@@ -102,27 +102,40 @@ public class SceneryDetailPage extends CommonPage {
         return d.findElementById("com.tongcheng.android:id/groupPrice");
     }
 
+
     //==================== Functions ====================
 
     /**
      * 点击组合优惠票
+     *
      * @throws InterruptedException
      */
     public void funcClickZuHeYouHuiPiao() throws InterruptedException {
-        if(funcSwipeUpUntilElementShowUp("组合优惠票")){
-            d.findElementByName("组合优惠票").click();
+        //如果“组合优惠票”排第一，则不点击；不然则滑动并点击
+        if (!textViewGroupName().getText().equals("组合优惠票")) {
+            if (funcSwipeUpUntilElementShowUp("组合优惠票")) {
+                d.findElementByName("组合优惠票").click();
+            }
         }
     }
 
     /**
      * 点击联票预定按钮
+     *
      * @throws InterruptedException
      */
     public void funcClickLianPiao() throws InterruptedException {
-        if(funcSwipeUpUntilElementShowUp("惠")){
-            for(WebElement ll : d.findElementsByClassName("android.widget.LinearLayout")){
+        if (funcSwipeUpUntilElementShowUp("惠")) {
+            List<WebElement> lls = d.findElementById("com.tongcheng.android:id/expandableListView").findElements(By.className("android.widget.LinearLayout"));
+            for (int i = 19; i < lls.size(); i++) {
+                WebElement ll = lls.get(i);
                 //遍历页面上的LL，每个代表一个票型
-                if(ll.findElements(By.name("惠")).size() > 0){
+                if ((ll.findElements(By.name("惠")).size() > 0)
+                        && (ll.findElements(By.id("com.tongcheng.android:id/tv_scenery_name")).size() > 0)
+                        && (ll.findElements(By.id("com.tongcheng.android:id/tv_amount_advice")).size() > 0)
+                        && (ll.findElements(By.id("com.tongcheng.android:id/ll_book")).size() > 0)
+                        ) {
+                    t.log(String.format("预订[%s]", ll.findElement(By.id("com.tongcheng.android:id/tv_scenery_name")).getText()));
                     ll.findElement(By.id("com.tongcheng.android:id/ll_book")).click();
                     return;
                 }

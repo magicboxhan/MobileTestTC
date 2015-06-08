@@ -86,12 +86,12 @@ public class OrderListPage extends CommonPage {
                 textViewCancelOrder().get(0).click();
                 try {
                     buttonConfirmDelete().click();
-                }catch (Exception e){
+                } catch (Exception e) {
                     //Do nothing
                 }
                 try {
                     relativeLayoutCancelReason().get(0).click();
-                }catch (Exception e){
+                } catch (Exception e) {
                     //Do nothing
                 }
                 t.log("取消订单");

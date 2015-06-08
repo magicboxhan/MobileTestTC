@@ -11,19 +11,20 @@ import java.util.concurrent.TimeUnit;
  * Created by hq11258 on 2015/6/2.
  * 测试用例 -- 景区
  */
-public class RegressionTestScenery extends CommonTestcase{
+public class RegressionTestScenery extends CommonTestcase {
 
 
     //==================== TestCases ====================
 
     /**
      * 会员下单（原生）
-     * @param uid 用户名
-     * @param pwd 密码
+     *
+     * @param uid           用户名
+     * @param pwd           密码
      * @param searchKeyword 搜索关键字
-     * @param name 出游人姓名
-     * @param phone 出游人电话
-     * @param idCard 出游人身份证
+     * @param name          出游人姓名
+     * @param phone         出游人电话
+     * @param idCard        出游人身份证
      */
     @Parameters({
             "uid",
@@ -97,11 +98,12 @@ public class RegressionTestScenery extends CommonTestcase{
 
     /**
      * 非会员下单
+     *
      * @param searchKeyword 搜索关键字
-     * @param name 出游人姓名
-     * @param phone 出游人电话
-     * @param idCard 出游人身份证
-     * @param isLianPiao 是否联票（0：非联票，1：联票）
+     * @param name          出游人姓名
+     * @param phone         出游人电话
+     * @param idCard        出游人身份证
+     * @param isLianPiao    是否联票（0：非联票，1：联票）
      */
     @Parameters({
             "searchKeyword",
@@ -145,10 +147,10 @@ public class RegressionTestScenery extends CommonTestcase{
             //景区详情页
             t.log("=== 景区详情页 ===");
             Assert.assertEquals(pSceneryDetail.funcSelfcheck("景区详情页"), true);
-            if(isLianPiao == 0) {
+            if (isLianPiao == 0) {
                 t.log("点击预订按钮");
                 pSceneryDetail.buttonOrder().get(0).click();
-            }else if(isLianPiao == 1){
+            } else if (isLianPiao == 1) {
                 d.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); //临时改成3秒，用于抓取页面元素
                 pSceneryDetail.funcClickZuHeYouHuiPiao();
                 pSceneryDetail.funcClickLianPiao();

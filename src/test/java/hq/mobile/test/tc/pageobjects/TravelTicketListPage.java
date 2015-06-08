@@ -9,7 +9,7 @@ import java.util.List;
  * Created by hq11258 on 2015/5/22.
  * 周边游套餐列表页
  */
-public class TravelTicketListPage extends CommonPage{
+public class TravelTicketListPage extends CommonPage {
 
     /**
      * 构造方法

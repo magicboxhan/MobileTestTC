@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
  * Created by hq11258 on 2015/6/2.
  * 景区订单提交结果页
  */
-public class SceneryOrderResultPage extends CommonPage{
+public class SceneryOrderResultPage extends CommonPage {
 
     /**
      * 构造方法
@@ -56,7 +56,6 @@ public class SceneryOrderResultPage extends CommonPage{
     public WebElement textViewTitle() {
         return d.findElementByName("支付方式");
     }
-
 
 
     //==================== Functions ====================

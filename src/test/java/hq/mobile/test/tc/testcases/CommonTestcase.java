@@ -159,6 +159,7 @@ public class CommonTestcase extends BasicTestCase {
 
     /**
      * 从首页登录
+     *
      * @param uid 用户名
      * @param pwd 密码
      * @throws InterruptedException

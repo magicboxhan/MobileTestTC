@@ -45,11 +45,11 @@ public class TravelSearchPage extends CommonPage {
     }
 
 
-
     //==================== Functions ====================
 
     /**
      * 搜索关键字
+     *
      * @param keyword 关键字
      */
     public void funcSearch(String keyword) {

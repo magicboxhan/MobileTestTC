@@ -102,13 +102,30 @@ public class CommonPage extends BasicPage {
      * TextView -- 可点击日期
      */
     public WebElement textViewCalendarCellAvailable() {
-        WebElement month = viewCalendarGrid().get(0);       //第一个月
-        List<WebElement> weeks = month.findElements(By.className("android.view.View"));
-        WebElement week = weeks.get(weeks.size() - 1);      //最后一周
-        List<WebElement> days = week.findElements(By.className("android.widget.TextView"));
-        for (WebElement day : days){                        //可点击的日期
-            if (day.isEnabled()){
-                return day;
+//        WebElement month = viewCalendarGrid().get(0);       //第一个月
+//        List<WebElement> weeks = month.findElements(By.className("android.view.View"));
+//        WebElement week = weeks.get(weeks.size() - 1);      //最后一周
+//        List<WebElement> days = week.findElements(By.className("android.widget.TextView"));
+//        for (WebElement day : days){                        //可点击的日期
+//            if (day.isEnabled()){
+//                return day;
+//            }
+//        }
+//        return null;
+
+        List<WebElement> months = viewCalendarGrid();   //所有月份控件
+        for (WebElement month : months) {
+            //每个月
+            List<WebElement> weeks = month.findElements(By.className("android.view.View"));
+            for (int i = 1; i < (weeks.size()); i++) {         //跳过第一个view，因为是星期标题
+                //每个周
+                WebElement week = weeks.get(i);
+                List<WebElement> days = week.findElements(By.className("android.widget.TextView"));
+                for (WebElement day : days) {            //可点击的日期
+                    if (day.isEnabled()) {
+                        return day;
+                    }
+                }
             }
         }
         return null;
@@ -231,6 +248,7 @@ public class CommonPage extends BasicPage {
 
     /**
      * 向上滑动直到指定文字的元素出现
+     *
      * @throws InterruptedException
      */
     public boolean funcSwipeUpUntilElementShowUp(String name) throws InterruptedException {
@@ -238,14 +256,14 @@ public class CommonPage extends BasicPage {
         boolean result = true;
         int i = 0;  //最大滑动次数
         int maxSwipeCount = 5;
-        while ((i < maxSwipeCount) && (d.findElementsByName(name).size() == 0)){
+        while ((i < maxSwipeCount) && (d.findElementsByName(name).size() == 0)) {
             funcSwipeUp();
             i++;
         }
-        if (i == maxSwipeCount){
+        if (i == maxSwipeCount) {
             t.log(String.format(">>>>>>>>>> 未找到指定元素", name));
             result = false;
-        }else{
+        } else {
             t.log(String.format("找到指定元素", name));
         }
         return result;

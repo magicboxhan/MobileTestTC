@@ -3,6 +3,8 @@ package hq.mobile.test.tc.pageobjects;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 /**
  * Created by hq11258 on 2015/4/28.
  * 景点订单填写页
@@ -30,11 +32,18 @@ public class SceneryWriteOrderPage extends CommonPage {
     }
 
     /**
-     * TextView -- 点击选择日期
+     * TextView集合 -- 点击选择日期
      */
-    public WebElement textViewSelectDate() {
-        return d.findElementById("com.tongcheng.android:id/tv_date");
+    public List<WebElement> textViewSelectDate() {
+        return d.findElementsById("com.tongcheng.android:id/tv_date");
     }
+
+//    /**
+//     * TextView -- 点击选择日期
+//     */
+//    public WebElement textViewSelectDate() {
+//        return d.findElementById("com.tongcheng.android:id/tv_date");
+//    }
 
     /**
      * TextView -- 根据文字获取控件
@@ -82,10 +91,13 @@ public class SceneryWriteOrderPage extends CommonPage {
      * @param phone 取票人手机号
      * @param card  取票人证件号
      */
-    public void funcSubmitOrder(String name, String phone, String card) {
+    public void funcSubmitOrder(String name, String phone, String card) throws InterruptedException {
         //选择日期
-        textViewSelectDate().click();
-        textViewCalendarCellAvailable().click();
+        for (int i = 0; i < textViewSelectDate().size(); i++) {
+            textViewSelectDate().get(i).click();
+            textViewCalendarCellAvailable().click();
+        }
+        funcSwipeUp();
         //取票人姓名
         editTextGetTicketName().clear();
         editTextGetTicketName().sendKeys(name);

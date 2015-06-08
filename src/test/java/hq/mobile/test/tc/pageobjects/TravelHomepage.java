@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
  * Created by hq11258 on 2015/5/22.
  * 周边游首页
  */
-public class TravelHomepage extends CommonPage{
+public class TravelHomepage extends CommonPage {
 
     /**
      * 构造方法

@@ -9,13 +9,14 @@ import org.testng.annotations.Test;
  * Created by hq11258 on 2015/5/22.
  * 测试用例 -- 周边游
  */
-public class RegressionTestTravel extends CommonTestcase{
+public class RegressionTestTravel extends CommonTestcase {
 
 
     //==================== Common Functions ====================
 
     /**
      * 从首页开始搜索周边游产品，并进入产品详情页
+     *
      * @param searchKeyword
      * @throws InterruptedException
      */
@@ -52,18 +53,18 @@ public class RegressionTestTravel extends CommonTestcase{
     }
 
 
-
     //==================== TestCases ====================
 
     /**
      * 会员下单
-     * @param uid 用户名
-     * @param pwd 密码
+     *
+     * @param uid           用户名
+     * @param pwd           密码
      * @param searchKeyword 搜索关键字
-     * @param name 出游人姓名
-     * @param phone 出游人电话
-     * @param idCard 出游人身份证
-     * @param isMultiHotel 是否多酒店（0：否，1：是）
+     * @param name          出游人姓名
+     * @param phone         出游人电话
+     * @param idCard        出游人身份证
+     * @param isMultiHotel  是否多酒店（0：否，1：是）
      */
     @Parameters({
             "uid",
@@ -141,11 +142,12 @@ public class RegressionTestTravel extends CommonTestcase{
 
     /**
      * 非会员下单
+     *
      * @param searchKeyword 搜索关键字
-     * @param name 出游人姓名
-     * @param phone 出游人电话
-     * @param idCard 出游人身份证
-     * @param isMultiHotel 是否多酒店（0：否，1：是）
+     * @param name          出游人姓名
+     * @param phone         出游人电话
+     * @param idCard        出游人身份证
+     * @param isMultiHotel  是否多酒店（0：否，1：是）
      */
     @Parameters({
             "searchKeyword",
