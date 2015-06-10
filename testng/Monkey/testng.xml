@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="SuiteTC" parallel="false">
+    <parameter name="" value=""/>
+    <test name="Monkey" preserve-order="true">
+        <parameter name="" value=""/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.MonkeyTest">
+                <methods>
+                    <include name="test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

@@ -51,9 +51,11 @@ public class Tools {
      * @param info 日志内容
      */
     public void log(String info) {
-        l.info(info.replace(code, ""));
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        Reporter.log(String.format("%s - %s", sdf.format(Calendar.getInstance().getTime()), info));
+        if (info != null) {
+            l.info(info.replace(code, ""));
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+            Reporter.log(String.format("%s - %s", sdf.format(Calendar.getInstance().getTime()), info));
+        }
     }
 
 }
