@@ -82,6 +82,13 @@ public class SceneryWriteOrderPage extends CommonPage {
         return d.findElementById("com.tongcheng.android:id/btn_submit_order");
     }
 
+    /**
+     * Button -- 提交订单
+     */
+    public WebElement buttonForceSubmit() {
+        return d.findElementById("com.tongcheng.android:id/btn_dialog_left");
+    }
+
     //==================== Functions ====================
 
     /**
@@ -109,6 +116,12 @@ public class SceneryWriteOrderPage extends CommonPage {
         editTextGetTicketCard().sendKeys(card);
         //点击提交按钮
         buttonSubmitOrder().click();
+        try{
+            Thread.sleep(2000);
+            buttonForceSubmit().click();
+        }catch(Exception e){
+            //Do nothing
+        }
     }
 
 }
