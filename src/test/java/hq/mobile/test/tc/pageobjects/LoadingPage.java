@@ -32,7 +32,7 @@ public class LoadingPage extends CommonPage {
     public void funcEnterHomepage() throws InterruptedException {
         //滑动4次（1次备用）
         for (int i = 0; i < 4; i++) {
-            d.swipe(720, 100, 100, 100, 1000);
+            d.swipe(1000, 100, 100, 100, 1000);
             Thread.sleep(3000);
         }
 
