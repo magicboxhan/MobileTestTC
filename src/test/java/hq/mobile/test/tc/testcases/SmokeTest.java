@@ -353,7 +353,7 @@ public class SmokeTest extends CommonTestcase {
         try {
             t.log("===== 取消删除所有订单 =====");
             boolean result = true;
-            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_SHORT);
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
             enterHomepage();
             t.log("=== 首页 ===");
             t.log("点击“我的”");
