@@ -25,6 +25,8 @@ public class RegressionTestScenery extends CommonTestcase {
      * @param name          出游人姓名
      * @param phone         出游人电话
      * @param idCard        出游人身份证
+     * @param email         出游人邮箱
+     * @param isH5          详情页是否H5（0：非H5，1：H5）
      */
     @Parameters({
             "uid",
@@ -32,7 +34,9 @@ public class RegressionTestScenery extends CommonTestcase {
             "searchKeyword",
             "name",
             "phone",
-            "idCard"
+            "idCard",
+            "email",
+            "isH5"
     })
     @Test
     public void scenery0001(
@@ -41,7 +45,9 @@ public class RegressionTestScenery extends CommonTestcase {
             String searchKeyword,
             String name,
             String phone,
-            String idCard) {
+            String idCard,
+            String email,
+            int isH5) {
         try {
             t.log("===== 用例名称：会员下单 =====");
             boolean result = true;
@@ -67,12 +73,16 @@ public class RegressionTestScenery extends CommonTestcase {
             t.log("=== 景区搜索页 ===");
             Assert.assertEquals(pScenerySearch.funcSelfcheck("景区搜索页"), true);
             t.log(String.format("搜索关键字[%s]", searchKeyword));
-            pScenerySearch.funcSearch(searchKeyword);
-            //景区列表页
-            t.log("=== 景区列表页 ===");
-            Assert.assertEquals(pScenerySearchResult.funcSelfcheck("景区列表页"), true);
-            t.log("点击第一个结果");
-            pScenerySearchResult.textViewSceneryName().get(0).click();
+            if(isH5 == 0){
+                pScenerySearch.funcSearchByClickButton(searchKeyword);
+                //景区列表页
+                t.log("=== 景区列表页 ===");
+                Assert.assertEquals(pScenerySearchResult.funcSelfcheck("景区列表页"), true);
+                t.log("点击第一个结果");
+                pScenerySearchResult.textViewSceneryName().get(0).click();
+            }else{
+                pScenerySearch.funcSearchByClickName(searchKeyword);
+            }
             //景区详情页
             t.log("=== 景区详情页 ===");
             Assert.assertEquals(pSceneryDetail.funcSelfcheck("景区详情页"), true);
@@ -81,7 +91,7 @@ public class RegressionTestScenery extends CommonTestcase {
             //订单填写页
             t.log("=== 景区订单填写页 ===");
             Assert.assertEquals(pSceneryWriteOrder.funcSelfcheck("景区订单填写页"), true);
-            pSceneryWriteOrder.funcSubmitOrder(name, phone, idCard);
+            pSceneryWriteOrder.funcSubmitOrder(name, phone, idCard, email);
             //订单提交完成页
             t.log("=== 订单提交结果页 ===");
             Assert.assertEquals(pSceneryOrderResult.funcSelfcheck("订单提交结果页"), true);
@@ -103,6 +113,7 @@ public class RegressionTestScenery extends CommonTestcase {
      * @param name          出游人姓名
      * @param phone         出游人电话
      * @param idCard        出游人身份证
+     * @param email         出游人邮箱
      * @param isLianPiao    是否联票（0：非联票，1：联票）
      */
     @Parameters({
@@ -110,6 +121,7 @@ public class RegressionTestScenery extends CommonTestcase {
             "name",
             "phone",
             "idCard",
+            "email",
             "isLianPiao"
     })
     @Test
@@ -118,6 +130,7 @@ public class RegressionTestScenery extends CommonTestcase {
             String name,
             String phone,
             String idCard,
+            String email,
             int isLianPiao) {
         try {
             t.log("===== 用例名称：会员下单 =====");
@@ -138,7 +151,7 @@ public class RegressionTestScenery extends CommonTestcase {
             t.log("=== 景区搜索页 ===");
             Assert.assertEquals(pScenerySearch.funcSelfcheck("景区搜索页"), true);
             t.log(String.format("搜索关键字[%s]", searchKeyword));
-            pScenerySearch.funcSearch(searchKeyword);
+            pScenerySearch.funcSearchByClickButton(searchKeyword);
             //景区列表页
             t.log("=== 景区列表页 ===");
             Assert.assertEquals(pScenerySearchResult.funcSelfcheck("景区列表页"), true);
@@ -163,7 +176,7 @@ public class RegressionTestScenery extends CommonTestcase {
             //订单填写页
             t.log("=== 景区订单填写页 ===");
             Assert.assertEquals(pSceneryWriteOrder.funcSelfcheck("景区订单填写页"), true);
-            pSceneryWriteOrder.funcSubmitOrder(name, phone, idCard);
+            pSceneryWriteOrder.funcSubmitOrder(name, phone, idCard, email);
             //订单提交完成页
             t.log("=== 订单提交结果页 ===");
             Assert.assertEquals(pSceneryOrderResult.funcSelfcheck("订单提交结果页"), true);

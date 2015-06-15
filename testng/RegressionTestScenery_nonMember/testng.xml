@@ -18,6 +18,7 @@
     <parameter name="name" value="测试"/>
     <parameter name="phone" value="15262342068"/>
     <parameter name="idCard" value="63252519760324553X"/>
+    <parameter name="email" value="hq11258@ly.com"/>
     <parameter name="isLianPiao" value="0"/>
 
     <test name="取消删除所有订单0" preserve-order="true">

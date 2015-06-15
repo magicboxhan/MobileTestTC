@@ -18,9 +18,34 @@
     <parameter name="name" value="测试"/>
     <parameter name="phone" value="15262342068"/>
     <parameter name="idCard" value="63252519760324553X"/>
+    <parameter name="email" value="hq11258@ly.com"/>
+    <parameter name="isLianPiao" value="0"/>
+    <parameter name="isH5" value="0"/>
 
-    <!--<test name="会员下单 &#45;&#45; 普通票 + 身份证票型" preserve-order="true">-->
-        <!--<parameter name="searchKeyword" value="苏州乐园"/>-->
+    <!--<test name="取消删除所有订单0" preserve-order="true">-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.SmokeTest">-->
+                <!--<methods>-->
+                    <!--<include name="cancelDeleteAllOrders"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name="会员下单（普票） -- 邮箱票型" preserve-order="true">
+        <parameter name="searchKeyword" value="香港迪士尼乐园"/>
+        <parameter name="isH5" value="1"/>
+        <classes>
+            <class name="hq.mobile.test.tc.testcases.RegressionTestScenery">
+                <methods>
+                    <include name="scenery0001"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!--<test name="非会员下单（普票） &#45;&#45; 普通票 + 实名制票型" preserve-order="true">-->
+        <!--<parameter name="searchKeyword" value="遂宁中国死海"/>-->
         <!--<classes>-->
             <!--<class name="hq.mobile.test.tc.testcases.RegressionTestScenery">-->
                 <!--<methods>-->
@@ -30,16 +55,29 @@
         <!--</classes>-->
     <!--</test>-->
 
-    <test name="会员下单 -- 实名制票型" preserve-order="true">
-        <parameter name="searchKeyword" value="遂宁中国死海"/>
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.RegressionTestScenery">
-                <methods>
-                    <include name="scenery0001"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+    <!--<test name="非会员下单（联票） &#45;&#45; 联票 + 身份证" preserve-order="true">-->
+        <!--<parameter name="searchKeyword" value="灵山大佛"/>-->
+        <!--<parameter name="isLianPiao" value="1"/>-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestScenery">-->
+                <!--<methods>-->
+                    <!--<include name="scenery0001"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name="非会员下单（联票） &#45;&#45; 普票 + 场次" preserve-order="true">-->
+        <!--<parameter name="searchKeyword" value="三亚宋城千古情"/>-->
+        <!--<parameter name="isLianPiao" value="1"/>-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestScenery">-->
+                <!--<methods>-->
+                    <!--<include name="scenery0001"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
     <!--<test name="取消删除所有订单" preserve-order="true">-->
         <!--<classes>-->

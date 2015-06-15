@@ -76,6 +76,13 @@ public class SceneryWriteOrderPage extends CommonPage {
     }
 
     /**
+     * EditText -- 取票人邮箱
+     */
+    public WebElement editTextGetTicketEmail() {
+        return d.findElementById("com.tongcheng.android:id/email");
+    }
+
+    /**
      * Button -- 提交订单
      */
     public WebElement buttonSubmitOrder() {
@@ -98,7 +105,7 @@ public class SceneryWriteOrderPage extends CommonPage {
      * @param phone 取票人手机号
      * @param card  取票人证件号
      */
-    public void funcSubmitOrder(String name, String phone, String card) throws InterruptedException {
+    public void funcSubmitOrder(String name, String phone, String card, String email) throws InterruptedException {
         //选择日期
         for (int i = 0; i < textViewSelectDate().size(); i++) {
             textViewSelectDate().get(i).click();
@@ -112,8 +119,19 @@ public class SceneryWriteOrderPage extends CommonPage {
         editTextGetTicketPhone().clear();
         editTextGetTicketPhone().sendKeys(phone);
         //取票人身份证号
-        editTextGetTicketCard().clear();
-        editTextGetTicketCard().sendKeys(card);
+        try {
+            editTextGetTicketCard().clear();
+            editTextGetTicketCard().sendKeys(card);
+        }catch (Exception ex){
+            //Do nothing
+        }
+        //取票人邮箱
+        try {
+            editTextGetTicketEmail().clear();
+            editTextGetTicketEmail().sendKeys(email);
+        }catch (Exception ex){
+            //Do nothing
+        }
         //点击提交按钮
         buttonSubmitOrder().click();
         try{

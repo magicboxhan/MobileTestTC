@@ -206,7 +206,7 @@ public class SmokeTest extends CommonTestcase {
             pLogin.funcLogin(uid, pwd);
             t.log("=== 景点订单填写页 ===");
             pSceneryWriteOrder = new SceneryWriteOrderPage(d);
-            pSceneryWriteOrder.funcSubmitOrder(getTicketName, getTicketPhone, getTicketCard);
+            pSceneryWriteOrder.funcSubmitOrder(getTicketName, getTicketPhone, getTicketCard, "hq11258@ly.com");
             Assert.assertEquals(result, true);
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
