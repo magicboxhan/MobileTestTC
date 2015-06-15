@@ -27,6 +27,7 @@ public class RegressionTestScenery extends CommonTestcase {
      * @param idCard        出游人身份证
      * @param email         出游人邮箱
      * @param isH5          详情页是否H5（0：非H5，1：H5）
+     * @param isLianPiao    是否联票（0：非联票，1：联票）
      */
     @Parameters({
             "uid",
@@ -36,7 +37,8 @@ public class RegressionTestScenery extends CommonTestcase {
             "phone",
             "idCard",
             "email",
-            "isH5"
+            "isH5",
+            "isLianPiao"
     })
     @Test
     public void scenery0001(
@@ -47,7 +49,8 @@ public class RegressionTestScenery extends CommonTestcase {
             String phone,
             String idCard,
             String email,
-            int isH5) {
+            int isH5,
+            int isLianPiao) {
         try {
             t.log("===== 用例名称：会员下单 =====");
             boolean result = true;
@@ -86,8 +89,15 @@ public class RegressionTestScenery extends CommonTestcase {
             //景区详情页
             t.log("=== 景区详情页 ===");
             Assert.assertEquals(pSceneryDetail.funcSelfcheck("景区详情页"), true);
-            t.log("点击预订按钮");
-            pSceneryDetail.buttonOrder().get(0).click();
+            if (isLianPiao == 0) {
+                t.log("点击预订按钮");
+                pSceneryDetail.buttonOrder().get(0).click();
+            } else if (isLianPiao == 1) {
+                d.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); //临时改成3秒，用于抓取页面元素
+                pSceneryDetail.funcClickZuHeYouHuiPiao();
+                pSceneryDetail.funcClickLianPiao();
+                d.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            }
             //订单填写页
             t.log("=== 景区订单填写页 ===");
             Assert.assertEquals(pSceneryWriteOrder.funcSelfcheck("景区订单填写页"), true);
