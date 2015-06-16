@@ -21,7 +21,7 @@
     <parameter name="email" value="hq11258@ly.com"/>
     <parameter name="isLianPiao" value="0"/>
 
-    <test name="取消删除所有订单1" preserve-order="true">
+    <test name="取消删除所有订单（前提）" preserve-order="true">
         <classes>
             <class name="hq.mobile.test.tc.testcases.SmokeTest">
                 <methods>
@@ -77,7 +77,7 @@
         </classes>
     </test>
 
-    <test name="取消删除所有订单2" preserve-order="true">
+    <test name="取消删除所有订单" preserve-order="true">
         <classes>
             <class name="hq.mobile.test.tc.testcases.SmokeTest">
                 <methods>
