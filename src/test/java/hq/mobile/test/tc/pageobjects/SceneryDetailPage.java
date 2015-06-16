@@ -134,6 +134,7 @@ public class SceneryDetailPage extends CommonPage {
                         && (ll.findElements(By.id("com.tongcheng.android:id/tv_scenery_name")).size() > 0)
                         && (ll.findElements(By.id("com.tongcheng.android:id/tv_amount_advice")).size() > 0)
                         && (ll.findElements(By.id("com.tongcheng.android:id/ll_book")).size() > 0)
+                        && (ll.findElements(By.name("返10元")).size() == 0)
                         ) {
                     t.log(String.format("预订[%s]", ll.findElement(By.id("com.tongcheng.android:id/tv_scenery_name")).getText()));
                     ll.findElement(By.id("com.tongcheng.android:id/ll_book")).click();
