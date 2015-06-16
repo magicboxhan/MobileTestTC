@@ -127,7 +127,7 @@ public class SceneryDetailPage extends CommonPage {
     public void funcClickLianPiao() throws InterruptedException {
         if (funcSwipeUpUntilElementShowUp("惠")) {
             List<WebElement> lls = d.findElementById("com.tongcheng.android:id/expandableListView").findElements(By.className("android.widget.LinearLayout"));
-            for (int i = 19; i < lls.size(); i++) {
+            for (int i = 0; i < lls.size(); i++) {
                 WebElement ll = lls.get(i);
                 //遍历页面上的LL，每个代表一个票型
                 if ((ll.findElements(By.name("惠")).size() > 0)
