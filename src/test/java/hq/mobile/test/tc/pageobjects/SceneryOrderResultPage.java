@@ -72,7 +72,7 @@ public class SceneryOrderResultPage extends CommonPage {
      * TextView -- 标题：提交成功
      */
     public WebElement textViewTitle2() {
-        return d.findElementByName("支付方式");
+        return d.findElementByName("提交成功");
     }
 
 
