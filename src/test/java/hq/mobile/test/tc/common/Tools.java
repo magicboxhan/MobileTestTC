@@ -7,10 +7,15 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.testng.Reporter;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by hanqing on 2015/3/27.
@@ -56,6 +61,46 @@ public class Tools {
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
             Reporter.log(String.format("%s - %s", sdf.format(Calendar.getInstance().getTime()), info));
         }
+    }
+
+    /**
+     * 执行cmd命令
+     * @param cmd 命令
+     * @return
+     */
+    public List<String> runCommand(String cmd){
+        try {
+            Process p = Runtime.getRuntime().exec(cmd);
+            return getShellResult(p);
+        } catch (Exception e){
+            log(">>>>>>>>>> 执行命令时出错");
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    // 收集shell脚本运行的结果集
+    public static List<String> getShellResult(Process process) {
+        List<String> output = new ArrayList<String>();
+        BufferedReader input = null;
+        try {
+            input = new BufferedReader(new InputStreamReader(
+                    process.getInputStream()));
+            String line = "";
+            while ((line = input.readLine()) != null) {
+                if (!"".equals(line)) {
+                    output.add(line);
+                }
+            }
+            if (input != null) {
+                input.close();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return output;
     }
 
 }
