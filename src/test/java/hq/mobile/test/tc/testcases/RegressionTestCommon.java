@@ -5,6 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 /**
  * Created by hq11258 on 2015/5/8.
  * 测试用例 -- 公共
@@ -1017,6 +1019,42 @@ public class RegressionTestCommon extends CommonTestcase {
             t.log(e.getMessage());
             pCommon.funcSwitchToNativeView();
             t.takeScreenshot(d, "common0031", "jpg");
+            Assert.assertEquals(false, true);
+        }
+    }
+
+
+    /**
+     * 访问首页，执行cmd命令
+     * @param cmd 命令
+     */
+    @Parameters({
+            "cmd"
+    })
+    @Test
+    public void common0032(String cmd) {
+        try {
+            t.log("===== 用例名称：进入首页 =====");
+            boolean result = true;
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
+            enterHomepage();
+            t.log("=== 首页 ===");
+            result = pHome.funcSelfcheck("首页");
+            if(result){
+                //执行cmd命令
+                List<String> results = t.runCommand(cmd);
+                for (String line : results){
+                    t.log(line);
+                }
+            }else{
+                Assert.assertEquals(true, false);
+            }
+        } catch (Exception e) {
+            t.log(">>>>>>>>>> 测试出错");
+            e.printStackTrace();
+            t.log(e.getMessage());
+            pCommon.funcSwitchToNativeView();
+            t.takeScreenshot(d, "common0032", "jpg");
             Assert.assertEquals(false, true);
         }
     }

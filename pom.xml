@@ -115,7 +115,7 @@
                     </properties>
                     <workingDirectory>target/</workingDirectory>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>testng/CMD/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

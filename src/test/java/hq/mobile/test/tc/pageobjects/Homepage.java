@@ -16,9 +16,18 @@ public class Homepage extends CommonPage {
      */
     public Homepage(AppiumDriver d) {
         super(d);
+        checkKeyElement = true;
     }
 
     //==================== Elements ====================
+
+    public WebElement keyElement() {
+        try {
+            return textViewCity();
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     /**
      * TextView -- 搜索

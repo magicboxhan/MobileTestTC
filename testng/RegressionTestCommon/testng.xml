@@ -36,71 +36,71 @@
         </classes>
     </test>
 
-    <test name="测试 -- 我的财富" preserve-order="true">
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
-                <methods>
-                    <include name="common0009"/>
-                    <include name="common0010"/>
-                    <include name="common0011"/>
-                    <include name="common0012"/>
-                    <include name="common0013"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+    <!--<test name="测试 &#45;&#45; 我的财富" preserve-order="true">-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestCommon">-->
+                <!--<methods>-->
+                    <!--<include name="common0009"/>-->
+                    <!--<include name="common0010"/>-->
+                    <!--<include name="common0011"/>-->
+                    <!--<include name="common0012"/>-->
+                    <!--<include name="common0013"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
-    <test name="测试 -- 我的卡券" preserve-order="true">
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
-                <methods>
-                    <include name="common0014"/>
-                    <include name="common0015"/>
-                    <include name="common0016"/>
-                    <include name="common0017"/>
+    <!--<test name="测试 &#45;&#45; 我的卡券" preserve-order="true">-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestCommon">-->
+                <!--<methods>-->
+                    <!--<include name="common0014"/>-->
+                    <!--<include name="common0015"/>-->
+                    <!--<include name="common0016"/>-->
+                    <!--<include name="common0017"/>-->
                     <!--<include name="common0018"/>-->
-                </methods>
-            </class>
-        </classes>
-    </test>
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
-    <test name="测试 -- 我的卡券2" preserve-order="true">
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
-                <methods>
-                    <include name="common0014"/>
-                    <include name="common0018"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+    <!--<test name="测试 &#45;&#45; 我的卡券2" preserve-order="true">-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestCommon">-->
+                <!--<methods>-->
+                    <!--<include name="common0014"/>-->
+                    <!--<include name="common0018"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
-    <test name="测试 -- 常用信息" preserve-order="true">
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
-                <methods>
-                    <include name="common0022"/>
-                    <include name="common0023"/>
-                    <include name="common0024"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+    <!--<test name="测试 &#45;&#45; 常用信息" preserve-order="true">-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestCommon">-->
+                <!--<methods>-->
+                    <!--<include name="common0022"/>-->
+                    <!--<include name="common0023"/>-->
+                    <!--<include name="common0024"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
-    <test name="测试 -- 我的收藏" preserve-order="true">
-        <classes>
-            <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
-                <methods>
-                    <include name="common0025"/>
-                    <include name="common0026"/>
-                    <include name="common0027"/>
-                    <include name="common0028"/>
-                    <include name="common0029"/>
-                    <include name="common0030"/>
-                    <include name="common0031"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+    <!--<test name="测试 &#45;&#45; 我的收藏" preserve-order="true">-->
+        <!--<classes>-->
+            <!--<class name="hq.mobile.test.tc.testcases.RegressionTestCommon">-->
+                <!--<methods>-->
+                    <!--<include name="common0025"/>-->
+                    <!--<include name="common0026"/>-->
+                    <!--<include name="common0027"/>-->
+                    <!--<include name="common0028"/>-->
+                    <!--<include name="common0029"/>-->
+                    <!--<include name="common0030"/>-->
+                    <!--<include name="common0031"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
 </suite>
