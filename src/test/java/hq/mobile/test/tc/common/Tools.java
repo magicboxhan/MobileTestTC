@@ -79,7 +79,11 @@ public class Tools {
         }
     }
 
-    // 收集shell脚本运行的结果集
+    /**
+     * 收集shell脚本运行的结果集
+     * @param process
+     * @return
+     */
     public static List<String> getShellResult(Process process) {
         List<String> output = new ArrayList<String>();
         BufferedReader input = null;
@@ -101,6 +105,32 @@ public class Tools {
         }
 
         return output;
+    }
+
+    public void getMemeryInfo(){
+        try {
+            List<String> memInfo = new ArrayList<>();
+            List<String> results = runCommand("adb shell dumpsys meminfo com.tongcheng.android");
+            for (String line : results){
+                if(line.startsWith("Native Heap")){
+                    //Native Heap (Pss Total)
+                    String nativePss = line.split("\\s+")[2];
+                    log(String.format("Native Heap: %s", nativePss));
+                }else if(line.startsWith("Dalvik Heap")){
+                    //Dalvik Heap (Pss Total)
+                    String dalvikPss = line.split("\\s+")[2];
+                    log(String.format("Dalvik Heap: %s", dalvikPss));
+                }else if(line.startsWith("TOTAL")){
+                    //TOTAL Pss
+                    String totalPss = line.split("\\s+")[1];
+                    log(String.format("TOTAL Pss: %s", totalPss));
+                }
+            }
+
+        } catch (Exception e){
+            log(">>>>>>>>>> 获取内存数据出错");
+            e.printStackTrace();
+        }
     }
 
 }
