@@ -107,29 +107,41 @@ public class Tools {
         return output;
     }
 
-    public void getMemeryInfo(){
+    /**
+     * 获取内存信息
+     * @return 0:Native Heap (PSS); 1:Dalvik Heap  (PSS); 2:TOTAL PSS
+     */
+    public List<String> getMemeryInfo(){
         try {
             List<String> memInfo = new ArrayList<>();
             List<String> results = runCommand("adb shell dumpsys meminfo com.tongcheng.android");
+            String nativePss = "";
+            String dalvikPss = "";
+            String totalPss = "";
             for (String line : results){
+                line = line.trim();
                 if(line.startsWith("Native Heap")){
                     //Native Heap (Pss Total)
-                    String nativePss = line.split("\\s+")[2];
-                    log(String.format("Native Heap: %s", nativePss));
+                    nativePss = line.split("\\s+")[2];
+                    log(String.format("Native Heap (PSS): %s KB", nativePss));
                 }else if(line.startsWith("Dalvik Heap")){
                     //Dalvik Heap (Pss Total)
-                    String dalvikPss = line.split("\\s+")[2];
-                    log(String.format("Dalvik Heap: %s", dalvikPss));
+                    dalvikPss = line.split("\\s+")[2];
+                    log(String.format("Dalvik Heap  (PSS): %s KB", dalvikPss));
                 }else if(line.startsWith("TOTAL")){
                     //TOTAL Pss
-                    String totalPss = line.split("\\s+")[1];
-                    log(String.format("TOTAL Pss: %s", totalPss));
+                    totalPss = line.split("\\s+")[1];
+                    log(String.format("TOTAL PSS: %s KB", totalPss));
                 }
             }
-
+            memInfo.add(0, nativePss);
+            memInfo.add(1, dalvikPss);
+            memInfo.add(2, totalPss);
+            return memInfo;
         } catch (Exception e){
             log(">>>>>>>>>> 获取内存数据出错");
             e.printStackTrace();
+            return null;
         }
     }
 

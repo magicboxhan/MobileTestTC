@@ -1036,12 +1036,12 @@ public class RegressionTestCommon extends CommonTestcase {
         try {
             t.log("===== 用例名称：进入首页 =====");
             boolean result = true;
-//            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
-//            enterHomepage();
+            Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
+            enterHomepage();
             t.log("=== 首页 ===");
 //            result = pHome.funcSelfcheck("首页");
 //            if(result){
-                //执行cmd命令
+//                执行cmd命令
 //            List<String> results = t.runCommand(cmd);
 //            results.forEach(t::log);
 //            }else{
