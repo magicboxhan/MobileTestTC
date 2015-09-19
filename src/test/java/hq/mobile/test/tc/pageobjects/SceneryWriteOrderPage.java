@@ -122,22 +122,22 @@ public class SceneryWriteOrderPage extends CommonPage {
         try {
             editTextGetTicketCard().clear();
             editTextGetTicketCard().sendKeys(card);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             //Do nothing
         }
         //取票人邮箱
         try {
             editTextGetTicketEmail().clear();
             editTextGetTicketEmail().sendKeys(email);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             //Do nothing
         }
         //点击提交按钮
         buttonSubmitOrder().click();
-        try{
+        try {
             Thread.sleep(2000);
             buttonForceSubmit().click();
-        }catch(Exception e){
+        } catch (Exception e) {
             //Do nothing
         }
     }

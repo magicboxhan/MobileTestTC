@@ -34,7 +34,7 @@ public class LoadingPage extends CommonPage {
         for (int i = 0; i < 4; i++) {
             try {
                 d.swipe(1000, 100, 100, 100, 1000); //大分辨率
-            }catch (Exception e){
+            } catch (Exception e) {
                 d.swipe(720, 100, 100, 100, 1000); //小分辨率
             }
             Thread.sleep(3000);

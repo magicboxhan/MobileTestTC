@@ -16,13 +16,13 @@ import java.util.concurrent.TimeUnit;
  */
 public class BasicTestCase {
 
-    protected Tools t = new Tools();
-    protected AppiumDriver d;
     public static int WAIT_TIME_VERY_LONG;
     public static int WAIT_TIME_LONG;
     public static int WAIT_TIME_MIDDLE;
     public static int WAIT_TIME_SHORT;
     public static int WAIT_KEY_ELEMENT;
+    protected Tools t = new Tools();
+    protected AppiumDriver d;
 
     @BeforeSuite
     public void setup_suite(

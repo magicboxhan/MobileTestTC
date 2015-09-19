@@ -5,8 +5,6 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
 /**
  * Created by hq11258 on 2015/5/8.
  * 测试用例 -- 公共
@@ -1026,6 +1024,7 @@ public class RegressionTestCommon extends CommonTestcase {
 
     /**
      * 访问首页，执行cmd命令
+     *
      * @param cmd 命令
      */
     @Parameters({
@@ -1040,7 +1039,7 @@ public class RegressionTestCommon extends CommonTestcase {
             enterHomepage();
             t.log("=== 首页 ===");
 //            result = pHome.funcSelfcheck("首页");
-            for(int i=0;i<10;i++){
+            for (int i = 0; i < 10; i++) {
 //                t.log("==========");
                 String totalPSS = t.getMemeryInfo().get(2);
                 t.log(String.format("Total PSS: %s", totalPSS));

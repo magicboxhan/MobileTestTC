@@ -65,14 +65,15 @@ public class Tools {
 
     /**
      * 执行cmd命令
+     *
      * @param cmd 命令
      * @return
      */
-    public List<String> runCommand(String cmd){
+    public List<String> runCommand(String cmd) {
         try {
             Process p = Runtime.getRuntime().exec(cmd);
             return getShellResult(p);
-        } catch (Exception e){
+        } catch (Exception e) {
             log(">>>>>>>>>> 执行命令时出错");
             e.printStackTrace();
             return null;
@@ -81,6 +82,7 @@ public class Tools {
 
     /**
      * 收集shell脚本运行的结果集
+     *
      * @param process
      * @return
      */
@@ -109,26 +111,27 @@ public class Tools {
 
     /**
      * 获取内存信息
+     *
      * @return 0:Native Heap (PSS); 1:Dalvik Heap  (PSS); 2:TOTAL PSS
      */
-    public List<String> getMemeryInfo(){
+    public List<String> getMemeryInfo() {
         try {
             List<String> memInfo = new ArrayList<>();
             List<String> results = runCommand("adb shell dumpsys meminfo com.tongcheng.android");
             String nativePss = "";
             String dalvikPss = "";
             String totalPss = "";
-            for (String line : results){
+            for (String line : results) {
                 line = line.trim();
-                if(line.startsWith("Native Heap")){
+                if (line.startsWith("Native Heap")) {
                     //Native Heap (Pss Total)
                     nativePss = line.split("\\s+")[2];
 //                    log(String.format("Native Heap (PSS): %s KB", nativePss));
-                }else if(line.startsWith("Dalvik Heap")){
+                } else if (line.startsWith("Dalvik Heap")) {
                     //Dalvik Heap (Pss Total)
                     dalvikPss = line.split("\\s+")[2];
 //                    log(String.format("Dalvik Heap (PSS): %s KB", dalvikPss));
-                }else if(line.startsWith("TOTAL")){
+                } else if (line.startsWith("TOTAL")) {
                     //TOTAL Pss
                     totalPss = line.split("\\s+")[1];
 //                    log(String.format("TOTAL PSS: %s KB", totalPss));
@@ -138,7 +141,7 @@ public class Tools {
             memInfo.add(1, dalvikPss);
             memInfo.add(2, totalPss);
             return memInfo;
-        } catch (Exception e){
+        } catch (Exception e) {
             log(">>>>>>>>>> 获取内存数据出错");
             e.printStackTrace();
             return null;

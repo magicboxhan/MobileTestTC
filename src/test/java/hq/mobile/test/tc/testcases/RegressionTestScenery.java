@@ -76,14 +76,14 @@ public class RegressionTestScenery extends CommonTestcase {
             t.log("=== 景区搜索页 ===");
             Assert.assertEquals(pScenerySearch.funcSelfcheck("景区搜索页"), true);
             t.log(String.format("搜索关键字[%s]", searchKeyword));
-            if(isH5 == 0){
+            if (isH5 == 0) {
                 pScenerySearch.funcSearchByClickButton(searchKeyword);
                 //景区列表页
                 t.log("=== 景区列表页 ===");
                 Assert.assertEquals(pScenerySearchResult.funcSelfcheck("景区列表页"), true);
                 t.log("点击第一个结果");
                 pScenerySearchResult.textViewSceneryName().get(0).click();
-            }else{
+            } else {
                 pScenerySearch.funcSearchByClickName(searchKeyword);
             }
             //景区详情页
