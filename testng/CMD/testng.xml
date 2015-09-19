@@ -8,7 +8,7 @@
     <parameter name="platformVersion" value="4.4"/>
     <!--<parameter name="appiumURL" value="http://10.1.200.193:4492/wd/hub"/>-->
     <parameter name="appiumURL" value="http://10.1.200.193:4723/wd/hub"/>
-    <parameter name="appName" value="tongcheng_752_test.apk"/>
+    <parameter name="appName" value="tongcheng_752_beta.apk"/>
     <parameter name="appPackage" value="com.tongcheng.android"/>
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
     <parameter name="implicitlyWaitTime" value="10"/>
@@ -17,7 +17,7 @@
     <parameter name="cityName" value="苏州"/>
 
     <test name="首页" preserve-order="true">
-        <parameter name="cmd" value="adb shell dumpsys meminfo com.tongcheng.android"/>
+        <parameter name="pkgName" value="com.tongcheng.android"/>
         <classes>
             <class name="hq.mobile.test.tc.testcases.RegressionTestCommon">
                 <methods>

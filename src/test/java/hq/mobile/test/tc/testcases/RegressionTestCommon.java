@@ -1,11 +1,10 @@
 package hq.mobile.test.tc.testcases;
 
 import hq.mobile.test.tc.common.BasicTestCase;
+import hq.mobile.test.tc.common.MemeryInfo;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 /**
  * Created by hq11258 on 2015/5/8.
@@ -1027,13 +1026,13 @@ public class RegressionTestCommon extends CommonTestcase {
     /**
      * 访问首页，记录内存
      *
-     * @param cmd 命令
+     * @param pkgName 包名
      */
     @Parameters({
-            "cmd"
+            "pkgName"
     })
     @Test
-    public void common0032(String cmd) {
+    public void common0032(String pkgName) {
         try {
             t.log("===== 用例名称：首页内存 =====");
             boolean result = true;
@@ -1041,12 +1040,11 @@ public class RegressionTestCommon extends CommonTestcase {
             enterHomepage();
             t.log("=== 首页 ===");
             Assert.assertEquals(pHome.funcSelfcheck("首页"), true);
-            List<String> meminfo = t.getMemeryInfo();
-            String pid = meminfo.get(3);
+            MemeryInfo meminfo = t.getMemeryInfo(pkgName);
+            String pid = meminfo.getPid();
             t.log(String.format("PID: %s", pid));
-            String totalPSS = meminfo.get(2);
+            String totalPSS = meminfo.getTotalPss();
             t.log(String.format("Total PSS: %s KB", totalPSS));
-
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();

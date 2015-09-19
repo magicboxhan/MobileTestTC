@@ -112,12 +112,12 @@ public class Tools {
     /**
      * 获取内存信息
      *
+     * @param pkgName 包名
      * @return 0:Native Heap (PSS); 1:Dalvik Heap  (PSS); 2:TOTAL PSS; 3:PID
      */
-    public List<String> getMemeryInfo() {
+    public MemeryInfo getMemeryInfo(String pkgName) {
         try {
-            List<String> memInfo = new ArrayList<>();
-            List<String> results = runCommand("adb shell dumpsys meminfo com.tongcheng.android");
+            List<String> results = runCommand(String.format("adb shell dumpsys meminfo %s", pkgName));
             String nativePss = "";
             String dalvikPss = "";
             String totalPss = "";
@@ -142,10 +142,7 @@ public class Tools {
 //                    log(String.format("PID: %s", pid));
                 }
             }
-            memInfo.add(0, nativePss);
-            memInfo.add(1, dalvikPss);
-            memInfo.add(2, totalPss);
-            memInfo.add(3, pid);
+            MemeryInfo memInfo = new MemeryInfo(pid, nativePss, dalvikPss, totalPss);
             return memInfo;
         } catch (Exception e) {
             log(">>>>>>>>>> 获取内存数据出错");
