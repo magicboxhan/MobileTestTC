@@ -84,7 +84,7 @@ public class Tools {
      * @param process
      * @return
      */
-    public static List<String> getShellResult(Process process) {
+    public List<String> getShellResult(Process process) {
         List<String> output = new ArrayList<String>();
         BufferedReader input = null;
         try {
@@ -103,7 +103,7 @@ public class Tools {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+//        output.forEach(this::log);
         return output;
     }
 
@@ -123,15 +123,15 @@ public class Tools {
                 if(line.startsWith("Native Heap")){
                     //Native Heap (Pss Total)
                     nativePss = line.split("\\s+")[2];
-                    log(String.format("Native Heap (PSS): %s KB", nativePss));
+//                    log(String.format("Native Heap (PSS): %s KB", nativePss));
                 }else if(line.startsWith("Dalvik Heap")){
                     //Dalvik Heap (Pss Total)
                     dalvikPss = line.split("\\s+")[2];
-                    log(String.format("Dalvik Heap  (PSS): %s KB", dalvikPss));
+//                    log(String.format("Dalvik Heap (PSS): %s KB", dalvikPss));
                 }else if(line.startsWith("TOTAL")){
                     //TOTAL Pss
                     totalPss = line.split("\\s+")[1];
-                    log(String.format("TOTAL PSS: %s KB", totalPss));
+//                    log(String.format("TOTAL PSS: %s KB", totalPss));
                 }
             }
             memInfo.add(0, nativePss);

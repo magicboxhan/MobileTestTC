@@ -6,8 +6,9 @@
     <parameter name="deviceName" value="Android Emulator"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="platformVersion" value="4.4"/>
-    <parameter name="appiumURL" value="http://10.1.200.193:4492/wd/hub"/>
-    <parameter name="appName" value="tongcheng_webview_debug.apk"/>
+    <!--<parameter name="appiumURL" value="http://10.1.200.193:4492/wd/hub"/>-->
+    <parameter name="appiumURL" value="http://10.1.200.193:4723/wd/hub"/>
+    <parameter name="appName" value="tongcheng_7.5.1.apk"/>
     <parameter name="appPackage" value="com.tongcheng.android"/>
     <parameter name="appActivity" value="com.tongcheng.android.LoadingActivity"/>
     <parameter name="implicitlyWaitTime" value="10"/>

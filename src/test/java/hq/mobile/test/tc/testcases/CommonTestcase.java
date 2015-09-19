@@ -154,7 +154,7 @@ public class CommonTestcase extends BasicTestCase {
         t.log("滑动并进入首页");
         pLoading.funcEnterHomepage();
         //如果定位失败，则手工定位
-        pHome.funcCheckLocation(cityName);
+//        pHome.funcCheckLocation(cityName);
     }
 
     /**

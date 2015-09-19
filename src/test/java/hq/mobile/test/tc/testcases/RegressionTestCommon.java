@@ -1040,15 +1040,12 @@ public class RegressionTestCommon extends CommonTestcase {
             enterHomepage();
             t.log("=== 首页 ===");
 //            result = pHome.funcSelfcheck("首页");
-//            if(result){
-//                执行cmd命令
-//            List<String> results = t.runCommand(cmd);
-//            results.forEach(t::log);
-//            }else{
-//                Assert.assertEquals(true, false);
-//            }
-
-            t.getMemeryInfo();
+            for(int i=0;i<10;i++){
+//                t.log("==========");
+                String totalPSS = t.getMemeryInfo().get(2);
+                t.log(String.format("Total PSS: %s", totalPSS));
+                Thread.sleep(1000);
+            }
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
