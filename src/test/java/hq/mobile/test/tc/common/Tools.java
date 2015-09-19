@@ -105,14 +105,14 @@ public class Tools {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        output.forEach(this::log);
+        output.forEach(this::log);
         return output;
     }
 
     /**
      * 获取内存信息
      *
-     * @return 0:Native Heap (PSS); 1:Dalvik Heap  (PSS); 2:TOTAL PSS
+     * @return 0:Native Heap (PSS); 1:Dalvik Heap  (PSS); 2:TOTAL PSS; 3:PID
      */
     public List<String> getMemeryInfo() {
         try {
@@ -121,6 +121,7 @@ public class Tools {
             String nativePss = "";
             String dalvikPss = "";
             String totalPss = "";
+            String pid = "";
             for (String line : results) {
                 line = line.trim();
                 if (line.startsWith("Native Heap")) {
@@ -135,11 +136,16 @@ public class Tools {
                     //TOTAL Pss
                     totalPss = line.split("\\s+")[1];
 //                    log(String.format("TOTAL PSS: %s KB", totalPss));
+                } else if (line.startsWith("** MEMINFO")) {
+                    //PID
+                    pid = line.split("\\s+")[4];
+//                    log(String.format("PID: %s", pid));
                 }
             }
             memInfo.add(0, nativePss);
             memInfo.add(1, dalvikPss);
             memInfo.add(2, totalPss);
+            memInfo.add(3, pid);
             return memInfo;
         } catch (Exception e) {
             log(">>>>>>>>>> 获取内存数据出错");

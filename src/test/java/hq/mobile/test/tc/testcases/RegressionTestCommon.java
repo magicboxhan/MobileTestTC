@@ -5,6 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 /**
  * Created by hq11258 on 2015/5/8.
  * 测试用例 -- 公共
@@ -1023,7 +1025,7 @@ public class RegressionTestCommon extends CommonTestcase {
 
 
     /**
-     * 访问首页，执行cmd命令
+     * 访问首页，记录内存
      *
      * @param cmd 命令
      */
@@ -1033,18 +1035,18 @@ public class RegressionTestCommon extends CommonTestcase {
     @Test
     public void common0032(String cmd) {
         try {
-            t.log("===== 用例名称：进入首页 =====");
+            t.log("===== 用例名称：首页内存 =====");
             boolean result = true;
             Thread.sleep(1000 * BasicTestCase.WAIT_TIME_MIDDLE);
             enterHomepage();
             t.log("=== 首页 ===");
-//            result = pHome.funcSelfcheck("首页");
-            for (int i = 0; i < 10; i++) {
-//                t.log("==========");
-                String totalPSS = t.getMemeryInfo().get(2);
-                t.log(String.format("Total PSS: %s", totalPSS));
-                Thread.sleep(1000);
-            }
+            Assert.assertEquals(pHome.funcSelfcheck("首页"), true);
+            List<String> meminfo = t.getMemeryInfo();
+            String pid = meminfo.get(3);
+            t.log(String.format("PID: %s", pid));
+            String totalPSS = meminfo.get(2);
+            t.log(String.format("Total PSS: %s KB", totalPSS));
+
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
