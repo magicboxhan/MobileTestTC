@@ -1,5 +1,6 @@
-package hq.mobile.test.tc.common;
+package hq.mobile.test.tc.utils;
 
+import hq.mobile.test.tc.utils.MemeryInfo;
 import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;

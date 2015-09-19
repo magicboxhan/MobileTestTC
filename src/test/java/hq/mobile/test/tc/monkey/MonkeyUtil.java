@@ -1,6 +1,6 @@
 package hq.mobile.test.tc.monkey;
 
-import hq.mobile.test.tc.common.Tools;
+import hq.mobile.test.tc.utils.Tools;
 
 import java.io.BufferedReader;
 import java.io.IOException;

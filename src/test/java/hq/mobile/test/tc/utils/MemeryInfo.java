@@ -1,4 +1,4 @@
-package hq.mobile.test.tc.common;
+package hq.mobile.test.tc.utils;
 
 /**
  * Created by hq11258 on 2015/9/19.
@@ -11,6 +11,7 @@ public class MemeryInfo {
     String dalvikPss;
     String totalPss;
 
+    //构造方法
     public MemeryInfo(String pid, String nativePss, String dalvikPss, String totalPss) {
         this.pid = pid;
         this.nativePss = nativePss;
@@ -18,6 +19,7 @@ public class MemeryInfo {
         this.totalPss = totalPss;
     }
 
+    //getter and setter
     public String getPid() {
         return pid;
     }

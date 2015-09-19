@@ -1,6 +1,6 @@
 package hq.mobile.test.tc.testcases;
 
-import hq.mobile.test.tc.common.Tools;
+import hq.mobile.test.tc.utils.Tools;
 import hq.mobile.test.tc.monkey.MonkeyUtil;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;

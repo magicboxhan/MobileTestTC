@@ -1,5 +1,6 @@
 package hq.mobile.test.tc.common;
 
+import hq.mobile.test.tc.utils.Tools;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 
