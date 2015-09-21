@@ -24,8 +24,6 @@ public class CPUInfo {
     //计算结果
     long totalCPUTime;      //总体CPU时间
     long appCPUTime;        //单进程CPU时间
-    double totalCPURate;    //总体CPU使用率
-    double appCPURate;      //单进程CPU使用率
 
 
     public CPUInfo(long user, long nice, long system, long idle, long iowait, long irq, long softirq, long utime, long stime, long cutime, long cstime) {
@@ -42,8 +40,6 @@ public class CPUInfo {
         this.cstime = cstime;
         totalCPUTime = 0;
         appCPUTime = 0;
-        totalCPURate = 0;
-        appCPURate = 0;
     }
 
     //getter and setter
@@ -141,14 +137,6 @@ public class CPUInfo {
 
     public long getAppCPUTime() {
         return appCPUTime;
-    }
-
-    public double getTotalCPURate() {
-        return totalCPURate;
-    }
-
-    public double getAppCPURate() {
-        return appCPURate;
     }
 
     //计算CPU时间

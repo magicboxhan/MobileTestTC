@@ -1,10 +1,13 @@
 package hq.mobile.test.tc.testcases;
 
 import hq.mobile.test.tc.common.BasicTestCase;
+import hq.mobile.test.tc.utils.CPUInfo;
 import hq.mobile.test.tc.utils.MemeryInfo;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 /**
  * Created by hq11258 on 2015/5/8.
@@ -1040,11 +1043,19 @@ public class RegressionTestCommon extends CommonTestcase {
             enterHomepage();
             t.log("=== 首页 ===");
             Assert.assertEquals(pHome.funcSelfcheck("首页"), true);
-            MemeryInfo meminfo = t.getMemeryInfo(pkgName);
-            String pid = meminfo.getPid();
-            t.log(String.format("PID: %s", pid));
-            String totalPSS = meminfo.getTotalPss();
-            t.log(String.format("Total PSS: %s KB", totalPSS));
+
+            for(int i=0;i<15;i++) {
+                //内存
+                MemeryInfo meminfo = t.getMemeryInfo(pkgName);
+                String pid = meminfo.getPid();
+                t.log(String.format("PID: %s", pid));
+                String totalPSS = meminfo.getTotalPss();
+                t.log(String.format("Total PSS: %s KB", totalPSS));
+                //CPU
+                List<String> rates = t.getCPURates(pid, 1000);
+                t.log("Total CPU rate: " + rates.get(0) + "%");
+                t.log("APP CPU rate: " + rates.get(1) + "%");
+            }
         } catch (Exception e) {
             t.log(">>>>>>>>>> 测试出错");
             e.printStackTrace();
